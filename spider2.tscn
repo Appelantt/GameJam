@@ -38,22 +38,21 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_jmrrj")
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qi31g"]
-radius = 0.735466
-height = 2.78904
+[sub_resource type="BoxShape3D" id="BoxShape3D_hcqli"]
+size = Vector3(1.9173, 2.35334, 1.19385)
 
 [node name="spider2" type="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.013329, 0, 0)
 script = ExtResource("1_hcqli")
 
 [node name="SPIDER2_LW" type="MeshInstance3D" parent="."]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+transform = Transform3D(-0.3, 0, -4.52987e-08, 0, 0.3, 0, 4.52987e-08, 0, -0.3, -0.0621549, 0, 0.832025)
 mesh = SubResource("ArrayMesh_b2lve")
 skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.999446, 0.0332773, 0, -2.96198e-05, 0.000889599, 1, 0.0332773, -0.999446, 0.000890092, -0.062546, -0.113153, 0.233608)
-shape = SubResource("CapsuleShape3D_qi31g")
+transform = Transform3D(0.299834, 0.00998319, -3.39245e-14, -8.44324e-06, 0.000253583, 0.3, 0.00998318, -0.299834, 0.000253724, -0.0310656, -0.0468387, 0.717358)
+shape = SubResource("BoxShape3D_hcqli")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.999995, 0.000215977, -0.00329325, 0.00047949, 0.977761, 0.20972, 0.00326531, -0.209721, 0.977756, 0, 3.27103, 3.48775)
