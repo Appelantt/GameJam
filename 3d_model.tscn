@@ -1,10 +1,14 @@
-[gd_scene load_steps=200 format=3 uid="uid://b1yygqiog5gah"]
+[gd_scene load_steps=233 format=3 uid="uid://b1yygqiog5gah"]
 
 [ext_resource type="PackedScene" uid="uid://b3aynhfuufjyw" path="res://Chateau/3d-model.fbx" id="1_p7uwv"]
 [ext_resource type="Texture2D" uid="uid://b1wvbm1tx7e8r" path="res://Chateau/Textue chateau/Wood Floor 064/WoodFloor064_1K-PNG_Color.png" id="2_x40ji"]
 [ext_resource type="Texture2D" uid="uid://d37q27enllkes" path="res://Chateau/Textue chateau/Paving Stones 138/PavingStones138_2K-JPG_Color.jpg" id="3_rlmww"]
+[ext_resource type="Texture2D" uid="uid://b66n7ndb8q1tl" path="res://Chateau/Textue chateau/Roofing Tiles 001/RoofingTiles001_2K-JPG_Color.jpg" id="4_x40ji"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ovxli"]
+albedo_texture = ExtResource("2_x40ji")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x40ji"]
 albedo_texture = ExtResource("2_x40ji")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ol730"]
@@ -190,6 +194,15 @@ albedo_texture = ExtResource("3_rlmww")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uc6e7"]
 albedo_texture = ExtResource("3_rlmww")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xdbv4"]
+albedo_texture = ExtResource("2_x40ji")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rlmww"]
+albedo_texture = ExtResource("2_x40ji")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bphaa"]
+albedo_texture = ExtResource("2_x40ji")
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mrb0r"]
 albedo_texture = ExtResource("3_rlmww")
 
@@ -226,6 +239,15 @@ albedo_texture = ExtResource("3_rlmww")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j4jbn"]
 albedo_texture = ExtResource("3_rlmww")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xn4dl"]
+albedo_texture = ExtResource("2_x40ji")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2mxgh"]
+albedo_texture = ExtResource("2_x40ji")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wi7qw"]
+albedo_texture = ExtResource("2_x40ji")
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hk6nq"]
 albedo_texture = ExtResource("3_rlmww")
 
@@ -260,6 +282,24 @@ albedo_texture = ExtResource("3_rlmww")
 albedo_texture = ExtResource("3_rlmww")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cp4yl"]
+albedo_texture = ExtResource("3_rlmww")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mielo"]
+albedo_texture = ExtResource("3_rlmww")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_br5o1"]
+albedo_texture = ExtResource("3_rlmww")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5535t"]
+albedo_texture = ExtResource("3_rlmww")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g2uer"]
+albedo_texture = ExtResource("3_rlmww")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eax3n"]
+albedo_texture = ExtResource("3_rlmww")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mwcki"]
 albedo_texture = ExtResource("3_rlmww")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hym4y"]
@@ -346,6 +386,9 @@ albedo_texture = ExtResource("3_rlmww")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5qr5i"]
 albedo_texture = ExtResource("3_rlmww")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ny5rs"]
+albedo_texture = ExtResource("3_rlmww")
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_telnd"]
 albedo_texture = ExtResource("3_rlmww")
 
@@ -365,6 +408,18 @@ albedo_texture = ExtResource("3_rlmww")
 albedo_texture = ExtResource("3_rlmww")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dn35v"]
+albedo_texture = ExtResource("3_rlmww")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_acthy"]
+albedo_texture = ExtResource("3_rlmww")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cyuwq"]
+albedo_texture = ExtResource("3_rlmww")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0f834"]
+albedo_texture = ExtResource("3_rlmww")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pxyik"]
 albedo_texture = ExtResource("3_rlmww")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0ghh1"]
@@ -447,6 +502,9 @@ albedo_texture = ExtResource("3_rlmww")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2dqnm"]
 albedo_texture = ExtResource("3_rlmww")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bgkfa"]
+albedo_texture = ExtResource("4_x40ji")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f3c00"]
 albedo_texture = ExtResource("3_rlmww")
@@ -566,13 +624,31 @@ albedo_texture = ExtResource("3_rlmww")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qvmlm"]
 albedo_texture = ExtResource("3_rlmww")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yp3db"]
+albedo_texture = ExtResource("2_x40ji")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kjsns"]
+albedo_texture = ExtResource("2_x40ji")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e34nh"]
+albedo_texture = ExtResource("2_x40ji")
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_txlo5"]
 albedo_texture = ExtResource("2_x40ji")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jr1gd"]
 albedo_texture = ExtResource("2_x40ji")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o1o7g"]
+albedo_texture = ExtResource("2_x40ji")
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p7uwv"]
+albedo_texture = ExtResource("2_x40ji")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rnvj1"]
+albedo_texture = ExtResource("4_x40ji")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_llnl3"]
 albedo_texture = ExtResource("2_x40ji")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_itjim"]
@@ -593,10 +669,37 @@ albedo_texture = ExtResource("3_rlmww")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_305yt"]
 albedo_texture = ExtResource("3_rlmww")
 
+[sub_resource type="PlaneMesh" id="PlaneMesh_k0m3s"]
+size = Vector2(16, 13)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4m3yg"]
+albedo_texture = ExtResource("3_rlmww")
+uv1_scale = Vector3(2, 2, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ilvh0"]
+albedo_texture = ExtResource("3_rlmww")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_8fj46"]
+material = SubResource("StandardMaterial3D_ilvh0")
+size = Vector2(7, 6)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3g7gp"]
+albedo_texture = ExtResource("3_rlmww")
+
+[sub_resource type="QuadMesh" id="QuadMesh_h3l87"]
+material = SubResource("StandardMaterial3D_3g7gp")
+size = Vector2(1.5, 3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_x40ji"]
+size = Vector3(20, 1, 30)
+
 [node name="3d-model" instance=ExtResource("1_p7uwv")]
 
 [node name="Door 17_008" parent="." index="2"]
 material_override = SubResource("StandardMaterial3D_ovxli")
+
+[node name="Door 19_003" parent="." index="47"]
+material_override = SubResource("StandardMaterial3D_x40ji")
 
 [node name="Door 7_1_001" parent="." index="48"]
 material_override = SubResource("StandardMaterial3D_ol730")
@@ -781,6 +884,15 @@ material_override = SubResource("StandardMaterial3D_lkksf")
 [node name="Roof Wall#2_134" parent="." index="165"]
 material_override = SubResource("StandardMaterial3D_uc6e7")
 
+[node name="door27x#4_002" parent="." index="166"]
+material_override = SubResource("StandardMaterial3D_xdbv4")
+
+[node name="door27x#5_002" parent="." index="167"]
+material_override = SubResource("StandardMaterial3D_rlmww")
+
+[node name="door27#1_002" parent="." index="168"]
+material_override = SubResource("StandardMaterial3D_bphaa")
+
 [node name="Roof Wall#2_133" parent="." index="169"]
 material_override = SubResource("StandardMaterial3D_mrb0r")
 
@@ -817,6 +929,15 @@ material_override = SubResource("StandardMaterial3D_sbfst")
 [node name="Roof Wall#2_123" parent="." index="180"]
 material_override = SubResource("StandardMaterial3D_j4jbn")
 
+[node name="door27x#4_001" parent="." index="181"]
+material_override = SubResource("StandardMaterial3D_xn4dl")
+
+[node name="door27x#5_001" parent="." index="182"]
+material_override = SubResource("StandardMaterial3D_2mxgh")
+
+[node name="door27#1_001" parent="." index="183"]
+material_override = SubResource("StandardMaterial3D_wi7qw")
+
 [node name="Roof Wall#2_122" parent="." index="184"]
 material_override = SubResource("StandardMaterial3D_hk6nq")
 
@@ -852,6 +973,24 @@ material_override = SubResource("StandardMaterial3D_8fsu1")
 
 [node name="Roof Wall#2_111" parent="." index="206"]
 material_override = SubResource("StandardMaterial3D_cp4yl")
+
+[node name="Roof Wall#2_110" parent="." index="207"]
+material_override = SubResource("StandardMaterial3D_mielo")
+
+[node name="Roof Wall#2_109" parent="." index="208"]
+material_override = SubResource("StandardMaterial3D_br5o1")
+
+[node name="Roof Wall#2_108" parent="." index="209"]
+material_override = SubResource("StandardMaterial3D_5535t")
+
+[node name="Roof Wall#2_107" parent="." index="210"]
+material_override = SubResource("StandardMaterial3D_g2uer")
+
+[node name="Roof Wall#2_106" parent="." index="211"]
+material_override = SubResource("StandardMaterial3D_eax3n")
+
+[node name="Roof Wall#2_105" parent="." index="212"]
+material_override = SubResource("StandardMaterial3D_mwcki")
 
 [node name="Roof Wall#2_104" parent="." index="213"]
 material_override = SubResource("StandardMaterial3D_hym4y")
@@ -937,6 +1076,9 @@ material_override = SubResource("StandardMaterial3D_myqxb")
 [node name="Roof Corner_007" parent="." index="267"]
 material_override = SubResource("StandardMaterial3D_5qr5i")
 
+[node name="Roof Wall#2_073" parent="." index="268"]
+material_override = SubResource("StandardMaterial3D_ny5rs")
+
 [node name="Roof Corner_006" parent="." index="280"]
 material_override = SubResource("StandardMaterial3D_telnd")
 
@@ -957,6 +1099,18 @@ material_override = SubResource("StandardMaterial3D_8xnp4")
 
 [node name="Roof Wall#2_065" parent="." index="291"]
 material_override = SubResource("StandardMaterial3D_dn35v")
+
+[node name="Roof Wall#2_064" parent="." index="292"]
+material_override = SubResource("StandardMaterial3D_acthy")
+
+[node name="Roof Wall#2_063" parent="." index="293"]
+material_override = SubResource("StandardMaterial3D_cyuwq")
+
+[node name="Roof Wall#2_062" parent="." index="294"]
+material_override = SubResource("StandardMaterial3D_0f834")
+
+[node name="Roof Wall#2_061" parent="." index="295"]
+material_override = SubResource("StandardMaterial3D_pxyik")
 
 [node name="Roof Wall#2_060" parent="." index="296"]
 material_override = SubResource("StandardMaterial3D_0ghh1")
@@ -1038,6 +1192,9 @@ material_override = SubResource("StandardMaterial3D_3xkhg")
 
 [node name="Roof Wall#2_038" parent="." index="391"]
 material_override = SubResource("StandardMaterial3D_2dqnm")
+
+[node name="Door 25_003" parent="." index="392"]
+material_override = SubResource("StandardMaterial3D_bgkfa")
 
 [node name="Roof Wall#2_037" parent="." index="395"]
 material_override = SubResource("StandardMaterial3D_f3c00")
@@ -1156,14 +1313,32 @@ material_override = SubResource("StandardMaterial3D_evass")
 [node name="Roof Corner_001" parent="." index="442"]
 material_override = SubResource("StandardMaterial3D_qvmlm")
 
+[node name="Door 13#1_006" parent="." index="602"]
+material_override = SubResource("StandardMaterial3D_yp3db")
+
+[node name="Door 9_007" parent="." index="664"]
+material_override = SubResource("StandardMaterial3D_kjsns")
+
+[node name="Door 9#1_001" parent="." index="714"]
+material_override = SubResource("StandardMaterial3D_e34nh")
+
 [node name="Door 13#1_005" parent="." index="736"]
 material_override = SubResource("StandardMaterial3D_txlo5")
 
 [node name="Door 13_005" parent="." index="737"]
 material_override = SubResource("StandardMaterial3D_jr1gd")
 
+[node name="Door 25_001" parent="." index="808"]
+material_override = SubResource("StandardMaterial3D_o1o7g")
+
 [node name="Door 13#1_003" parent="." index="818"]
 material_override = SubResource("StandardMaterial3D_p7uwv")
+
+[node name="Door 25x_001" parent="." index="848"]
+material_override = SubResource("StandardMaterial3D_rnvj1")
+
+[node name="Door 13_003" parent="." index="860"]
+material_override = SubResource("StandardMaterial3D_llnl3")
 
 [node name="beam1#8_006" parent="." index="907"]
 material_override = SubResource("StandardMaterial3D_itjim")
@@ -1182,3 +1357,22 @@ material_override = SubResource("StandardMaterial3D_5fijs")
 
 [node name="Layer0_001" parent="." index="980"]
 material_override = SubResource("StandardMaterial3D_305yt")
+
+[node name="Ramp" type="MeshInstance3D" parent="." index="981"]
+transform = Transform3D(-1.13586e-07, -0.303501, -0.952831, -3.61801e-08, 0.952831, -0.303501, 1, -2.84217e-14, -1.19209e-07, -17.7785, 5.4267, 19.1169)
+mesh = SubResource("PlaneMesh_k0m3s")
+skeleton = NodePath("../Window8#1x#1_001")
+surface_material_override/0 = SubResource("StandardMaterial3D_4m3yg")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="982"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.1876, 9.19848, 14.4997)
+mesh = SubResource("PlaneMesh_8fj46")
+skeleton = NodePath("../Ramp")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." index="984"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -11.079, 9.17733, 13.3144)
+mesh = SubResource("QuadMesh_h3l87")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="985"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.084, 3.49, 12.15)
+shape = SubResource("BoxShape3D_x40ji")
