@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dc35332wbl1wk"]
+
+[ext_resource type="PackedScene" uid="uid://ddpsb586oplw6" path="res://Player/Looking Old Man Idle.fbx" id="1_4flbx"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_onrkg"]
+size = Vector3(1, 1.59351, 1)
+
+[node name="Player" type="CharacterBody3D"]
+
+[node name="Pivot" type="Node3D" parent="."]
+
+[node name="Character" parent="Pivot" instance=ExtResource("1_4flbx")]
+visible = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.775024, 0)
+shape = SubResource("BoxShape3D_onrkg")
