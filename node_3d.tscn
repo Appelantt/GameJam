@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bqkagljxhvwb"]
+
+[ext_resource type="PackedScene" uid="uid://b3aynhfuufjyw" path="res://Chateau/3d-model.fbx" id="1_a202f"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="3d-model" parent="." instance=ExtResource("1_a202f")]
+process_mode = 3
+physics_interpolation_mode = 1
+auto_translate_mode = 1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.26985, 0, 1.01765)
