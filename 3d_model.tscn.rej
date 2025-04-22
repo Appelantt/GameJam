@@ -1,0 +1,21 @@
+diff a/3d_model.tscn b/3d_model.tscn	(rejected hunks)
+@@ -0,0 +1,19 @@
++[gd_scene load_steps=6 format=3 uid="uid://owffexo6vb5t"]
++
++[ext_resource type="PackedScene" uid="uid://b3aynhfuufjyw" path="res://Chateau/3d-model.fbx" id="1_e35v7"]
++[ext_resource type="Texture2D" uid="uid://4k0787ct82gg" path="res://Chateau/Textue chateau/Door 002 ambientCG/Door002_2K-JPG_Displacement.jpg" id="2_p7uwv"]
++[ext_resource type="Texture2D" uid="uid://ejqrcm04tusr" path="res://Chateau/Textue chateau/Door 002 ambientCG/Door002_2K-JPG_Color.jpg" id="2_x40ji"]
++
++[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rlmww"]
++albedo_texture = ExtResource("2_x40ji")
++
++[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x40ji"]
++albedo_texture = ExtResource("2_p7uwv")
++
++[node name="3d-model" instance=ExtResource("1_e35v7")]
++
++[node name="Exterior_001" parent="." index="979"]
++material_override = SubResource("StandardMaterial3D_rlmww")
++
++[node name="Layer0_001" parent="." index="980"]
++material_override = SubResource("StandardMaterial3D_x40ji")
