@@ -1,11 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://brsdigm6pvwbq"]
+[gd_scene load_steps=5 format=3 uid="uid://brsdigm6pvwbq"]
 
 [ext_resource type="Script" uid="uid://cabafwete5fgf" path="res://tresor.gd" id="1_t6ngu"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_8dqw5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_f3frg"]
-size = Vector3(1, 1, 1.65735)
+size = Vector3(1.88428, 1.0293, 3.065)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_t6ngu"]
 
 [node name="Tresor" type="CharacterBody3D"]
 script = ExtResource("1_t6ngu")
@@ -17,11 +19,10 @@ mesh = SubResource("BoxMesh_8dqw5")
 [node name="Area3D" type="Area3D" parent="MeshInstance3D"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.328674)
+transform = Transform3D(0.996349, -0.00406316, -0.0852809, 0.00429442, 0.999987, 0.00252841, 0.0852696, -0.00288541, 0.996354, -0.220495, -0.0158152, -0.253263)
 shape = SubResource("BoxShape3D_f3frg")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+shape = SubResource("SphereShape3D_t6ngu")
 
 [connection signal="body_entered" from="MeshInstance3D/Area3D" to="." method="_on_area_3d_body_entered"]
