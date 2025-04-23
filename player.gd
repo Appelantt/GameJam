@@ -4,8 +4,8 @@ extends CharacterBody3D
 @export var speed = 14
 # The downward acceleration when in the air, in meters per second squared.
 @export var fall_acceleration = 75
-
-var target_velocity = Vector3.ZERO
+@export var gravity := 9.8
+@export var jump_force := 10.0
 
 
 func _physics_process(delta):
@@ -25,13 +25,18 @@ func _physics_process(delta):
 		$Pivot.basis = Basis.looking_at(direction)
 
 	# Ground Velocity
-	target_velocity.x = direction.x * speed
-	target_velocity.z = direction.z * speed
+	velocity.x = direction.x * speed
+	velocity.z = direction.z * speed
+	
+	if not is_on_floor():
+		velocity.y -= gravity * delta
+	else:
+		velocity.y = 0
+		
+	if Input.is_action_just_pressed("jump") and is_on_floor():
+		velocity.y = jump_force
 
-	# Vertical Velocity
-	if not is_on_floor(): # If in the air, fall towards the floor. Literally gravity
-		target_velocity.y = target_velocity.y - (fall_acceleration * delta)
 
-	# Moving the Character
-	velocity = target_velocity
+		
+
 	move_and_slide()
