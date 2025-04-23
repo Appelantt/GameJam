@@ -1,10 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://da24bsk0crdr0"]
+[gd_scene load_steps=9 format=3 uid="uid://da24bsk0crdr0"]
 
 [ext_resource type="PackedScene" uid="uid://s5mdtbr5ibes" path="res://3d_model.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://pqmkm6vwq6al" path="res://spider2.tscn" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://dvwllftvtdqbn" path="res://outside.tscn" id="3_h2yge"]
+[ext_resource type="Texture2D" uid="uid://daqbd4xrsogyh" path="res://Chateau/Textue chateau/qwantani_puresky_1k.exr" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://diatkxtj0pg1n" path="res://ennemy.tscn" id="5_lquwl"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_1bvp3"]
+panorama = ExtResource("4_1bvp3")
 
 [sub_resource type="Sky" id="Sky_lquwl"]
 sky_material = SubResource("PanoramaSkyMaterial_1bvp3")
@@ -19,10 +22,10 @@ sky = SubResource("Sky_lquwl")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3006, -1.04727, -0.00219059)
 
 [node name="spider2" parent="." instance=ExtResource("2_0xm2m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 8.16302, 11.6346)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 20.8047, 11.6346)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.89463, -0.340907, 0.288824, 0, 0.646417, 0.762984, -0.446807, -0.682589, 0.578304, 0.67356, 17.7546, 11.7913)
+transform = Transform3D(0.89463, -0.340907, 0.288824, 0, 0.646417, 0.762984, -0.446807, -0.682589, 0.578304, 4.3342, 17.7546, 11.7913)
 light_energy = 3.0
 shadow_enabled = true
 
@@ -30,3 +33,6 @@ shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_7mycd")
+
+[node name="Ennemy" parent="." instance=ExtResource("5_lquwl")]
+transform = Transform3D(0.0441599, 0, 0.999024, 0, 1, 0, -0.999024, 0, 0.0441599, 0, 8.67452, 7.8665)
