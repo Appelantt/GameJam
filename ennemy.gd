@@ -1,69 +1,86 @@
 extends CharacterBody3D
 
 var player = null
-var pursuit_time = 0.0  # Temps pendant lequel l'ennemi poursuit le joueur
-var is_pursuing = false  # Si l'ennemi est en train de poursuivre le joueur
+var pursuit_time = 0.0
+var is_pursuing = false
+var is_returning_to_base = false  # Nouveau flag
 
 const SPEED = 4.0
 const ATTACK_RANGE = 2.0
-const PURSUIT_TIME_LIMIT = 20.0  # 20 secondes de poursuite maximale
+const PURSUIT_TIME_LIMIT = 20.0
 
 @export var player_path := "../Player"
+@export var gravity := 9.8
+@export var base_position := Vector3.ZERO  # Tu peux la définir dans l'inspecteur
 
 @onready var nav_agent = $NavigationAgent3D
-@onready var raycast_enemy = $RayCast3D  # Renommé ici pour éviter le conflit
+@onready var raycast_enemy = $RayCast3D
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	player = get_node(player_path)
-	raycast_enemy.enabled = true  # Active le raycast
+	raycast_enemy.enabled = true
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	velocity = Vector3.ZERO  # Réinitialise la vitesse à chaque frame
+	# On enregistre la position de base au début si elle est nulle
+	if base_position == Vector3.ZERO:
+		base_position = global_transform.origin
 
-	# Si l'ennemi voit le joueur, on lance la poursuite
+func _physics_process(delta):
+	if not is_on_floor():
+		velocity.y -= gravity * delta
+	else:
+		velocity.y = 0
+
 	if raycast_enemy.is_colliding() and raycast_enemy.get_collider() == player:
 		is_pursuing = true
-		pursuit_time = 0.0  # Réinitialise le temps de poursuite
+		is_returning_to_base = false
+		pursuit_time = 0.0
 	else:
-		# Si l'ennemi ne voit plus le joueur, il continue de patrouiller
 		if is_pursuing:
 			pursuit_time += delta
 			if pursuit_time >= PURSUIT_TIME_LIMIT:
-				is_pursuing = false  # Arrête la poursuite après 20 secondes
+				is_pursuing = false
+				is_returning_to_base = true
 
-	# Si l'ennemi poursuit le joueur, on applique la poursuite
 	if is_pursuing:
 		_pursue_player(delta)
+	elif is_returning_to_base:
+		_return_to_base(delta)
 	else:
-		_patrol(delta)  # On peut définir un comportement de patrouille ici
+		_patrol(delta)
 
-	# Applique le mouvement avec move_and_slide
-	move_and_slide()  # Ici, on utilise velocity et on spécifie la direction "UP" pour la gravité
+	move_and_slide()
 
-# Fonction pour poursuivre le joueur
 func _pursue_player(delta):
-	# Calcule la direction du joueur par rapport à l'ennemi
-	var direction_to_player = (player.global_transform.origin - global_transform.origin).normalized()
+	var direction = (player.global_transform.origin - global_transform.origin).normalized()
+	var horizontal_direction = Vector3(direction.x, 0, direction.z).normalized()
 
-	# Applique la direction au mouvement
-	velocity = direction_to_player * SPEED
+	velocity.x = horizontal_direction.x * SPEED
+	velocity.z = horizontal_direction.z * SPEED
 
-	# Rotation progressive vers la direction de déplacement
-	var target_rotation = atan2(-direction_to_player.x, -direction_to_player.z)
-	rotation.y = lerp_angle(rotation.y, target_rotation, delta * 10.0)  # Rotation progressive
+	var target_rotation = atan2(-horizontal_direction.x, -horizontal_direction.z)
+	rotation.y = lerp_angle(rotation.y, target_rotation, delta * 10.0)
 
-# Fonction pour patrouiller (comportement de patrouille basique)
+func _return_to_base(delta):
+	var direction = (base_position - global_transform.origin).normalized()
+	var horizontal_direction = Vector3(direction.x, 0, direction.z).normalized()
+
+	velocity.x = horizontal_direction.x * SPEED
+	velocity.z = horizontal_direction.z * SPEED
+
+	var target_rotation = atan2(-horizontal_direction.x, -horizontal_direction.z)
+	rotation.y = lerp_angle(rotation.y, target_rotation, delta * 10.0)
+
+	# Si on est proche de la base, on arrête de se déplacer
+	if global_position.distance_to(base_position) < 0.5:
+		is_returning_to_base = false
+		velocity.x = 0
+		velocity.z = 0
+
 func _patrol(delta):
-	# Ici, tu peux ajouter la logique de patrouille
-	# Exemple : Patrouiller entre plusieurs points définis.
-	pass
+	# Logique de patrouille ici si besoin
+	velocity.x = 0
+	velocity.z = 0
 
-# Fonction pour attaquer le joueur
 func _attack_player():
-	# L'ennemi regarde le joueur pendant l'attaque
 	look_at(Vector3(player.global_position.x, global_position.y, player.global_position.z), Vector3.UP)
-
-	# Appel de la méthode hit du joueur (selon ton script de joueur)
-	player.hit(global_position.direction_to(player.global_position))  # Attaque
+	player.hit(global_position.direction_to(player.global_position))
