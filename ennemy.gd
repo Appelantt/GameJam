@@ -1,54 +1,69 @@
 extends CharacterBody3D
 
-@export var joueur: NodePath
-@export var vitesse: float = 2.0
-@export var distance_vue: float = 10.0
+var player = null
+var pursuit_time = 0.0  # Temps pendant lequel l'ennemi poursuit le joueur
+var is_pursuing = false  # Si l'ennemi est en train de poursuivre le joueur
 
-var joueur_ref: Node3D
-var poursuite = false
+const SPEED = 4.0
+const ATTACK_RANGE = 2.0
+const PURSUIT_TIME_LIMIT = 20.0  # 20 secondes de poursuite maximale
 
+@export var player_path := "../Player"
+
+@onready var nav_agent = $NavigationAgent3D
+@onready var raycast_enemy = $RayCast3D  # Renommé ici pour éviter le conflit
+
+# Called when the node enters the scene tree for the first time.
 func _ready():
-	joueur_ref = get_node(joueur)
+	player = get_node(player_path)
+	raycast_enemy.enabled = true  # Active le raycast
 
-func _physics_process(delta):
-	var space_state = get_world_3d().direct_space_state
-	poursuite = false
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	velocity = Vector3.ZERO  # Réinitialise la vitesse à chaque frame
 
-	# DIRECTION ACTUELLE = là où il regarde
-	var direction = -global_transform.basis.z.normalized()
+	# Si l'ennemi voit le joueur, on lance la poursuite
+	if raycast_enemy.is_colliding() and raycast_enemy.get_collider() == player:
+		is_pursuing = true
+		pursuit_time = 0.0  # Réinitialise le temps de poursuite
+	else:
+		# Si l'ennemi ne voit plus le joueur, il continue de patrouiller
+		if is_pursuing:
+			pursuit_time += delta
+			if pursuit_time >= PURSUIT_TIME_LIMIT:
+				is_pursuing = false  # Arrête la poursuite après 20 secondes
 
-	# DÉTECTION JOUEUR
-	if joueur_ref:
-		var to_joueur = (joueur_ref.global_transform.origin - global_transform.origin).normalized()
-		var raycast_target = global_transform.origin + to_joueur * distance_vue
-		var params = PhysicsRayQueryParameters3D.create(global_transform.origin, raycast_target)
-		params.exclude = [self]
+	# Si l'ennemi poursuit le joueur, on applique la poursuite
+	if is_pursuing:
+		_pursue_player(delta)
+	else:
+		_patrol(delta)  # On peut définir un comportement de patrouille ici
 
-		var result = space_state.intersect_ray(params)
-		if result and result.collider == joueur_ref:
-			poursuite = true
-			look_at(joueur_ref.global_transform.origin, Vector3.UP)
-			direction = -global_transform.basis.z.normalized()
+	# Applique le mouvement avec move_and_slide
+	move_and_slide()  # Ici, on utilise velocity et on spécifie la direction "UP" pour la gravité
 
-	# PATROUILLE AUTONOME
-	if not poursuite:
-		# Raycast sol + mur
-		var pos = global_transform.origin
-		var forward = pos + direction * 1.5
-		var down = forward + Vector3.DOWN * 2
+# Fonction pour poursuivre le joueur
+func _pursue_player(delta):
+	# Calcule la direction du joueur par rapport à l'ennemi
+	var direction_to_player = (player.global_transform.origin - global_transform.origin).normalized()
 
-		var sol_check = PhysicsRayQueryParameters3D.create(forward, down)
-		sol_check.exclude = [self]
-		var sol = space_state.intersect_ray(sol_check)
+	# Applique la direction au mouvement
+	velocity = direction_to_player * SPEED
 
-		var wall_check = PhysicsRayQueryParameters3D.create(pos, pos + direction * 1.2)
-		wall_check.exclude = [self]
-		var mur = space_state.intersect_ray(wall_check)
+	# Rotation progressive vers la direction de déplacement
+	var target_rotation = atan2(-direction_to_player.x, -direction_to_player.z)
+	rotation.y = lerp_angle(rotation.y, target_rotation, delta * 10.0)  # Rotation progressive
 
-		if not sol or not sol.collider or mur:
-			# Rotate 180° sur l’axe Y
-			rotate_y(PI)
+# Fonction pour patrouiller (comportement de patrouille basique)
+func _patrol(delta):
+	# Ici, tu peux ajouter la logique de patrouille
+	# Exemple : Patrouiller entre plusieurs points définis.
+	pass
 
-	# Vitesse dans la direction actuelle
-	velocity = -global_transform.basis.z.normalized() * vitesse
-	move_and_slide()
+# Fonction pour attaquer le joueur
+func _attack_player():
+	# L'ennemi regarde le joueur pendant l'attaque
+	look_at(Vector3(player.global_position.x, global_position.y, player.global_position.z), Vector3.UP)
+
+	# Appel de la méthode hit du joueur (selon ton script de joueur)
+	player.hit(global_position.direction_to(player.global_position))  # Attaque
