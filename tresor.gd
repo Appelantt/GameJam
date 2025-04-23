@@ -6,3 +6,4 @@ func _on_area_3d_body_entered(body):
 	if body.name == "Player" || body.name == "spider2":  # Vérifie si le joueur touche le trésor
 		print("Trésor ramassé !")
 		queue_free()  # Fais disparaître le trésor
+		$"../Control/Label".tresor_keep()

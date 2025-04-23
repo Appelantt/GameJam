@@ -9,6 +9,7 @@ size = Vector3(1, 1, 1.65735)
 
 [node name="Ennemy" type="CharacterBody3D"]
 script = ExtResource("1_12j10")
+player_path = null
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_8dqw5")
