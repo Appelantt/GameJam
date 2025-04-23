@@ -3,6 +3,7 @@ extends CharacterBody3D
 @export var speed := 7.0
 @export var gravity := 9.8
 @export var jump_force := 10.0
+@export var rotation_speed := 3.0  # Vitesse de rotation
 
 func _physics_process(delta):
 	var input_vector = Vector3.ZERO
@@ -28,6 +29,11 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = jump_force
 
+	# Tourner vers la direction du mouvement
+	if input_vector != Vector3.ZERO:
+		var target_dir = direction.normalized()
+		var target_rotation = atan2(-target_dir.x, -target_dir.z)  # Y rotation
+		rotation.y = lerp_angle(rotation.y, target_rotation, rotation_speed * delta)
 
 		
 
