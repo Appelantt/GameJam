@@ -113,3 +113,6 @@ offset_right = 228.0
 offset_bottom = 93.0
 text = "Tresor trouver = 0"
 script = ExtResource("5_fdqb2")
+
+[node name="Tresor2" parent="." instance=ExtResource("3_b22gd")]
+transform = Transform3D(1, 0, 0, 0, 0.707652, 0, 0, 0, 1, -2.01932, 1.30046, -4.34589)
