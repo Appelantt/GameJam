@@ -39,10 +39,10 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_jmrrj")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hcqli"]
-size = Vector3(1, 0.835774, 0.413208)
+size = Vector3(0.664093, 0.789469, 0.413208)
 
 [node name="spider2" type="CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.013329, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.013329, 0, -0.850707)
 script = ExtResource("1_hcqli")
 jump_force = 5.0
 
@@ -52,11 +52,11 @@ mesh = SubResource("ArrayMesh_b2lve")
 skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.299834, 0.00998319, -3.39245e-14, -8.44324e-06, 0.000253583, 0.3, 0.00998318, -0.299834, 0.000253724, -0.0236956, -0.00609097, 0.792639)
+transform = Transform3D(0.299834, 0.00998319, -3.39245e-14, -8.44324e-06, 0.000253583, 0.3, 0.00998318, -0.299834, 0.000253724, -0.0625635, -0.00609575, 0.798294)
 shape = SubResource("BoxShape3D_hcqli")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.999995, 0.000215977, -0.00329325, 0.00047949, 0.977761, 0.20972, 0.00326531, -0.209721, 0.977756, 0, 3.27103, 3.48775)
+transform = Transform3D(0.999995, 0.000215979, -0.00329325, 0.000781857, 0.953948, 0.299973, 0.00320638, -0.299973, 0.953942, 0, 0.796936, 1.71965)
 fov = 86.3867
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
