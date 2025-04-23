@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://urf5lqahj2ox"]
+[gd_scene load_steps=9 format=3 uid="uid://cv8o0eb1su2py"]
 
 [ext_resource type="PackedScene" uid="uid://pqmkm6vwq6al" path="res://spider2.tscn" id="1_k770x"]
 [ext_resource type="PackedScene" uid="uid://diatkxtj0pg1n" path="res://ennemy.tscn" id="2_b22gd"]
@@ -40,7 +40,6 @@ mesh = SubResource("BoxMesh_m8lbg")
 [node name="StaticBody3D" type="StaticBody3D" parent="bas"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="bas/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("ConcavePolygonShape3D_b22gd")
 
 [node name="Mur2" type="MeshInstance3D" parent="."]

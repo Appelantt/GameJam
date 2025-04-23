@@ -1,6 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://brsdigm6pvwbq"]
+[gd_scene load_steps=4 format=3 uid="uid://bdjkjrkogbpck"]
 
-[ext_resource type="Script" uid="uid://cabafwete5fgf" path="res://tresor.gd" id="1_t6ngu"]
+[ext_resource type="Script" path="res://tresor.gd" id="1_t6ngu"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_8dqw5"]
 
