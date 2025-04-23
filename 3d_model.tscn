@@ -1,6 +1,6 @@
 [gd_scene load_steps=1203 format=3 uid="uid://s5mdtbr5ibes"]
 
-[ext_resource type="PackedScene" uid="uid://b3aynhfuufjyw" path="res://Chateau/3d-model.fbx" id="1_p7uwv"]
+[ext_resource type="PackedScene" uid="uid://cs4jf4uujh3nh" path="res://Chateau/3d-model.fbx" id="1_p7uwv"]
 [ext_resource type="Texture2D" uid="uid://b1wvbm1tx7e8r" path="res://Chateau/Textue chateau/Wood Floor 064/WoodFloor064_1K-PNG_Color.png" id="2_x40ji"]
 [ext_resource type="Texture2D" uid="uid://hvotbtr1xiqo" path="res://Chateau/Textue chateau/Door 002 ambientCG/Door002_2K-JPG_Roughness.jpg" id="3_ovxli"]
 [ext_resource type="Texture2D" uid="uid://d37q27enllkes" path="res://Chateau/Textue chateau/Paving Stones 138/PavingStones138_2K-JPG_Color.jpg" id="3_rlmww"]
