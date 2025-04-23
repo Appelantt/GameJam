@@ -17,12 +17,8 @@ func _input(event):
 	if event is InputEventMouseMotion:
 		yaw -= event.relative.x * mouse_sensitivity
 		pitch -= event.relative.y * mouse_sensitivity
-		pitch = clamp(pitch, deg_to_rad(-80), deg_to_rad(80))
-
-		# Applique uniquement yaw au corps du joueur (rotation sur Y)
+		pitch = clamp(pitch, deg_to_rad(-80), deg_to_rad(80)) # Évite le retournement
 		rotation.y = yaw
-
-		# Applique uniquement pitch au Pivot (rotation sur X)
 		pivot.rotation.x = pitch
 
 func _physics_process(delta):
