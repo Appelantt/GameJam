@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bhi41gh61g3gi"]
+[gd_scene load_steps=9 format=3 uid="uid://bhi41gh61g3gi"]
 
 [ext_resource type="Texture2D" uid="uid://cb8virneatxwq" path="res://Quartier/2K/Poliigon_GrassPatchyGround_4585_BaseColor.jpg" id="1_oy2b0"]
 [ext_resource type="PackedScene" uid="uid://cosglvl17rq01" path="res://sketchfab_scene.tscn" id="2_oy2b0"]
@@ -15,6 +15,8 @@ size = Vector2(600, 600)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sw6ff"]
 size = Vector3(200, 200, 1)
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_1dyxj"]
 
 [node name="Quartier" type="Node3D"]
 
@@ -41,3 +43,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.77832, -61.9159)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.947171, 0.12751, 0.294292, -0.320729, 0.376561, 0.8691, 0, -0.917574, 0.397564, 23.0481, 75.4984, 0)
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_1dyxj")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="NavigationRegion3D"]

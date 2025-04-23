@@ -3,7 +3,7 @@ extends CharacterBody3D
 var player = null
 var pursuit_time = 0.0
 var is_pursuing = false
-var is_returning_to_base = false  # Nouveau flag
+var is_returning_to_base = false
 
 const SPEED = 4.0
 const ATTACK_RANGE = 2.0
@@ -11,25 +11,43 @@ const PURSUIT_TIME_LIMIT = 20.0
 
 @export var player_path := "../Player"
 @export var gravity := 9.8
-@export var base_position := Vector3.ZERO  # Tu peux la définir dans l'inspecteur
+@export var base_position := Vector3.ZERO
 
 @onready var nav_agent = $NavigationAgent3D
 @onready var raycast_enemy = $RayCast3D
+
+# Patrouille
+@export var patrol_offset := 2.0
+@export var patrol_speed := 2.0
+var patrol_target := Vector3.ZERO
+var going_right := true
+
+# Saut + débloquage
+var is_jumping = false
+var jump_velocity = 6.0
+var stuck_timer = 0.0
+var stuck_threshold = 1.0
+var last_position = Vector3.ZERO
+var unblock_direction = 1  # 1 = droite, -1 = gauche
 
 func _ready():
 	player = get_node(player_path)
 	raycast_enemy.enabled = true
 
-	# On enregistre la position de base au début si elle est nulle
 	if base_position == Vector3.ZERO:
 		base_position = global_transform.origin
 
+	patrol_target = base_position + Vector3(patrol_offset, 0, 0)
+	last_position = global_position
+
 func _physics_process(delta):
+	# Gravité
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 	else:
 		velocity.y = 0
 
+	# Vision du joueur
 	if raycast_enemy.is_colliding() and raycast_enemy.get_collider() == player:
 		is_pursuing = true
 		is_returning_to_base = false
@@ -41,12 +59,15 @@ func _physics_process(delta):
 				is_pursuing = false
 				is_returning_to_base = true
 
+	# Comportement
 	if is_pursuing:
 		_pursue_player(delta)
 	elif is_returning_to_base:
 		_return_to_base(delta)
 	else:
 		_patrol(delta)
+
+	_check_if_stuck_and_jump_or_shift(delta)
 
 	move_and_slide()
 
@@ -70,17 +91,47 @@ func _return_to_base(delta):
 	var target_rotation = atan2(-horizontal_direction.x, -horizontal_direction.z)
 	rotation.y = lerp_angle(rotation.y, target_rotation, delta * 10.0)
 
-	# Si on est proche de la base, on arrête de se déplacer
 	if global_position.distance_to(base_position) < 0.5:
 		is_returning_to_base = false
-		velocity.x = 0
-		velocity.z = 0
+		patrol_target = base_position + Vector3(patrol_offset, 0, 0)
+		going_right = true
 
 func _patrol(delta):
-	# Logique de patrouille ici si besoin
-	velocity.x = 0
-	velocity.z = 0
+	var direction = patrol_target - global_transform.origin
+	var horizontal_direction = Vector3(direction.x, 0, direction.z).normalized()
+
+	velocity.x = horizontal_direction.x * patrol_speed
+	velocity.z = horizontal_direction.z * patrol_speed
+
+	var target_rotation = atan2(-horizontal_direction.x, -horizontal_direction.z)
+	rotation.y = lerp_angle(rotation.y, target_rotation, delta * 5.0)
+
+	if global_position.distance_to(patrol_target) < 0.2:
+		going_right = !going_right
+		patrol_target = base_position + Vector3((patrol_offset if going_right else -patrol_offset), 0, 0)
 
 func _attack_player():
 	look_at(Vector3(player.global_position.x, global_position.y, player.global_position.z), Vector3.UP)
 	player.hit(global_position.direction_to(player.global_position))
+
+func _check_if_stuck_and_jump_or_shift(delta):
+	# On vérifie le mouvement horizontal seulement
+	var moved = Vector3(global_position.x, 0, global_position.z).distance_to(Vector3(last_position.x, 0, last_position.z))
+
+	if !is_jumping and nav_agent.get_next_path_position() != Vector3.ZERO:
+		if moved < 0.05 and is_on_floor():
+			stuck_timer += delta
+			if stuck_timer > stuck_threshold:
+				# On saute et se décale légèrement à gauche ou droite
+				velocity.y = jump_velocity
+				velocity.x += unblock_direction * 1.0
+				unblock_direction *= -1  # Alterne entre gauche et droite
+				is_jumping = true
+				stuck_timer = 0.0
+		else:
+			stuck_timer = 0.0
+
+	if is_on_floor() and is_jumping:
+		is_jumping = false
+
+	last_position = global_position
