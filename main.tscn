@@ -33,4 +33,4 @@ shadow_enabled = true
 environment = SubResource("Environment_7mycd")
 
 [node name="Ennemy" parent="." instance=ExtResource("5_lquwl")]
-transform = Transform3D(0.0441599, 0, 0.999024, 0, 1, 0, -0.999024, 0, 0.0441599, 0, 8.67452, 7.8665)
+transform = Transform3D(0.0931353, 0, 0.995653, 0, 1, 0, -0.995653, 0, 0.0931353, 0, 8.67452, 7.8665)
