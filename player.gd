@@ -4,6 +4,12 @@ extends CharacterBody3D
 @export var gravity := 9.8
 @export var jump_force := 10.0
 
+var canBeControlled = false
+
+func set_camera_visibility(isVisible):
+	$Pivot/Camera3D.set_current(isVisible)
+	
+# Contrôle souris
 @onready var pivot = $Pivot
 
 var mouse_sensitivity = 0.003
@@ -27,19 +33,20 @@ func _input(event):
 
 func _physics_process(delta):
 	var direction = Vector3.ZERO
+	if(canBeControlled):
 
-	# Ces directions sont maintenant en fonction de la rotation du joueur
-	if Input.is_action_pressed("move_right"):
-		direction += transform.basis.x
-	if Input.is_action_pressed("move_left"):
-		direction -= transform.basis.x
-	if Input.is_action_pressed("move_back"):
-		direction += transform.basis.z
-	if Input.is_action_pressed("move_forward"):
-		direction -= transform.basis.z
+		# Ces directions sont maintenant en fonction de la rotation du joueur
+		if Input.is_action_pressed("move_right"):
+			direction += transform.basis.x
+		if Input.is_action_pressed("move_left"):
+			direction -= transform.basis.x
+		if Input.is_action_pressed("move_back"):
+			direction += transform.basis.z
+		if Input.is_action_pressed("move_forward"):
+			direction -= transform.basis.z
 
-	if direction != Vector3.ZERO:
-		direction = direction.normalized()
+		if direction != Vector3.ZERO:
+			direction = direction.normalized()
 
 	velocity.x = direction.x * speed
 	velocity.z = direction.z * speed
@@ -48,8 +55,8 @@ func _physics_process(delta):
 		velocity.y -= gravity * delta
 	else:
 		velocity.y = 0
-
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+		
+	if canBeControlled and Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = jump_force
 
 	move_and_slide()
