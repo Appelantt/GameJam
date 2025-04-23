@@ -5470,6 +5470,9 @@ material_override = SubResource("StandardMaterial3D_k6qhb")
 [node name="CollisionShape3D58" type="CollisionShape3D" parent="Roof-Detail 1_005/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_nyjgn")
 
+[node name="Roof Wall#2_079" parent="." index="260"]
+layers = 0
+
 [node name="StaticBody3D" type="StaticBody3D" parent="Roof Wall#2_079" index="0"]
 
 [node name="CollisionShape3D59" type="CollisionShape3D" parent="Roof Wall#2_079/StaticBody3D" index="0"]
@@ -5888,6 +5891,9 @@ shape = SubResource("ConcavePolygonShape3D_lm3ea")
 
 [node name="CollisionShape3D126" type="CollisionShape3D" parent="Window8_039/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_eb81f")
+
+[node name="Window8_038" parent="." index="328"]
+transform = Transform3D(0.999999, 0.000585382, -0.00147295, -0.000587557, 0.999999, -0.00147335, 0.00147208, 0.00147421, 0.999998, 5.66963, 10.4619, 1.29345)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Window8_038" index="0"]
 
