@@ -1,9 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://bhi41gh61g3gi"]
+[gd_scene load_steps=12 format=3 uid="uid://bhi41gh61g3gi"]
 
 [ext_resource type="Texture2D" uid="uid://cb8virneatxwq" path="res://Quartier/2K/Poliigon_GrassPatchyGround_4585_BaseColor.jpg" id="1_oy2b0"]
 [ext_resource type="PackedScene" uid="uid://cosglvl17rq01" path="res://sketchfab_scene.tscn" id="2_oy2b0"]
 [ext_resource type="PackedScene" uid="uid://dc35332wbl1wk" path="res://player.tscn" id="3_1dyxj"]
 [ext_resource type="PackedScene" uid="uid://diatkxtj0pg1n" path="res://ennemy.tscn" id="4_8ihd3"]
+[ext_resource type="PackedScene" uid="uid://brsdigm6pvwbq" path="res://tresor.tscn" id="5_8ihd3"]
+[ext_resource type="FontFile" uid="uid://dmyttn2og37h6" path="res://fonts/Montserrat-Medium.ttf" id="5_11drx"]
+[ext_resource type="Script" uid="uid://cqj5xas55fvro" path="res://score.gd" id="5_sw6ff"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1dyxj"]
 albedo_texture = ExtResource("1_oy2b0")
@@ -15,6 +18,10 @@ size = Vector2(600, 600)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sw6ff"]
 size = Vector3(200, 200, 1)
+
+[sub_resource type="Theme" id="Theme_fj0re"]
+default_font = ExtResource("5_11drx")
+default_font_size = 22
 
 [node name="Quartier" type="Node3D"]
 
@@ -41,3 +48,28 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.77832, -61.9159)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.947171, 0.12751, 0.294292, -0.320729, 0.376561, 0.8691, 0, -0.917574, 0.397564, 23.0481, 75.4984, 0)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 176.0
+offset_bottom = 41.0
+theme = SubResource("Theme_fj0re")
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 46.0
+offset_right = 228.0
+offset_bottom = 93.0
+text = "Tresor trouver = 0"
+script = ExtResource("5_sw6ff")
+
+[node name="Tresor2" parent="." instance=ExtResource("5_8ihd3")]
+transform = Transform3D(1, 0, 0, 0, 0.707652, 0, 0, 0, 1, 20.508, 1.30046, -4.34589)
+
+[node name="Tresor3" parent="." instance=ExtResource("5_8ihd3")]
+transform = Transform3D(1, 0, 0, 0, 0.707652, 0, 0, 0, 1, -2.01932, 1.30046, -4.34589)
+
+[node name="Tresor4" parent="." instance=ExtResource("5_8ihd3")]
+transform = Transform3D(1, 0, 0, 0, 0.707652, 0, 0, 0, 1, 10.4308, 1.30046, -4.34589)
