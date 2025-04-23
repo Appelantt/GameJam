@@ -1,73 +1,69 @@
 extends CharacterBody3D
 
-@export var joueur: NodePath  # Référence du joueur dans l'éditeur
-@export var vitesse: float = 5.0  # Vitesse de déplacement de l'ennemi
-@export var distance_vue: float = 15.0  # Distance à laquelle l'ennemi peut voir le joueur
-@export var temps_perte_vue: float = 3.0  # Temps avant d'abandonner la poursuite après avoir perdu le joueur
-@export var distance_patrouille: float = 10.0  # Distance avant de changer de direction dans la patrouille
+var player = null
+var pursuit_time = 0.0  # Temps pendant lequel l'ennemi poursuit le joueur
+var is_pursuing = false  # Si l'ennemi est en train de poursuivre le joueur
 
-var joueur_ref: Node3D  # Référence du joueur
-var poursuite = false  # État de poursuite
-var derniere_position_vue = -1.0  # Dernière fois où le joueur a été vu
-var direction = Vector3.FORWARD  # Direction initiale de patrouille
-var last_position = Vector3.ZERO  # Dernière position enregistrée pour la patrouille
+const SPEED = 4.0
+const ATTACK_RANGE = 2.0
+const PURSUIT_TIME_LIMIT = 20.0  # 20 secondes de poursuite maximale
 
+@export var player_path := "../Player"
+
+@onready var nav_agent = $NavigationAgent3D
+@onready var raycast_enemy = $RayCast3D  # Renommé ici pour éviter le conflit
+
+# Called when the node enters the scene tree for the first time.
 func _ready():
-	joueur_ref = get_node(joueur)  # Récupère la référence du joueur
-	if joueur_ref == null:
-		print("Erreur : Le joueur n'a pas été assigné correctement.")
-	else:
-		print("Joueur trouvé : ", joueur_ref.name)
+	player = get_node(player_path)
+	raycast_enemy.enabled = true  # Active le raycast
 
+# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if joueur_ref == null:
-		return  # Si le joueur n'est pas assigné, on arrête le traitement
-	
-	var space_state = get_world_3d().direct_space_state  # Récupère l'état du monde physique
-	
-	# Calculer la direction vers le joueur
-	var to_player = (joueur_ref.global_transform.origin - global_transform.origin).normalized()
-	
-	# Si la direction vers le joueur est nulle, on s'assure que cela ne pose pas de problème
-	if to_player.length() == 0:
-		print("Erreur : La direction vers le joueur est nulle.")
-		return
-	
-	# Détection du joueur via un RayCast
-	var raycast_vision = RayCast3D.new()
-	raycast_vision.cast_to = to_player * distance_vue  # Raycast pour voir si le joueur est dans la ligne de mire
-	if raycast_vision.is_colliding():
-		var collider = raycast_vision.get_collider()
-		if collider == joueur_ref:
-			poursuite = true  # Si le joueur est vu, commencer la poursuite
-			derniere_position_vue = -1.0  # Réinitialise le timer de perte de vue
-		else:
-			if derniere_position_vue < 0.0:
-				derniere_position_vue = Time.get_ticks_msec() / 1000.0  # Début du timer de perte de vue
-			poursuite = false
-	else:
-		if derniere_position_vue >= 0.0 and Time.get_ticks_msec() / 1000.0 - derniere_position_vue > temps_perte_vue:
-			poursuite = false  # Abandonner la poursuite si trop de temps s'est écoulé
+	velocity = Vector3.ZERO  # Réinitialise la vitesse à chaque frame
 
-	# Si en poursuite
-	var velocity = Vector3.ZERO  # Initialisation de la vitesse
-	if poursuite:
-		# Si en poursuite, se diriger vers le joueur
-		velocity = to_player * vitesse
+	# Si l'ennemi voit le joueur, on lance la poursuite
+	if raycast_enemy.is_colliding() and raycast_enemy.get_collider() == player:
+		is_pursuing = true
+		pursuit_time = 0.0  # Réinitialise le temps de poursuite
 	else:
-		# Si pas en poursuite, patrouiller
-		# Si l'ennemi a parcouru une distance suffisante, il change de direction
-		if global_transform.origin.distance_to(last_position) >= distance_patrouille:
-			direction = -direction  # Inverser la direction
-			last_position = global_transform.origin  # Réinitialiser la position de départ
-		velocity = direction * vitesse  # Appliquer la vitesse pour la patrouille
-	
-	# Affecte la vitesse à la propriété velocity de CharacterBody3D
-	self.velocity = velocity
+		# Si l'ennemi ne voit plus le joueur, il continue de patrouiller
+		if is_pursuing:
+			pursuit_time += delta
+			if pursuit_time >= PURSUIT_TIME_LIMIT:
+				is_pursuing = false  # Arrête la poursuite après 20 secondes
 
-	# Applique le mouvement avec move_and_slide sans arguments supplémentaires
-	move_and_slide()
-	
-	# Tourne l'ennemi pour qu'il regarde le joueur (si en poursuite)
-	if poursuite:
-		look_at(joueur_ref.global_transform.origin, Vector3.UP)
+	# Si l'ennemi poursuit le joueur, on applique la poursuite
+	if is_pursuing:
+		_pursue_player(delta)
+	else:
+		_patrol(delta)  # On peut définir un comportement de patrouille ici
+
+	# Applique le mouvement avec move_and_slide
+	move_and_slide()  # Ici, on utilise velocity et on spécifie la direction "UP" pour la gravité
+
+# Fonction pour poursuivre le joueur
+func _pursue_player(delta):
+	# Calcule la direction du joueur par rapport à l'ennemi
+	var direction_to_player = (player.global_transform.origin - global_transform.origin).normalized()
+
+	# Applique la direction au mouvement
+	velocity = direction_to_player * SPEED
+
+	# Rotation progressive vers la direction de déplacement
+	var target_rotation = atan2(-direction_to_player.x, -direction_to_player.z)
+	rotation.y = lerp_angle(rotation.y, target_rotation, delta * 10.0)  # Rotation progressive
+
+# Fonction pour patrouiller (comportement de patrouille basique)
+func _patrol(delta):
+	# Ici, tu peux ajouter la logique de patrouille
+	# Exemple : Patrouiller entre plusieurs points définis.
+	pass
+
+# Fonction pour attaquer le joueur
+func _attack_player():
+	# L'ennemi regarde le joueur pendant l'attaque
+	look_at(Vector3(player.global_position.x, global_position.y, player.global_position.z), Vector3.UP)
+
+	# Appel de la méthode hit du joueur (selon ton script de joueur)
+	player.hit(global_position.direction_to(player.global_position))  # Attaque
