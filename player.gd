@@ -4,6 +4,9 @@ extends CharacterBody3D
 @export var gravity := 9.8
 @export var jump_force := 10.0
 
+var hp = 100  # ❤️ Points de vie du joueur
+
+
 var canBeControlled = false
 
 func set_camera_visibility(isVisible):
@@ -18,6 +21,10 @@ var pitch = 0.0
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
+	var health_bar = get_node("../Control/HealthBar")
+	if health_bar:
+		health_bar.value = hp
 
 func _input(event):
 	if event is InputEventMouseMotion:
@@ -60,3 +67,16 @@ func _physics_process(delta):
 		velocity.y = jump_force
 
 	move_and_slide()
+	
+	# ❤️ FONCTION pour recevoir des dégâts
+func take_damage(amount):
+	hp -= amount
+	print("HP :", hp)
+
+	if hp <= 0:
+		die()
+
+# 💀 FONCTION appelée à 0 HP
+func die():
+	print("Le joueur est mort !")
+	queue_free()  # Ou respawn, animation, etc.
