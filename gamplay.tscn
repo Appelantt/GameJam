@@ -1,8 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://urf5lqahj2ox"]
+[gd_scene load_steps=14 format=3 uid="uid://urf5lqahj2ox"]
 
+[ext_resource type="Script" uid="uid://bkdp2onjhqqfn" path="res://gamplay.gd" id="1_fdqb2"]
 [ext_resource type="PackedScene" uid="uid://pqmkm6vwq6al" path="res://spider2.tscn" id="1_k770x"]
 [ext_resource type="PackedScene" uid="uid://diatkxtj0pg1n" path="res://ennemy.tscn" id="2_b22gd"]
 [ext_resource type="PackedScene" uid="uid://brsdigm6pvwbq" path="res://tresor.tscn" id="3_b22gd"]
+[ext_resource type="FontFile" uid="uid://dmyttn2og37h6" path="res://fonts/Montserrat-Medium.ttf" id="4_s28mo"]
+[ext_resource type="Script" uid="uid://cqj5xas55fvro" path="res://score.gd" id="5_fdqb2"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_m8lbg"]
 
@@ -21,7 +24,12 @@ data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_fdqb2"]
 data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
 
+[sub_resource type="Theme" id="Theme_ko0co"]
+default_font = ExtResource("4_s28mo")
+default_font_size = 22
+
 [node name="Node3D" type="Node3D"]
+script = ExtResource("1_fdqb2")
 
 [node name="mur1" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.0107521, 0.000217409, -13.3743, 0.744243, 7.17339, -0.0786421, 0.828238, -5.50756, -0.102956, 0.800769, 2.97496, -6.94961)
@@ -89,3 +97,19 @@ shadow_enabled = true
 
 [node name="Tresor" parent="." instance=ExtResource("3_b22gd")]
 transform = Transform3D(1, 0, 0, 0, 0.707652, 0, 0, 0, 1, -2.01932, 1.30046, 0)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 176.0
+offset_bottom = 41.0
+theme = SubResource("Theme_ko0co")
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 46.0
+offset_right = 228.0
+offset_bottom = 93.0
+text = "Tresor trouver = 0"
+script = ExtResource("5_fdqb2")
