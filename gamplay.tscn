@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://urf5lqahj2ox"]
+[gd_scene load_steps=10 format=3 uid="uid://urf5lqahj2ox"]
 
 [ext_resource type="PackedScene" uid="uid://pqmkm6vwq6al" path="res://spider2.tscn" id="1_k770x"]
 [ext_resource type="PackedScene" uid="uid://diatkxtj0pg1n" path="res://ennemy.tscn" id="2_b22gd"]
+[ext_resource type="PackedScene" uid="uid://brsdigm6pvwbq" path="res://tresor.tscn" id="3_b22gd"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_m8lbg"]
 
@@ -40,7 +41,6 @@ mesh = SubResource("BoxMesh_m8lbg")
 [node name="StaticBody3D" type="StaticBody3D" parent="bas"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="bas/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("ConcavePolygonShape3D_b22gd")
 
 [node name="Mur2" type="MeshInstance3D" parent="."]
@@ -86,3 +86,6 @@ transform = Transform3D(0.0441599, 0, 0.999024, 0, 1, 0, -0.999024, 0, 0.0441599
 transform = Transform3D(0.89463, -0.340907, 0.288824, -0.340321, -0.101058, 0.934863, -0.289513, -0.93465, -0.206427, 4.3342, 17.7546, 1.16387)
 light_energy = 3.0
 shadow_enabled = true
+
+[node name="Tresor" parent="." instance=ExtResource("3_b22gd")]
+transform = Transform3D(1, 0, 0, 0, 0.707652, 0, 0, 0, 1, -2.01932, 1.30046, 0)
