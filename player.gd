@@ -4,26 +4,31 @@ extends CharacterBody3D
 @export var gravity := 9.8
 @export var jump_force := 10.0
 
-# Contrôle souris
 @onready var pivot = $Pivot
+
 var mouse_sensitivity = 0.003
 var yaw = 0.0
 var pitch = 0.0
 
 func _ready():
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) # Capture la souris
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _input(event):
 	if event is InputEventMouseMotion:
 		yaw -= event.relative.x * mouse_sensitivity
 		pitch -= event.relative.y * mouse_sensitivity
-		pitch = clamp(pitch, deg_to_rad(-80), deg_to_rad(80)) # Évite le retournement
+		pitch = clamp(pitch, deg_to_rad(-80), deg_to_rad(80))
+
+		# Le corps (Player) tourne sur l'axe Y (yaw)
 		rotation.y = yaw
+
+		# Le pivot (Pivot) tourne sur l'axe X (pitch)
 		pivot.rotation.x = pitch
 
 func _physics_process(delta):
 	var direction = Vector3.ZERO
 
+	# Ces directions sont maintenant en fonction de la rotation du joueur
 	if Input.is_action_pressed("move_right"):
 		direction += transform.basis.x
 	if Input.is_action_pressed("move_left"):
@@ -36,17 +41,14 @@ func _physics_process(delta):
 	if direction != Vector3.ZERO:
 		direction = direction.normalized()
 
-	# Déplacement horizontal
 	velocity.x = direction.x * speed
 	velocity.z = direction.z * speed
 
-	# Gravité
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 	else:
 		velocity.y = 0
 
-	# Saut
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = jump_force
 
