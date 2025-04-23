@@ -22,6 +22,10 @@ var pitch = 0.0
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
+	var health_bar = get_node("../Control/HealthBar")
+	if health_bar:
+		health_bar.value = hp
+
 func _input(event):
 	if event is InputEventMouseMotion:
 		yaw -= event.relative.x * mouse_sensitivity
