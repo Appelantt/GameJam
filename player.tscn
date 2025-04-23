@@ -17,9 +17,9 @@ script = ExtResource("1_onrkg")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.01577, 0)
 mesh = SubResource("CapsuleMesh_4flbx")
 
+[node name="Camera3D" type="Camera3D" parent="Pivot"]
+transform = Transform3D(1, 0, 0, 0, 0.835395, 0.54965, 0, -0.54965, 0.835395, 0, 2.45665, 2.22975)
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.775024, 0)
 shape = SubResource("BoxShape3D_onrkg")
-
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.835395, 0.54965, 0, -0.54965, 0.835395, 0, 1.85829, 1.88133)
