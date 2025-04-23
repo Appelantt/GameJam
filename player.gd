@@ -1,42 +1,57 @@
 extends CharacterBody3D
 
-# How fast the player moves in meters per second.
 @export var speed = 14
-# The downward acceleration when in the air, in meters per second squared.
-@export var fall_acceleration = 75
 @export var gravity := 9.8
 @export var jump_force := 10.0
 
+# Contrôle souris
+@onready var pivot = $Pivot
+var mouse_sensitivity = 0.003
+var yaw = 0.0
+var pitch = 0.0
+
+func _ready():
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) # Capture la souris
+
+func _input(event):
+	if event is InputEventMouseMotion:
+		yaw -= event.relative.x * mouse_sensitivity
+		pitch -= event.relative.y * mouse_sensitivity
+		pitch = clamp(pitch, deg_to_rad(-80), deg_to_rad(80))
+
+		# Applique uniquement yaw au corps du joueur (rotation sur Y)
+		rotation.y = yaw
+
+		# Applique uniquement pitch au Pivot (rotation sur X)
+		pivot.rotation.x = pitch
 
 func _physics_process(delta):
 	var direction = Vector3.ZERO
 
 	if Input.is_action_pressed("move_right"):
-		direction.x += 1
+		direction += transform.basis.x
 	if Input.is_action_pressed("move_left"):
-		direction.x -= 1
+		direction -= transform.basis.x
 	if Input.is_action_pressed("move_back"):
-		direction.z += 1
+		direction += transform.basis.z
 	if Input.is_action_pressed("move_forward"):
-		direction.z -= 1
+		direction -= transform.basis.z
 
 	if direction != Vector3.ZERO:
 		direction = direction.normalized()
-		$Pivot.basis = Basis.looking_at(direction)
 
-	# Ground Velocity
+	# Déplacement horizontal
 	velocity.x = direction.x * speed
 	velocity.z = direction.z * speed
-	
+
+	# Gravité
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 	else:
 		velocity.y = 0
-		
+
+	# Saut
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = jump_force
-
-
-		
 
 	move_and_slide()
