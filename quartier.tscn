@@ -1,7 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://7hnln2u52nns"]
+[gd_scene load_steps=8 format=3 uid="uid://bhi41gh61g3gi"]
 
 [ext_resource type="Texture2D" uid="uid://cb8virneatxwq" path="res://Quartier/2K/Poliigon_GrassPatchyGround_4585_BaseColor.jpg" id="1_oy2b0"]
-[ext_resource type="PackedScene" path="res://sketchfab_scene.tscn" id="2_oy2b0"]
+[ext_resource type="PackedScene" uid="uid://cosglvl17rq01" path="res://sketchfab_scene.tscn" id="2_oy2b0"]
 [ext_resource type="PackedScene" uid="uid://dc35332wbl1wk" path="res://player.tscn" id="3_1dyxj"]
 [ext_resource type="PackedScene" uid="uid://diatkxtj0pg1n" path="res://ennemy.tscn" id="4_8ihd3"]
 
