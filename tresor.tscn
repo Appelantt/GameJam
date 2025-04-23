@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://bdjkjrkogbpck"]
+
+[ext_resource type="Script" path="res://tresor.gd" id="1_t6ngu"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_8dqw5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f3frg"]
+size = Vector3(1, 1, 1.65735)
+
+[node name="Tresor" type="CharacterBody3D"]
+script = ExtResource("1_t6ngu")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.993566, 0, 0, 0, 0.579431, 0, 0, 0, 0.993566, 0, 0, 0)
+mesh = SubResource("BoxMesh_8dqw5")
+
+[node name="Area3D" type="Area3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.328674)
+shape = SubResource("BoxShape3D_f3frg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+
+[connection signal="body_entered" from="MeshInstance3D/Area3D" to="." method="_on_area_3d_body_entered"]
