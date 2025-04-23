@@ -1,14 +1,15 @@
-[gd_scene load_steps=16 format=3 uid="uid://bhi41gh61g3gi"]
+[gd_scene load_steps=17 format=3 uid="uid://bhi41gh61g3gi"]
 
 [ext_resource type="Texture2D" uid="uid://cb8virneatxwq" path="res://Quartier/2K/Poliigon_GrassPatchyGround_4585_BaseColor.jpg" id="1_oy2b0"]
 [ext_resource type="PackedScene" uid="uid://bohudpgbdoq3w" path="res://sketchfab_scene.tscn" id="2_oy2b0"]
 [ext_resource type="PackedScene" uid="uid://dc35332wbl1wk" path="res://player.tscn" id="3_1dyxj"]
-[ext_resource type="Script" path="res://player_manager.gd" id="3_ukm8y"]
+[ext_resource type="Script" uid="uid://bo0nl44dexra5" path="res://player_manager.gd" id="3_ukm8y"]
 [ext_resource type="PackedScene" uid="uid://diatkxtj0pg1n" path="res://ennemy.tscn" id="4_8ihd3"]
 [ext_resource type="PackedScene" uid="uid://bdjkjrkogbpck" path="res://tresor.tscn" id="5_8ihd3"]
 [ext_resource type="FontFile" uid="uid://dmyttn2og37h6" path="res://fonts/Montserrat-Medium.ttf" id="5_11drx"]
 [ext_resource type="PackedScene" uid="uid://pqmkm6vwq6al" path="res://spider2.tscn" id="5_g2aqv"]
-[ext_resource type="Script" path="res://score.gd" id="5_sw6ff"]
+[ext_resource type="Script" uid="uid://cqj5xas55fvro" path="res://score.gd" id="5_sw6ff"]
+[ext_resource type="PackedScene" uid="uid://ymujwb55fy7w" path="res://Maison/Danusia_House_FBX.tscn" id="10_g2aqv"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1dyxj"]
 albedo_texture = ExtResource("1_oy2b0")
@@ -95,3 +96,6 @@ transform = Transform3D(1, 0, 0, 0, 0.707652, 0, 0, 0, 1, -2.01932, 1.30046, -4.
 
 [node name="Tresor4" parent="." instance=ExtResource("5_8ihd3")]
 transform = Transform3D(1, 0, 0, 0, 0.707652, 0, 0, 0, 1, 10.4308, 1.30046, -4.34589)
+
+[node name="Danusia_House_FBX" parent="." instance=ExtResource("10_g2aqv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -94.1671, 0, -51.9509)

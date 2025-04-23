@@ -1,13 +1,13 @@
 [gd_scene load_steps=16 format=3 uid="uid://c8cps67q5jl3u"]
 
-[ext_resource type="Script" path="res://gamplay.gd" id="1_fdqb2"]
+[ext_resource type="Script" uid="uid://bkdp2onjhqqfn" path="res://gamplay.gd" id="1_fdqb2"]
 [ext_resource type="PackedScene" uid="uid://pqmkm6vwq6al" path="res://spider2.tscn" id="1_k770x"]
 [ext_resource type="PackedScene" uid="uid://diatkxtj0pg1n" path="res://ennemy.tscn" id="2_b22gd"]
 [ext_resource type="PackedScene" uid="uid://dc35332wbl1wk" path="res://player.tscn" id="2_ko0co"]
 [ext_resource type="PackedScene" uid="uid://bdjkjrkogbpck" path="res://tresor.tscn" id="3_b22gd"]
 [ext_resource type="FontFile" uid="uid://dmyttn2og37h6" path="res://fonts/Montserrat-Medium.ttf" id="4_s28mo"]
-[ext_resource type="Script" path="res://score.gd" id="5_fdqb2"]
-[ext_resource type="Script" path="res://player_manager.gd" id="6_ce6hi"]
+[ext_resource type="Script" uid="uid://cqj5xas55fvro" path="res://score.gd" id="5_fdqb2"]
+[ext_resource type="Script" uid="uid://bo0nl44dexra5" path="res://player_manager.gd" id="6_ce6hi"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_m8lbg"]
 
