@@ -56,10 +56,6 @@ skeleton = NodePath("")
 transform = Transform3D(0.299834, 0.00998319, -3.39245e-14, -8.44324e-06, 0.000253583, 0.3, 0.00998318, -0.299834, 0.000253724, -0.00918473, -0.00148475, -0.0301935)
 shape = SubResource("BoxShape3D_hcqli")
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.999995, 0.000215979, -0.00329325, 0.000906748, 0.941476, 0.337078, 0.00317332, -0.337079, 0.941471, 0.0144641, 0.618073, 0.593403)
-fov = 86.3867
-
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
@@ -68,3 +64,9 @@ target_position = Vector3(0, 0, -1)
 
 [node name="RaycastBottom" type="RayCast3D" parent="."]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.2, 0, 0, 0)
+
+[node name="Pivot" type="Node3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="Pivot"]
+transform = Transform3D(0.999995, 0.000215979, -0.00329325, 0.000906748, 0.941476, 0.337078, 0.00317332, -0.337079, 0.941471, 0.0144641, 0.243219, 0.260849)
+fov = 86.3867
