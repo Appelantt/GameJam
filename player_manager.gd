@@ -7,12 +7,15 @@ var isPlayer = true
 func _ready() -> void:
 	$Player.canBeControlled = true
 	$spider2.canBeControlled = false
+	
+	
 
 func update_spider_position():
-	var forward = $Player.global_transform.basis.z
-	var right = $Player.global_transform.basis.x
-	var offset = forward * 1.2 + right * 0.5  # Derrière (2 unités) + à droite (1 unité)
-	$spider2.global_position = $Player.global_position + offset
+	var player_pos = $Player.global_position
+	var offset = Vector3(0.5, 0, 1.2)  # Un peu à droite (x), et derrière (z)
+	$spider2.global_position = player_pos + offset
+	$spider2.rotation = Vector3(0, 0, 0)
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -33,6 +36,7 @@ func set_player_form():
 	$Player.canBeControlled = true
 	$Player.set_camera_visibility(true)
 	$spider2.set_camera_visibility(false)
+
 	
 func set_spider_form():
 	$spider2.visible = true

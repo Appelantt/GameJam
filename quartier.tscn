@@ -33,7 +33,7 @@ default_font_size = 22
 bg_color = Color(0.292256, 0.709713, 7.70092e-07, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g2aqv"]
-size = Vector3(0.65744, 1.0791, 1)
+size = Vector3(4.59475, 1.05784, 1)
 
 [node name="Quartier" type="Node3D"]
 
@@ -104,11 +104,12 @@ transform = Transform3D(1, 0, 0, 0, 0.707652, 0, 0, 0, 1, 10.4308, 1.30046, -4.3
 transform = Transform3D(4.44244, 0, 0, 0, 5.97204, 0, 0, 0, 3.18523, -88.5313, 0, -48.1405)
 
 [node name="Area3D" type="Area3D" parent="Maison lvl 1"]
-transform = Transform3D(5.23415, 0, 0, 0, 1.06789, 0, 0, 0, 1, 2.4714, 1.05254, 3.78636)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4714, 1.05254, 3.78636)
+collision_mask = 2
 script = ExtResource("11_l2fju")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Maison lvl 1/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.00004, -0.282423, -0.15196, -0.455196)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.999993, -1.10887, 0.010582, 0)
 shape = SubResource("BoxShape3D_g2aqv")
 
 [node name="Maison lvl 2" parent="." instance=ExtResource("10_g2aqv")]
