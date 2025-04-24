@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://cydpg7qa6i0hl"]
+
+[ext_resource type="PackedScene" uid="uid://cr1ollr5g8lbp" path="res://arbre/tree_01 (1).glb" id="1_4gav1"]
+[ext_resource type="PackedScene" uid="uid://v55v3tgala7i" path="res://arbre/tree_01.glb" id="2_71mg6"]
+[ext_resource type="PackedScene" uid="uid://htkafnf6p33o" path="res://arbre/tree_03.glb" id="3_jl6kt"]
+[ext_resource type="PackedScene" uid="uid://cyawfkhrqorh1" path="res://arbre/tree_05.glb" id="4_qwk7g"]
+[ext_resource type="PackedScene" uid="uid://bgw1700lmkoml" path="res://arbre/tree_10.glb" id="5_fc5ta"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="tree_01 (1)" parent="." instance=ExtResource("1_4gav1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 181.676, 0, 1.33561)
+
+[node name="tree_01" parent="." instance=ExtResource("2_71mg6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.38257, 0, 135.023)
+
+[node name="tree_03" parent="." instance=ExtResource("3_jl6kt")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 164.681, 0, 121.38)
+
+[node name="tree_05" parent="." instance=ExtResource("4_qwk7g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -142.818, 0, 1.64518)
+
+[node name="tree_10" parent="." instance=ExtResource("5_fc5ta")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -97.9862, -1.19209e-07, 96.4602)

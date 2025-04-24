@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bhi41gh61g3gi"]
+[gd_scene load_steps=24 format=3 uid="uid://bhi41gh61g3gi"]
 
 [ext_resource type="Texture2D" uid="uid://cb8virneatxwq" path="res://Quartier/2K/Poliigon_GrassPatchyGround_4585_BaseColor.jpg" id="1_oy2b0"]
 [ext_resource type="PackedScene" uid="uid://bohudpgbdoq3w" path="res://sketchfab_scene.tscn" id="2_oy2b0"]
@@ -11,6 +11,8 @@
 [ext_resource type="Script" path="res://score.gd" id="5_sw6ff"]
 [ext_resource type="PackedScene" uid="uid://ymujwb55fy7w" path="res://Maison/Danusia_House_FBX.tscn" id="10_g2aqv"]
 [ext_resource type="Script" uid="uid://bjy7wkastw4k0" path="res://teleport.gd" id="11_l2fju"]
+[ext_resource type="Texture2D" uid="uid://daqbd4xrsogyh" path="res://Chateau/Textue chateau/qwantani_puresky_1k.exr" id="12_q7sgw"]
+[ext_resource type="PackedScene" uid="uid://cydpg7qa6i0hl" path="res://ARBRE.tscn" id="13_8xvty"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1dyxj"]
 albedo_texture = ExtResource("1_oy2b0")
@@ -35,6 +37,16 @@ bg_color = Color(0.292256, 0.709713, 7.70092e-07, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_g2aqv"]
 size = Vector3(4.59475, 1.05784, 1)
 
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_8xvty"]
+panorama = ExtResource("12_q7sgw")
+
+[sub_resource type="Sky" id="Sky_33e3p"]
+sky_material = SubResource("PanoramaSkyMaterial_8xvty")
+
+[sub_resource type="Environment" id="Environment_t10s7"]
+background_mode = 2
+sky = SubResource("Sky_33e3p")
+
 [node name="Quartier" type="Node3D"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -50,6 +62,12 @@ debug_fill = false
 
 [node name="Sketchfab_Scene" parent="." instance=ExtResource("2_oy2b0")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -286.966, 0.303745, 0)
+
+[node name="Sketchfab_Scene2" parent="." instance=ExtResource("2_oy2b0")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 251.892, 0.303745, 0)
+
+[node name="Sketchfab_Scene3" parent="." instance=ExtResource("2_oy2b0")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -773.857, 0.303745, 0)
 
 [node name="PlayerManager" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.37821, 0)
@@ -139,3 +157,93 @@ transform = Transform3D(-4.44244, 0, 2.78462e-07, 0, 5.97204, 0, -3.88371e-07, 0
 
 [node name="Maison lvl 10" parent="." instance=ExtResource("10_g2aqv")]
 transform = Transform3D(-4.44244, 0, 2.78462e-07, 0, 5.97204, 0, -3.88371e-07, 0, -3.18523, -108.048, 0, 50)
+
+[node name="Maison lvl 11" parent="." instance=ExtResource("10_g2aqv")]
+transform = Transform3D(4.44244, 0, 0, 0, 5.97204, 0, 0, 0, 3.18523, 424.921, 0, -48.1405)
+
+[node name="Maison lvl 12" parent="." instance=ExtResource("10_g2aqv")]
+transform = Transform3D(4.44244, 0, 0, 0, 5.97204, 0, 0, 0, 3.18523, 490.728, 0, -48.1405)
+
+[node name="Maison lvl 13" parent="." instance=ExtResource("10_g2aqv")]
+transform = Transform3D(4.44244, 0, 0, 0, 5.97204, 0, 0, 0, 3.18523, 546.838, 0, -48.1405)
+
+[node name="Maison lvl 14" parent="." instance=ExtResource("10_g2aqv")]
+transform = Transform3D(4.44244, 0, 0, 0, 5.97204, 0, 0, 0, 3.18523, 612.705, -0.0642014, -48.1075)
+
+[node name="Maison lvl 15" parent="." instance=ExtResource("10_g2aqv")]
+transform = Transform3D(-4.44244, 0, 2.78462e-07, 0, 5.97204, 0, -3.88371e-07, 0, -3.18523, 612.752, 0, 50)
+
+[node name="Maison lvl 16" parent="." instance=ExtResource("10_g2aqv")]
+transform = Transform3D(-4.44244, 0, 2.78462e-07, 0, 5.97204, 0, -3.88371e-07, 0, -3.18523, 536.868, 0, 50)
+
+[node name="Maison lvl 17" parent="." instance=ExtResource("10_g2aqv")]
+transform = Transform3D(-4.44244, 0, 2.78462e-07, 0, 5.97204, 0, -3.88371e-07, 0, -3.18523, 478.08, 0, 50)
+
+[node name="Maison lvl 18" parent="." instance=ExtResource("10_g2aqv")]
+transform = Transform3D(-4.44244, 0, 2.78462e-07, 0, 5.97204, 0, -3.88371e-07, 0, -3.18523, 416.197, 0, 50)
+
+[node name="Maison lvl 19" parent="." instance=ExtResource("10_g2aqv")]
+transform = Transform3D(-4.44244, 0, 2.78462e-07, 0, 5.97204, 0, -3.88371e-07, 0, -3.18523, 344.704, 0, 50)
+
+[node name="Maison lvl 20" parent="." instance=ExtResource("10_g2aqv")]
+transform = Transform3D(4.44244, 0, 0, 0, 5.97204, 0, 0, 0, 3.18523, -794.762, 0, -48.1405)
+
+[node name="Maison lvl 21" parent="." instance=ExtResource("10_g2aqv")]
+transform = Transform3D(4.44244, 0, 0, 0, 5.97204, 0, 0, 0, 3.18523, -728.955, 0, -48.1405)
+
+[node name="Maison lvl 22" parent="." instance=ExtResource("10_g2aqv")]
+transform = Transform3D(4.44244, 0, 0, 0, 5.97204, 0, 0, 0, 3.18523, -672.845, 0, -48.1405)
+
+[node name="Maison lvl 23" parent="." instance=ExtResource("10_g2aqv")]
+transform = Transform3D(4.44244, 0, 0, 0, 5.97204, 0, 0, 0, 3.18523, -606.978, -0.0642014, -48.1075)
+
+[node name="Maison lvl 24" parent="." instance=ExtResource("10_g2aqv")]
+transform = Transform3D(-4.44244, 0, 2.78462e-07, 0, 5.97204, 0, -3.88371e-07, 0, -3.18523, -606.931, 0, 50)
+
+[node name="Maison lvl 25" parent="." instance=ExtResource("10_g2aqv")]
+transform = Transform3D(-4.44244, 0, 2.78462e-07, 0, 5.97204, 0, -3.88371e-07, 0, -3.18523, -682.816, 0, 50)
+
+[node name="Maison lvl 26" parent="." instance=ExtResource("10_g2aqv")]
+transform = Transform3D(-4.44244, 0, 2.78462e-07, 0, 5.97204, 0, -3.88371e-07, 0, -3.18523, -741.604, 0, 50)
+
+[node name="Maison lvl 27" parent="." instance=ExtResource("10_g2aqv")]
+transform = Transform3D(-4.44244, 0, 2.78462e-07, 0, 5.97204, 0, -3.88371e-07, 0, -3.18523, -803.486, 0, 50)
+
+[node name="Maison lvl 28" parent="." instance=ExtResource("10_g2aqv")]
+transform = Transform3D(-4.44244, 0, 2.78462e-07, 0, 5.97204, 0, -3.88371e-07, 0, -3.18523, -874.979, 0, 50)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_t10s7")
+
+[node name="Node3D" parent="." instance=ExtResource("13_8xvty")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 110.06)
+
+[node name="Node3D7" parent="." instance=ExtResource("13_8xvty")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 464.247)
+
+[node name="Node3D8" parent="." instance=ExtResource("13_8xvty")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 546.866, 0, 464.247)
+
+[node name="Node3D9" parent="." instance=ExtResource("13_8xvty")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1031.91, 0, 464.247)
+
+[node name="Node3D2" parent="." instance=ExtResource("13_8xvty")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -258.906)
+
+[node name="Node3D3" parent="." instance=ExtResource("13_8xvty")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 429.409, 0, -258.906)
+
+[node name="Node3D10" parent="." instance=ExtResource("13_8xvty")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 902.891, 0, -258.906)
+
+[node name="Node3D11" parent="." instance=ExtResource("13_8xvty")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1408.78, 0, -258.906)
+
+[node name="Node3D4" parent="." instance=ExtResource("13_8xvty")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 429.409, 0, 91.8411)
+
+[node name="Node3D5" parent="." instance=ExtResource("13_8xvty")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -594.735, 0, 91.8411)
+
+[node name="Node3D6" parent="." instance=ExtResource("13_8xvty")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -594.735, 0, -258.935)
