@@ -24,10 +24,13 @@ func update_spider_position():
 	var player_pos = $Player.global_position
 	var player_forward = $Player.global_transform.basis.z.normalized()  # Direction avant du joueur
 	var player_right = $Player.global_transform.basis.x.normalized()  # Direction droite du joueur
+	var player_up = $Player.global_transform.basis.y.normalized()  # Direction droite du joueur
 
-	var offset = player_right * 2.0 + player_forward * -0.7  # Position décalée vers la droite et devant
+	var offset = player_right * 2.0 + player_forward * -0.7 + player_up * 5.0  # Position décalée vers la droite et devant
 	$spider2.global_position = player_pos + offset
-	$spider2.rotation = Vector3(0, 0, 0)
+	
+	$spider2.global_position = $Player/Mesh/Skeleton3D/SPIDER_POS.global_position + player_up * 1.25
+	$spider2.rotation = $Player/Mesh/Skeleton3D/SPIDER_POS.global_rotation
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
