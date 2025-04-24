@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bhi41gh61g3gi"]
+[gd_scene load_steps=19 format=3 uid="uid://bhi41gh61g3gi"]
 
 [ext_resource type="Texture2D" uid="uid://cb8virneatxwq" path="res://Quartier/2K/Poliigon_GrassPatchyGround_4585_BaseColor.jpg" id="1_oy2b0"]
 [ext_resource type="PackedScene" uid="uid://bohudpgbdoq3w" path="res://sketchfab_scene.tscn" id="2_oy2b0"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://pqmkm6vwq6al" path="res://spider2.tscn" id="5_g2aqv"]
 [ext_resource type="Script" uid="uid://cqj5xas55fvro" path="res://score.gd" id="5_sw6ff"]
 [ext_resource type="PackedScene" uid="uid://h3hrwkybvrfj" path="res://Maison/Danusia_House_FBX.tscn" id="10_g2aqv"]
+[ext_resource type="Script" uid="uid://bjy7wkastw4k0" path="res://teleport.gd" id="11_l2fju"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1dyxj"]
 albedo_texture = ExtResource("1_oy2b0")
@@ -30,6 +31,9 @@ default_font_size = 22
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fj0re"]
 bg_color = Color(0.292256, 0.709713, 7.70092e-07, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g2aqv"]
+size = Vector3(0.65744, 1.0791, 1)
 
 [node name="Quartier" type="Node3D"]
 
@@ -99,6 +103,14 @@ transform = Transform3D(1, 0, 0, 0, 0.707652, 0, 0, 0, 1, 10.4308, 1.30046, -4.3
 
 [node name="Maison lvl 1" parent="." instance=ExtResource("10_g2aqv")]
 transform = Transform3D(4.44244, 0, 0, 0, 5.97204, 0, 0, 0, 3.18523, -88.5313, 0, -48.1405)
+
+[node name="Area3D" type="Area3D" parent="Maison lvl 1"]
+transform = Transform3D(5.23415, 0, 0, 0, 1.06789, 0, 0, 0, 1, 2.4714, 1.05254, 3.78636)
+script = ExtResource("11_l2fju")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Maison lvl 1/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.00004, -0.282423, -0.15196, -0.455196)
+shape = SubResource("BoxShape3D_g2aqv")
 
 [node name="Maison lvl 2" parent="." instance=ExtResource("10_g2aqv")]
 transform = Transform3D(4.44244, 0, 0, 0, 5.97204, 0, 0, 0, 3.18523, -27.8311, 0, -48.1405)
