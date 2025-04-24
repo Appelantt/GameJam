@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=3 uid="uid://dyj4oy11c5t5a"]
+
+[ext_resource type="Script" uid="uid://o37ala8ymsg8" path="res://menu.gd" id="1_lti8b"]
+[ext_resource type="Texture2D" uid="uid://d3vlptjqhbocj" path="res://appelant_une_fond_dcran_de_linpecteur_gadgte_et_son_acolite_a_9addd93b-f536-4ce5-9a1a-7deb3f895ede_3.png" id="2_ouk20"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lti8b")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 644.0
+offset_top = 263.0
+offset_right = 1152.0
+offset_bottom = 654.0
+
+[node name="FondD\'écranMontagnesJeu" type="Sprite2D" parent="MarginContainer"]
+position = Vector2(-121.75, 61)
+scale = Vector2(0.819987, 0.869792)
+texture = ExtResource("2_ouk20")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Player" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Play"
+
+[node name="Option" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Option"
+
+[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Player" to="." method="_on_player_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Option" to="." method="_on_option_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
