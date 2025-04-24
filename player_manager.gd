@@ -29,8 +29,8 @@ func update_spider_position():
 	var offset = player_right * 2.0 + player_forward * -0.7 + player_up * 5.0  # Position décalée vers la droite et devant
 	$spider2.global_position = player_pos + offset
 	
-	$spider2.global_position = $Player/Mesh/Skeleton3D/SPIDER_POS.global_position + player_up * 1.25
-	$spider2.rotation = $Player/Mesh/Skeleton3D/SPIDER_POS.global_rotation
+	$spider2.global_position = $Player/Mesh/Skeleton3D/SPIDER_POS.global_position + player_up * 1.15
+	$spider2.rotation = Vector3.ZERO  # ou une rotation stable de ton choix
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
