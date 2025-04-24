@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://diatkxtj0pg1n"]
+
+[ext_resource type="Script" uid="uid://cg0mtyjnh4axg" path="res://ennemy.gd" id="1_12j10"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_8dqw5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f3frg"]
+size = Vector3(1, 1, 1.65735)
+
+[node name="Ennemy" type="CharacterBody3D"]
+script = ExtResource("1_12j10")
+player_path = null
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_8dqw5")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(1, 1.52388e-08, 1.7418e-07, -8.39793e-09, 0.999231, -0.0392074, -1.74644e-07, 0.0392074, 0.999231, 0, 0, 0)
+target_position = Vector3(0, -1, -10)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_f3frg")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]

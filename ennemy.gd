@@ -1,55 +1,136 @@
 extends CharacterBody3D
 
-@export var joueur: NodePath
-@export var vitesse: float = 2.0
-@export var distance_vue: float = 10.0
-@export var direction_initiale: Vector3 = Vector3.FORWARD
+var player = null
+var pursuit_time = 0.0
+var is_pursuing = false
+var is_returning_to_base = false
 
-var joueur_ref: Node3D
-var poursuite = false
-var direction = Vector3.ZERO
+const SPEED = 4.0
+const ATTACK_RANGE = 4.0  # ← ATTENTION, augmenté ici !
+const PURSUIT_TIME_LIMIT = 20.0
+const DAMAGE_COOLDOWN = 1.5  # Délai entre 2 attaques
+
+@export var player_path := "../PlayerManager/Player"
+@export var gravity := 9.8
+@export var base_position := Vector3.ZERO
+
+@onready var nav_agent = $NavigationAgent3D
+@onready var raycast_enemy = $RayCast3D
+
+@export var patrol_offset := 2.0
+@export var patrol_speed := 2.0
+var patrol_target := Vector3.ZERO
+var going_right := true
+
+var is_jumping = false
+var jump_velocity = 6.0
+var stuck_timer = 0.0
+var stuck_threshold = 1.0
+var last_position = Vector3.ZERO
+var unblock_direction = 1
+
+var already_hit := false
+var attack_timer = 0.0
 
 func _ready():
-	joueur_ref = get_node(joueur)
-	direction = direction_initiale.normalized()
+	player = get_node(player_path)
+	if player == null:
+		print("Le joueur n’a pas été trouvé. Vérifie le chemin dans l'inspecteur.")
+	else:
+		print("Joueur trouvé : ", player.name)
+
+	raycast_enemy.enabled = true
+
+	if base_position == Vector3.ZERO:
+		base_position = global_transform.origin
+
+	patrol_target = base_position + Vector3(patrol_offset, 0, 0)
+	last_position = global_position
 
 func _physics_process(delta):
-	var space_state = get_world_3d().direct_space_state
-	poursuite = false
+	if not is_on_floor():
+		velocity.y -= gravity * delta
+	else:
+		velocity.y = 0
 
-	# DÉTECTION JOUEUR
-	if joueur_ref:
-		var to_joueur = (joueur_ref.global_transform.origin - global_transform.origin).normalized()
-		var raycast_target = global_transform.origin + to_joueur * distance_vue
-		var params = PhysicsRayQueryParameters3D.create(global_transform.origin, raycast_target)
-		params.exclude = [self]
+	if raycast_enemy.is_colliding():
+		var seen = raycast_enemy.get_collider()
+		if seen == player:
+			is_pursuing = true
+			is_returning_to_base = false
+			pursuit_time = 0.0
+	else:
+		if is_pursuing:
+			pursuit_time += delta
+			if pursuit_time >= PURSUIT_TIME_LIMIT:
+				is_pursuing = false
+				is_returning_to_base = true
 
-		var result = space_state.intersect_ray(params)
-		if result and result.collider == joueur_ref:
-			poursuite = true
-			direction = to_joueur
+	if is_pursuing:
+		_pursue_player(delta)
+	elif is_returning_to_base:
+		_return_to_base(delta)
 
-	# PATROUILLE AUTONOME
-	if not poursuite:
-		var pos = global_transform.origin
+	_check_if_stuck_and_jump_or_shift(delta)
 
-		# 1. Check sol devant
-		var forward = pos + direction * 1.5
-		var down = forward + Vector3.DOWN * 2
-		var sol_check = PhysicsRayQueryParameters3D.create(forward, down)
-		sol_check.exclude = [self]
+	attack_timer += delta
+	var distance = global_position.distance_to(player.global_position)
+	if is_pursuing and is_on_floor() and distance < ATTACK_RANGE:
+		if attack_timer >= DAMAGE_COOLDOWN:
+			if "take_damage" in player:
+				player.take_damage(25)
+				print("Ennemi a attaqué à distance. Dégâts infligés : 25. Distance : ", distance)
+			else:
+				print("La méthode 'take_damage' est absente du joueur.")
+			attack_timer = 0.0  # reset cooldown
 
-		var sol = space_state.intersect_ray(sol_check)
-
-		# 2. Check mur devant
-		var front_check = PhysicsRayQueryParameters3D.create(pos, pos + direction * 1.2)
-		front_check.exclude = [self]
-
-		var mur = space_state.intersect_ray(front_check)
-
-		if not sol or not sol.collider or mur:
-			# Pas de sol ou mur → demi-tour
-			direction = -direction
-
-	velocity = direction.normalized() * vitesse
 	move_and_slide()
+
+func _pursue_player(delta):
+	var direction = (player.global_transform.origin - global_transform.origin).normalized()
+	var horizontal_direction = Vector3(direction.x, 0, direction.z).normalized()
+
+	velocity.x = horizontal_direction.x * SPEED
+	velocity.z = horizontal_direction.z * SPEED
+
+	var target_rotation = atan2(-horizontal_direction.x, -horizontal_direction.z)
+	rotation.y = lerp_angle(rotation.y, target_rotation, delta * 10.0)
+
+func _return_to_base(delta):
+	var direction = (base_position - global_transform.origin).normalized()
+	var horizontal_direction = Vector3(direction.x, 0, direction.z).normalized()
+
+	velocity.x = horizontal_direction.x * SPEED
+	velocity.z = horizontal_direction.z * SPEED
+
+	var target_rotation = atan2(-horizontal_direction.x, -horizontal_direction.z)
+	rotation.y = lerp_angle(rotation.y, target_rotation, delta * 10.0)
+
+	if global_position.distance_to(base_position) < 0.5:
+		is_returning_to_base = false
+		patrol_target = base_position + Vector3(patrol_offset, 0, 0)
+		going_right = true
+
+func _attack_player():
+	look_at(Vector3(player.global_position.x, global_position.y, player.global_position.z), Vector3.UP)
+	player.hit(global_position.direction_to(player.global_position))
+
+func _check_if_stuck_and_jump_or_shift(delta):
+	var moved = Vector3(global_position.x, 0, global_position.z).distance_to(Vector3(last_position.x, 0, last_position.z))
+
+	if !is_jumping and nav_agent.get_next_path_position() != Vector3.ZERO:
+		if moved < 0.05 and is_on_floor():
+			stuck_timer += delta
+			if stuck_timer > stuck_threshold:
+				velocity.y = jump_velocity
+				velocity.x += unblock_direction * 1.0
+				unblock_direction *= -1
+				is_jumping = true
+				stuck_timer = 0.0
+		else:
+			stuck_timer = 0.0
+
+	if is_on_floor() and is_jumping:
+		is_jumping = false
+
+	last_position = global_position

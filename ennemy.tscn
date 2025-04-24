@@ -3,8 +3,10 @@
 [ext_resource type="Script" uid="uid://cg0mtyjnh4axg" path="res://ennemy.gd" id="1_12j10"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_8dqw5"]
+size = Vector3(2, 2, 2)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_f3frg"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_12j10"]
+size = Vector3(2, 2, 2)
 
 [node name="Ennemy" type="CharacterBody3D"]
 script = ExtResource("1_12j10")
@@ -12,9 +14,14 @@ script = ExtResource("1_12j10")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_8dqw5")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("BoxShape3D_f3frg")
-
 [node name="RayCast3D" type="RayCast3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.99436, -0.106056, 0, 0.106056, 0.99436, 0, 0, 0)
+transform = Transform3D(1, 1.52388e-08, 1.7418e-07, 1.80958e-09, 0.995239, -0.0974612, -1.74836e-07, 0.0974612, 0.995239, 0, 0, 0)
 target_position = Vector3(0, -1, -10)
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.154785, 0.00396261)
+shape = SubResource("BoxShape3D_12j10")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+avoidance_enabled = true
