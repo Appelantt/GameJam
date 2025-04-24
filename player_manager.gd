@@ -14,6 +14,7 @@ func update_spider_position():
 	var player_pos = $Player.global_position
 	var offset = Vector3(0.5, 0, 1.2)  # Un peu à droite (x), et derrière (z)
 	$spider2.global_position = player_pos + offset
+	$spider2.rotation = Vector3(0, 0, 0)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
