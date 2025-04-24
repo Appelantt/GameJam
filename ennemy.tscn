@@ -1,11 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://diatkxtj0pg1n"]
+[gd_scene load_steps=5 format=3 uid="uid://diatkxtj0pg1n"]
 
 [ext_resource type="Script" uid="uid://cg0mtyjnh4axg" path="res://ennemy.gd" id="1_12j10"]
 [ext_resource type="PackedScene" uid="uid://0oshj1xfwk11" path="res://Chateau/Textue chateau/Guard.fbx" id="2_8dqw5"]
+[ext_resource type="PackedScene" uid="uid://cpi3lfywebuxw" path="res://hoverboard.glb" id="3_f3frg"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8dqw5"]
 radius = 1.0
-height = 7.5
+height = 7.8
 
 [node name="Ennemy" type="CharacterBody3D"]
 script = ExtResource("1_12j10")
@@ -14,6 +15,7 @@ script = ExtResource("1_12j10")
 transform = Transform3D(-4, 0, -3.49691e-07, 0, 4, 0, 3.49691e-07, 0, -4, 0, 0, 0)
 
 [node name="Skeleton3D" parent="Guard" index="0"]
+transform = Transform3D(0.959437, 0, 0.281923, 0, 1, 0, -0.281923, 0, 0.959437, -0.0319366, 0.103289, -2.79198e-09)
 bones/0/position = Vector3(0.00146812, 1.04129, 0.000548589)
 bones/0/rotation = Quaternion(-0.0313375, -0.0464811, -0.0286727, 0.998016)
 bones/1/rotation = Quaternion(-0.00018568, 0.0120678, 0.0219879, 0.999685)
@@ -74,10 +76,13 @@ target_position = Vector3(0, -1, -15)
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 3.23625, 0.00396261)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 3.74227, 0.00396261)
 shape = SubResource("CapsuleShape3D_8dqw5")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 avoidance_enabled = true
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("3_f3frg")]
+transform = Transform3D(-1.96701e-07, 0, 4.5, 0, 4.5, 0, -4.5, 0, -1.96701e-07, -0.111358, -0.0928069, -0.229327)
 
 [editable path="Guard"]

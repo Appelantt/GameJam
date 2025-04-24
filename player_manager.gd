@@ -45,3 +45,7 @@ func set_spider_form():
 	$Player.canBeControlled = false
 	$Player.set_camera_visibility(false)
 	$spider2.set_camera_visibility(true)
+
+
+func _on_area_3d_body_exited(body: Node3D) -> void:
+	pass # Replace with function body.
