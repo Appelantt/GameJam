@@ -33,7 +33,7 @@ var already_hit := false
 var attack_timer = 0.0
 
 func _ready():
-	player = get_node(player_path)
+	player = get_node_or_null(player_path)  # Utilisation de get_node_or_null pour éviter les erreurs si player est null
 	if player == null:
 		print("Le joueur n’a pas été trouvé. Vérifie le chemin dans l'inspecteur.")
 	else:
@@ -77,24 +77,26 @@ func _physics_process(delta):
 		_check_if_stuck_and_jump_or_shift(delta)
 
 	attack_timer += delta
-	var distance = global_position.distance_to(player.global_position)
-	if is_pursuing and is_on_floor() and distance < ATTACK_RANGE:
-		if attack_timer >= DAMAGE_COOLDOWN:
-			player.take_damage(25)  # Appliquer les dégâts au joueur
-			print("💥 Dégâts infligés au joueur.")
-			attack_timer = 0.0
+	if player != null:  # Vérification de la validité du joueur avant d'accéder à sa position
+		var distance = global_position.distance_to(player.global_position)
+		if is_pursuing and is_on_floor() and distance < ATTACK_RANGE:
+			if attack_timer >= DAMAGE_COOLDOWN:
+				player.take_damage(25)  # Appliquer les dégâts au joueur
+				print("💥 Dégâts infligés au joueur.")
+				attack_timer = 0.0
 
 	move_and_slide()
 
 func _pursue_player(delta):
-	var direction = (player.global_transform.origin - global_transform.origin).normalized()
-	var horizontal_direction = Vector3(direction.x, 0, direction.z).normalized()
+	if player != null:  # Vérification de la validité du joueur avant d'accéder à sa position
+		var direction = (player.global_transform.origin - global_transform.origin).normalized()
+		var horizontal_direction = Vector3(direction.x, 0, direction.z).normalized()
 
-	velocity.x = horizontal_direction.x * SPEED
-	velocity.z = horizontal_direction.z * SPEED
+		velocity.x = horizontal_direction.x * SPEED
+		velocity.z = horizontal_direction.z * SPEED
 
-	var target_rotation = atan2(-horizontal_direction.x, -horizontal_direction.z)
-	rotation.y = lerp_angle(rotation.y, target_rotation, delta * 10.0)
+		var target_rotation = atan2(-horizontal_direction.x, -horizontal_direction.z)
+		rotation.y = lerp_angle(rotation.y, target_rotation, delta * 10.0)
 
 func _return_to_base(delta):
 	var direction = (base_position - global_transform.origin).normalized()
@@ -127,8 +129,9 @@ func _patrol(delta):
 		going_right = not going_right
 
 func _attack_player():
-	look_at(Vector3(player.global_position.x, global_position.y, player.global_position.z), Vector3.UP)
-	player.hit(global_position.direction_to(player.global_position))
+	if player != null:  # Vérification de la validité du joueur avant d'accéder à sa position
+		look_at(Vector3(player.global_position.x, global_position.y, player.global_position.z), Vector3.UP)
+		player.hit(global_position.direction_to(player.global_position))
 
 func _check_if_stuck_and_jump_or_shift(delta):
 	var moved = Vector3(global_position.x, 0, global_position.z).distance_to(Vector3(last_position.x, 0, last_position.z))

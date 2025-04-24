@@ -7,7 +7,7 @@ func _ready():
 	connect("body_entered", Callable(self, "_on_body_entered"))
 	
 	# Exemple de changement de position de téléportation
-	teleport_position = Vector3(10, 1000, -3)  # Nouvelle position de téléportation
+	teleport_position = Vector3(26, 1.201, -870.795 )  # Nouvelle position de téléportation
 
 # Lorsque le joueur entre dans la zone, on l e téléporte
 func _on_body_entered(body: Node3D) -> void:
