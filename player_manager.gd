@@ -8,11 +8,16 @@ func _ready() -> void:
 	$Player.canBeControlled = true
 	$spider2.canBeControlled = false
 
+func update_spider_position():
+	var forward = $Player.global_transform.basis.z
+	var right = $Player.global_transform.basis.x
+	var offset = forward * 1.2 + right * 0.5  # Derrière (2 unités) + à droite (1 unité)
+	$spider2.global_position = $Player.global_position + offset
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if isPlayer:
-		$spider2.position = $Player.position
+		update_spider_position()
 	
 	if Input.is_action_just_pressed("switch_control"):
 		isPlayer = !isPlayer
@@ -22,7 +27,7 @@ func _process(delta: float) -> void:
 			set_spider_form()
 
 func set_player_form():
-	$spider2.visible = false
+	$spider2.visible = true
 	$Player.visible = true
 	$spider2.canBeControlled = false
 	$Player.canBeControlled = true
