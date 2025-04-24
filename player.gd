@@ -3,9 +3,10 @@ extends CharacterBody3D
 @export var speed = 14
 @export var gravity := 9.8
 @export var jump_force := 10.0
+@export var max_hp := 100
+@onready var health_bar: ProgressBar = get_node("/root/Quartier/Control/HealthBar")
 
-var hp = 100  # ❤️ Points de vie du joueur
-
+var hp := max_hp
 
 var canBeControlled = false
 
@@ -69,14 +70,24 @@ func _physics_process(delta):
 	move_and_slide()
 	
 	# ❤️ FONCTION pour recevoir des dégâts
-func take_damage(amount):
+func take_damage(amount): 
 	hp -= amount
 	print("HP :", hp)
+
+	if health_bar:
+		health_bar.value = hp
 
 	if hp <= 0:
 		die()
 
+	# 🔁 Mets à jour la ProgressBar
+	var health_bar = get_node("../Control/HealthBar")  # Assure-toi que le chemin est correct
+	if health_bar:
+		health_bar.value = hp
+
+	if hp <= 0:
+		die()
 # 💀 FONCTION appelée à 0 HP
 func die():
-	print("Le joueur est mort !")
-	queue_free()  # Ou respawn, animation, etc.
+	print(" Le joueur est mort !")
+	queue_free()  # Ou animation de mort, reset, etc.

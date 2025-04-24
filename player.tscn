@@ -10,13 +10,13 @@ size = Vector3(1, 1.59351, 1)
 [node name="Player" type="CharacterBody3D"]
 collision_layer = 2
 script = ExtResource("1_onrkg")
-gravity = 25.0
 
-[node name="Pivot" type="Node3D" parent="."]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Pivot"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.01577, 0)
 mesh = SubResource("CapsuleMesh_4flbx")
+skeleton = NodePath("../Pivot")
+
+[node name="Pivot" type="Node3D" parent="."]
 
 [node name="Camera3D" type="Camera3D" parent="Pivot"]
 transform = Transform3D(1, 0, 0, 0, 0.835395, 0.54965, 0, -0.54965, 0.835395, 0, 2.45665, 2.22975)
