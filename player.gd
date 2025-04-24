@@ -4,26 +4,25 @@ extends CharacterBody3D
 @export var gravity := 9.8
 @export var jump_force := 10.0
 @export var max_hp := 100
-@onready var health_bar: ProgressBar = get_node("/root/Quartier/Control/HealthBar")
+@onready var health_bar = $HealthBar 
 
 var hp := max_hp
-
 var canBeControlled = false
-
-func set_camera_visibility(isVisible):
-	$Pivot/Camera3D.set_current(isVisible)
-	
-# Contrôle souris
-@onready var pivot = $Pivot
-
 var mouse_sensitivity = 0.003
 var yaw = 0.0
 var pitch = 0.0
+var pivot
+
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
-	var health_bar = get_node("../../Control/HealthBar")
+	pivot = $Pivot
+	yaw = rotation.y
+	pitch = pivot.rotation.x
+
+	# Met à jour la barre de vie au démarrage
+	health_bar = get_node_or_null("/root/Quartier/Control/HealthBar")
 	if health_bar:
 		health_bar.value = hp
 
@@ -33,28 +32,25 @@ func _input(event):
 		pitch -= event.relative.y * mouse_sensitivity
 		pitch = clamp(pitch, deg_to_rad(-80), deg_to_rad(80))
 
-		# Le corps (Player) tourne sur l'axe Y (yaw)
 		rotation.y = yaw
-
-		# Le pivot (Pivot) tourne sur l'axe X (pitch)
 		pivot.rotation.x = pitch
 
 func _physics_process(delta):
+	if not canBeControlled:
+		return
+
 	var direction = Vector3.ZERO
-	if(canBeControlled):
+	if Input.is_action_pressed("move_right"):
+		direction += transform.basis.x
+	if Input.is_action_pressed("move_left"):
+		direction -= transform.basis.x
+	if Input.is_action_pressed("move_back"):
+		direction += transform.basis.z
+	if Input.is_action_pressed("move_forward"):
+		direction -= transform.basis.z
 
-		# Ces directions sont maintenant en fonction de la rotation du joueur
-		if Input.is_action_pressed("move_right"):
-			direction += transform.basis.x
-		if Input.is_action_pressed("move_left"):
-			direction -= transform.basis.x
-		if Input.is_action_pressed("move_back"):
-			direction += transform.basis.z
-		if Input.is_action_pressed("move_forward"):
-			direction -= transform.basis.z
-
-		if direction != Vector3.ZERO:
-			direction = direction.normalized()
+	if direction != Vector3.ZERO:
+		direction = direction.normalized()
 
 	velocity.x = direction.x * speed
 	velocity.z = direction.z * speed
@@ -63,31 +59,41 @@ func _physics_process(delta):
 		velocity.y -= gravity * delta
 	else:
 		velocity.y = 0
-		
-	if canBeControlled and Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = jump_force
+		if Input.is_action_just_pressed("jump"):
+			velocity.y = jump_force
 
 	move_and_slide()
-	
-	# ❤️ FONCTION pour recevoir des dégâts
-func take_damage(amount): 
-	hp -= amount
-	print("HP :", hp)
 
-	if health_bar:
-		health_bar.value = hp
+func set_camera_visibility(isVisible):
+	$Pivot/Camera3D.set_current(isVisible)
 
-	if hp <= 0:
-		die()
+# À ajouter dans le script du joueur
 
-	# 🔁 Mets à jour la ProgressBar
-	var health_bar = get_node("../Control/HealthBar")  # Assure-toi que le chemin est correct
-	if health_bar:
-		health_bar.value = hp
+var health = 100  # Vie du joueur
 
-	if hp <= 0:
-		die()
-# 💀 FONCTION appelée à 0 HP
+# Fonction pour recevoir des dégâts
+func take_damage(amount):
+		health -= amount
+		print("Aïe ! Vie restante : ", health)  # Affichage dans la console
+		health = max(health, 0)  # Pour éviter que la vie ne devienne négative
+
+		# Mise à jour de la barre de vie
+		if health_bar:
+			health_bar.value = health  # Mise à jour de la barre de vie avec la vie actuelle du joueur
+
+		if health <= 0:
+			print("Le joueur est mort.")  # Option pour gérer la mort du joueur
+			queue_free() 
+			# Ici tu peux ajouter un code pour gérer la mort du joueur, par exemple un restart, animation, etc.
+
 func die():
-	print(" Le joueur est mort !")
-	queue_free()  # Ou animation de mort, reset, etc.
+	print("💀 Le joueur est mort !")
+	canBeControlled = false
+	visible = false
+	set_camera_visibility(false)
+
+	var manager = get_parent()
+	if manager.has_method("reset_game"):
+		manager.call_deferred("reset_game")
+	else:
+		print("❌ Impossible d'appeler reset_game()")

@@ -6,9 +6,9 @@ var is_pursuing = false
 var is_returning_to_base = false
 
 const SPEED = 4.0
-const ATTACK_RANGE = 4.0  # ATTENTION, augmenté ici !
+const ATTACK_RANGE = 20
 const PURSUIT_TIME_LIMIT = 20.0
-const DAMAGE_COOLDOWN = 1.5  # Délai entre 2 attaques
+const DAMAGE_COOLDOWN = 1.5
 
 @export var player_path := "../PlayerManager/Player"
 @export var gravity := 9.8
@@ -71,9 +71,8 @@ func _physics_process(delta):
 	elif is_returning_to_base:
 		_return_to_base(delta)
 	else:
-		_patrol(delta)  # Appel de la patrouille
+		_patrol(delta)
 
-	# Vérifier si l'ennemi est bloqué et si un saut est nécessaire, seulement pendant la poursuite ou le retour
 	if is_pursuing or is_returning_to_base:
 		_check_if_stuck_and_jump_or_shift(delta)
 
@@ -81,12 +80,9 @@ func _physics_process(delta):
 	var distance = global_position.distance_to(player.global_position)
 	if is_pursuing and is_on_floor() and distance < ATTACK_RANGE:
 		if attack_timer >= DAMAGE_COOLDOWN:
-			if "take_damage" in player:
-				player.take_damage(25)
-				print("Ennemi a attaqué à distance. Dégâts infligés : 25. Distance : ", distance)
-			else:
-				print("La méthode 'take_damage' est absente du joueur.")
-			attack_timer = 0.0  # reset cooldown
+			player.take_damage(25)  # Appliquer les dégâts au joueur
+			print("💥 Dégâts infligés au joueur.")
+			attack_timer = 0.0
 
 	move_and_slide()
 
@@ -123,13 +119,11 @@ func _patrol(delta):
 	var target_rotation = atan2(-direction.x, -direction.z)
 	rotation.y = lerp_angle(rotation.y, target_rotation, delta * 10.0)
 
-	# Changement de direction une fois arrivé à la cible
 	if global_position.distance_to(patrol_target) < 0.5:
 		if going_right:
 			patrol_target = base_position + Vector3(patrol_offset, 0, 0)
 		else:
 			patrol_target = base_position + Vector3(-patrol_offset, 0, 0)
-
 		going_right = not going_right
 
 func _attack_player():
