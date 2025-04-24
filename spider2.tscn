@@ -45,7 +45,7 @@ size = Vector3(0.73587, 0.794352, 0.398499)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.013329, 0.0628038, 0)
 collision_layer = 2
 script = ExtResource("1_hcqli")
-gravity = 20.0
+gravity = 17.0
 jump_force = 5.0
 
 [node name="SPIDER2_LW" type="MeshInstance3D" parent="."]
