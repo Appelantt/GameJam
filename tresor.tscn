@@ -1,6 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bdjkjrkogbpck"]
+[gd_scene load_steps=7 format=3 uid="uid://bdjkjrkogbpck"]
 
 [ext_resource type="Script" uid="uid://cabafwete5fgf" path="res://tresor.gd" id="1_t6ngu"]
+[ext_resource type="Texture2D" uid="uid://cbcw5ci6lkf8" path="res://tresor/Cereal/Boite de Tresor Cereales.png" id="2_ethg0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tyot0"]
+albedo_texture = ExtResource("2_ethg0")
 
 [sub_resource type="BoxMesh" id="BoxMesh_8dqw5"]
 
@@ -10,11 +14,13 @@ size = Vector3(1.88428, 1.0293, 3.065)
 [sub_resource type="SphereShape3D" id="SphereShape3D_t6ngu"]
 
 [node name="Tresor" type="CharacterBody3D"]
+transform = Transform3D(1.44834, 0, 0, 0, 1, 0, 0, 0, 1.94092, 0, 0, 0)
 collision_mask = 3
 script = ExtResource("1_t6ngu")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.993566, 0, 0, 0, 0.579431, 0, 0, 0, 0.993566, 0, 0, 0)
+transform = Transform3D(1.59129, 0, 0, 0, 0.579431, 0, 0, 0, 1.51657, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_tyot0")
 mesh = SubResource("BoxMesh_8dqw5")
 
 [node name="Area3D" type="Area3D" parent="MeshInstance3D"]
