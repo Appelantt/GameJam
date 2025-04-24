@@ -17,7 +17,7 @@ const DAMAGE_COOLDOWN = 1.5  # Délai entre 2 attaques
 @onready var nav_agent = $NavigationAgent3D
 @onready var raycast_enemy = $RayCast3D
 
-@export var patrol_offset := 2.0
+@export var patrol_offset := 8.0
 @export var patrol_speed := 2.0
 var patrol_target := Vector3.ZERO
 var going_right := true
