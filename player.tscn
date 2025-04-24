@@ -1,11 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://dc35332wbl1wk"]
+[gd_scene load_steps=5 format=3 uid="uid://dc35332wbl1wk"]
 
 [ext_resource type="Script" uid="uid://c0nr6dhhtqhsx" path="res://player.gd" id="1_onrkg"]
+[ext_resource type="PackedScene" uid="uid://ddpsb586oplw6" path="res://Player/Looking Old Man Idle.fbx" id="2_onrkg"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_4flbx"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_onrkg"]
-size = Vector3(1, 1.59351, 1)
+size = Vector3(3, 7, 3)
 
 [node name="Player" type="CharacterBody3D"]
 collision_layer = 2
@@ -14,14 +15,18 @@ gravity = 25.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.01577, 0)
+visible = false
 mesh = SubResource("CapsuleMesh_4flbx")
 skeleton = NodePath("../Pivot")
 
 [node name="Pivot" type="Node3D" parent="."]
 
 [node name="Camera3D" type="Camera3D" parent="Pivot"]
-transform = Transform3D(1, 0, 0, 0, 0.835395, 0.54965, 0, -0.54965, 0.835395, 0, 2.45665, 2.22975)
+transform = Transform3D(1, 0, 0, 0, 0.917755, 0.397148, 0, -0.397148, 0.917755, 0, 8.01541, 4.87765)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.775024, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.47827, 0)
 shape = SubResource("BoxShape3D_onrkg")
+
+[node name="Looking Old Man Idle" parent="." instance=ExtResource("2_onrkg")]
+transform = Transform3D(-4, 0, -3.49691e-07, 0, 4, 0, 3.49691e-07, 0, -4, 0, 0, 0)
