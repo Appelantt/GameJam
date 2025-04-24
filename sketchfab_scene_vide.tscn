@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=3 uid="uid://b7khaio0idmap"]
+
+[ext_resource type="PackedScene" uid="uid://d3dbj57qfxcwd" path="res://Quartier/road.glb" id="1_filn1"]
+[ext_resource type="Texture2D" uid="uid://tfei40i5h3ky" path="res://Quartier/road_3.jpg" id="2_sjpan"]
+[ext_resource type="Texture2D" uid="uid://bk8h1y8n1m4op" path="res://Quartier/road_17.jpg" id="3_ldexe"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bnieh"]
+albedo_texture = ExtResource("2_sjpan")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cike5"]
+albedo_texture = ExtResource("3_ldexe")
+
+[node name="Sketchfab_SceneVide" instance=ExtResource("1_filn1")]
+
+[node name="Material2" parent="Sketchfab_model/Collada visual scene group" index="1"]
+material_override = SubResource("StandardMaterial3D_bnieh")
+
+[node name="Material33" parent="Sketchfab_model/Collada visual scene group" index="4"]
+material_override = SubResource("StandardMaterial3D_cike5")
+
+[node name="Material26" parent="Sketchfab_model/Collada visual scene group" index="13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.92775e-16, 0.868179)

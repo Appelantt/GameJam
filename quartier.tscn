@@ -1,8 +1,9 @@
-[gd_scene load_steps=30 format=3 uid="uid://bhi41gh61g3gi"]
+[gd_scene load_steps=33 format=3 uid="uid://bhi41gh61g3gi"]
 
 [ext_resource type="Texture2D" uid="uid://cb8virneatxwq" path="res://Quartier/2K/Poliigon_GrassPatchyGround_4585_BaseColor.jpg" id="1_oy2b0"]
 [ext_resource type="PackedScene" uid="uid://bohudpgbdoq3w" path="res://sketchfab_scene.tscn" id="2_oy2b0"]
 [ext_resource type="PackedScene" uid="uid://dc35332wbl1wk" path="res://player.tscn" id="3_1dyxj"]
+[ext_resource type="PackedScene" uid="uid://b7khaio0idmap" path="res://sketchfab_scene_vide.tscn" id="3_7kg14"]
 [ext_resource type="Script" uid="uid://bo0nl44dexra5" path="res://player_manager.gd" id="3_ukm8y"]
 [ext_resource type="PackedScene" uid="uid://diatkxtj0pg1n" path="res://ennemy.tscn" id="4_8ihd3"]
 [ext_resource type="PackedScene" uid="uid://bdjkjrkogbpck" path="res://tresor.tscn" id="5_8ihd3"]
@@ -15,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://cydpg7qa6i0hl" path="res://ARBRE.tscn" id="13_8xvty"]
 [ext_resource type="Texture2D" uid="uid://cr30ume1tfwdt" path="res://Quartier/road_13.jpg" id="14_33e3p"]
 [ext_resource type="PackedScene" uid="uid://dco0a4icxj827" path="res://Quartier/MGA4118A (1).glb" id="15_t10s7"]
+[ext_resource type="PackedScene" uid="uid://c3n73n6jqm1q2" path="res://danusia_house_fbx_vide.tscn" id="17_3uxh4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1dyxj"]
 albedo_texture = ExtResource("1_oy2b0")
@@ -65,6 +67,9 @@ data = PackedVector3Array(-12.5, 0.5, 1500, 12.5, 0.5, 1500, -12.5, -0.5, 1500, 
 [sub_resource type="BoxShape3D" id="BoxShape3D_t10s7"]
 size = Vector3(40, 40, 70)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_7kg14"]
+size = Vector3(1, 50, 500)
+
 [node name="Quartier" type="Node3D"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -81,11 +86,11 @@ debug_fill = false
 [node name="Sketchfab_Scene" parent="." instance=ExtResource("2_oy2b0")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -286.966, 0.303745, 0)
 
-[node name="Sketchfab_Scene2" parent="." instance=ExtResource("2_oy2b0")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 251.892, 0.303745, 0)
+[node name="Sketchfab_SceneVide" parent="." instance=ExtResource("3_7kg14")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 253.819, 0.111475, 0)
 
-[node name="Sketchfab_Scene3" parent="." instance=ExtResource("2_oy2b0")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -773.857, 0.303745, 0)
+[node name="Sketchfab_SceneVide2" parent="." instance=ExtResource("3_7kg14")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -804.997, 0.111475, 0)
 
 [node name="PlayerManager" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.37821, 0)
@@ -187,60 +192,6 @@ transform = Transform3D(-4.44244, 0, 2.78462e-07, 0, 5.97204, 0, -3.88371e-07, 0
 [node name="Maison lvl 10" parent="." instance=ExtResource("10_g2aqv")]
 transform = Transform3D(-4.44244, 0, 2.78462e-07, 0, 5.97204, 0, -3.88371e-07, 0, -3.18523, -108.048, 0, 50)
 
-[node name="Maison lvl 11" parent="." instance=ExtResource("10_g2aqv")]
-transform = Transform3D(4.44244, 0, 0, 0, 5.97204, 0, 0, 0, 3.18523, 424.921, 0, -48.1405)
-
-[node name="Maison lvl 12" parent="." instance=ExtResource("10_g2aqv")]
-transform = Transform3D(4.44244, 0, 0, 0, 5.97204, 0, 0, 0, 3.18523, 490.728, 0, -48.1405)
-
-[node name="Maison lvl 13" parent="." instance=ExtResource("10_g2aqv")]
-transform = Transform3D(4.44244, 0, 0, 0, 5.97204, 0, 0, 0, 3.18523, 546.838, 0, -48.1405)
-
-[node name="Maison lvl 14" parent="." instance=ExtResource("10_g2aqv")]
-transform = Transform3D(4.44244, 0, 0, 0, 5.97204, 0, 0, 0, 3.18523, 612.705, -0.0642014, -48.1075)
-
-[node name="Maison lvl 15" parent="." instance=ExtResource("10_g2aqv")]
-transform = Transform3D(-4.44244, 0, 2.78462e-07, 0, 5.97204, 0, -3.88371e-07, 0, -3.18523, 612.752, 0, 50)
-
-[node name="Maison lvl 16" parent="." instance=ExtResource("10_g2aqv")]
-transform = Transform3D(-4.44244, 0, 2.78462e-07, 0, 5.97204, 0, -3.88371e-07, 0, -3.18523, 536.868, 0, 50)
-
-[node name="Maison lvl 17" parent="." instance=ExtResource("10_g2aqv")]
-transform = Transform3D(-4.44244, 0, 2.78462e-07, 0, 5.97204, 0, -3.88371e-07, 0, -3.18523, 478.08, 0, 50)
-
-[node name="Maison lvl 18" parent="." instance=ExtResource("10_g2aqv")]
-transform = Transform3D(-4.44244, 0, 2.78462e-07, 0, 5.97204, 0, -3.88371e-07, 0, -3.18523, 416.197, 0, 50)
-
-[node name="Maison lvl 19" parent="." instance=ExtResource("10_g2aqv")]
-transform = Transform3D(-4.44244, 0, 2.78462e-07, 0, 5.97204, 0, -3.88371e-07, 0, -3.18523, 344.704, 0, 50)
-
-[node name="Maison lvl 20" parent="." instance=ExtResource("10_g2aqv")]
-transform = Transform3D(4.44244, 0, 0, 0, 5.97204, 0, 0, 0, 3.18523, -794.762, 0, -48.1405)
-
-[node name="Maison lvl 21" parent="." instance=ExtResource("10_g2aqv")]
-transform = Transform3D(4.44244, 0, 0, 0, 5.97204, 0, 0, 0, 3.18523, -728.955, 0, -48.1405)
-
-[node name="Maison lvl 22" parent="." instance=ExtResource("10_g2aqv")]
-transform = Transform3D(4.44244, 0, 0, 0, 5.97204, 0, 0, 0, 3.18523, -672.845, 0, -48.1405)
-
-[node name="Maison lvl 23" parent="." instance=ExtResource("10_g2aqv")]
-transform = Transform3D(4.44244, 0, 0, 0, 5.97204, 0, 0, 0, 3.18523, -606.978, -0.0642014, -48.1075)
-
-[node name="Maison lvl 24" parent="." instance=ExtResource("10_g2aqv")]
-transform = Transform3D(-4.44244, 0, 2.78462e-07, 0, 5.97204, 0, -3.88371e-07, 0, -3.18523, -606.931, 0, 50)
-
-[node name="Maison lvl 25" parent="." instance=ExtResource("10_g2aqv")]
-transform = Transform3D(-4.44244, 0, 2.78462e-07, 0, 5.97204, 0, -3.88371e-07, 0, -3.18523, -682.816, 0, 50)
-
-[node name="Maison lvl 26" parent="." instance=ExtResource("10_g2aqv")]
-transform = Transform3D(-4.44244, 0, 2.78462e-07, 0, 5.97204, 0, -3.88371e-07, 0, -3.18523, -741.604, 0, 50)
-
-[node name="Maison lvl 27" parent="." instance=ExtResource("10_g2aqv")]
-transform = Transform3D(-4.44244, 0, 2.78462e-07, 0, 5.97204, 0, -3.88371e-07, 0, -3.18523, -803.486, 0, 50)
-
-[node name="Maison lvl 28" parent="." instance=ExtResource("10_g2aqv")]
-transform = Transform3D(-4.44244, 0, 2.78462e-07, 0, 5.97204, 0, -3.88371e-07, 0, -3.18523, -874.979, 0, 50)
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_t10s7")
 
@@ -300,3 +251,87 @@ transform = Transform3D(0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, 254.272, 0.0887809, 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MGA4118A (1)/Area3D"]
 transform = Transform3D(0.999897, -0.0143461, 0, 0.0143461, 0.999897, 0, 0, 0, 1, 0, 24.1641, -463.247)
 shape = SubResource("BoxShape3D_t10s7")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 278.073, 0, 0)
+shape = SubResource("BoxShape3D_7kg14")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -200.302, 0, 0)
+shape = SubResource("BoxShape3D_7kg14")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 49.7907, 0, -239.284)
+shape = SubResource("BoxShape3D_7kg14")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 49.7907, 0, 239.226)
+shape = SubResource("BoxShape3D_7kg14")
+
+[node name="Danusia_House_FBX_Vide" parent="." instance=ExtResource("17_3uxh4")]
+transform = Transform3D(-4.4, 0, -3.8466e-07, 0, 4.4, 0, 3.8466e-07, 0, -4.4, 308.912, 0, 60.5873)
+
+[node name="Danusia_House_FBX_Vide6" parent="." instance=ExtResource("17_3uxh4")]
+transform = Transform3D(4.39903, 0, 0.0921466, 0, 4.4, 0, -0.0921466, 0, 4.39903, 308.912, 0, -55.8263)
+
+[node name="Danusia_House_FBX_Vide7" parent="." instance=ExtResource("17_3uxh4")]
+transform = Transform3D(4.39903, 0, 0.0921466, 0, 4.4, 0, -0.0921466, 0, 4.39903, 368.483, 0, -55.8263)
+
+[node name="Danusia_House_FBX_Vide8" parent="." instance=ExtResource("17_3uxh4")]
+transform = Transform3D(4.39903, 0, 0.0921466, 0, 4.4, 0, -0.0921466, 0, 4.39903, 440.137, 0, -55.8263)
+
+[node name="Danusia_House_FBX_Vide9" parent="." instance=ExtResource("17_3uxh4")]
+transform = Transform3D(4.39903, 0, 0.0921466, 0, 4.4, 0, -0.0921466, 0, 4.39903, 526.878, 0, -55.8263)
+
+[node name="Danusia_House_FBX_Vide10" parent="." instance=ExtResource("17_3uxh4")]
+transform = Transform3D(4.39903, 0, 0.0921466, 0, 4.4, 0, -0.0921466, 0, 4.39903, 602.004, 0, -55.8263)
+
+[node name="Danusia_House_FBX_Vide11" parent="." instance=ExtResource("17_3uxh4")]
+transform = Transform3D(4.39903, 0, 0.0921466, 0, 4.4, 0, -0.0921466, 0, 4.39903, 698.125, 0, -55.8263)
+
+[node name="Danusia_House_FBX_Vide2" parent="." instance=ExtResource("17_3uxh4")]
+transform = Transform3D(-4.4, 0, -3.8466e-07, 0, 4.4, 0, 3.8466e-07, 0, -4.4, 374.822, 0, 60.5873)
+
+[node name="Danusia_House_FBX_Vide3" parent="." instance=ExtResource("17_3uxh4")]
+transform = Transform3D(-4.4, 0, -3.8466e-07, 0, 4.4, 0, 3.8466e-07, 0, -4.4, 461.264, 0, 60.5873)
+
+[node name="Danusia_House_FBX_Vide4" parent="." instance=ExtResource("17_3uxh4")]
+transform = Transform3D(-4.4, 0, -3.8466e-07, 0, 4.4, 0, 3.8466e-07, 0, -4.4, 537.264, 0, 60.5873)
+
+[node name="Danusia_House_FBX_Vide5" parent="." instance=ExtResource("17_3uxh4")]
+transform = Transform3D(-4.4, 0, -3.8466e-07, 0, 4.4, 0, 3.8466e-07, 0, -4.4, 646.33, 0, 60.5873)
+
+[node name="Danusia_House_FBX_Vide12" parent="." instance=ExtResource("17_3uxh4")]
+transform = Transform3D(-4.4, 0, -3.8466e-07, 0, 4.4, 0, 3.8466e-07, 0, -4.4, -675.881, 0, 60.5873)
+
+[node name="Danusia_House_FBX_Vide13" parent="." instance=ExtResource("17_3uxh4")]
+transform = Transform3D(4.39903, 0, 0.0921466, 0, 4.4, 0, -0.0921466, 0, 4.39903, -675.881, 0, -55.8263)
+
+[node name="Danusia_House_FBX_Vide14" parent="." instance=ExtResource("17_3uxh4")]
+transform = Transform3D(4.39903, 0, 0.0921466, 0, 4.4, 0, -0.0921466, 0, 4.39903, -616.31, 0, -55.8263)
+
+[node name="Danusia_House_FBX_Vide15" parent="." instance=ExtResource("17_3uxh4")]
+transform = Transform3D(4.39903, 0, 0.0921466, 0, 4.4, 0, -0.0921466, 0, 4.39903, -544.656, 0, -55.8263)
+
+[node name="Danusia_House_FBX_Vide16" parent="." instance=ExtResource("17_3uxh4")]
+transform = Transform3D(4.39903, 0, 0.0921466, 0, 4.4, 0, -0.0921466, 0, 4.39903, -457.915, 0, -55.8263)
+
+[node name="Danusia_House_FBX_Vide17" parent="." instance=ExtResource("17_3uxh4")]
+transform = Transform3D(4.39903, 0, 0.0921466, 0, 4.4, 0, -0.0921466, 0, 4.39903, -382.789, 0, -55.8263)
+
+[node name="Danusia_House_FBX_Vide18" parent="." instance=ExtResource("17_3uxh4")]
+transform = Transform3D(4.39903, 0, 0.0921466, 0, 4.4, 0, -0.0921466, 0, 4.39903, -286.669, 0, -55.8263)
+
+[node name="Danusia_House_FBX_Vide19" parent="." instance=ExtResource("17_3uxh4")]
+transform = Transform3D(-4.4, 0, -3.8466e-07, 0, 4.4, 0, 3.8466e-07, 0, -4.4, -609.972, 0, 60.5873)
+
+[node name="Danusia_House_FBX_Vide20" parent="." instance=ExtResource("17_3uxh4")]
+transform = Transform3D(-4.4, 0, -3.8466e-07, 0, 4.4, 0, 3.8466e-07, 0, -4.4, -523.529, 0, 60.5873)
+
+[node name="Danusia_House_FBX_Vide21" parent="." instance=ExtResource("17_3uxh4")]
+transform = Transform3D(-4.4, 0, -3.8466e-07, 0, 4.4, 0, 3.8466e-07, 0, -4.4, -447.529, 0, 60.5873)
+
+[node name="Danusia_House_FBX_Vide22" parent="." instance=ExtResource("17_3uxh4")]
+transform = Transform3D(-4.4, 0, -3.8466e-07, 0, 4.4, 0, 3.8466e-07, 0, -4.4, -338.463, 0, 60.5873)
