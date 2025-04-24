@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dc35332wbl1wk"]
 
 [ext_resource type="Script" uid="uid://c0nr6dhhtqhsx" path="res://player.gd" id="1_onrkg"]
-[ext_resource type="PackedScene" uid="uid://ch06w3jfmc6ap" path="res://looking_old_man_idle.tscn" id="2_onrkg"]
+[ext_resource type="PackedScene" path="res://looking_old_man_idle.tscn" id="2_onrkg"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_4flbx"]
 
@@ -24,7 +24,7 @@ skeleton = NodePath("../Pivot")
 [node name="Pivot" type="Node3D" parent="."]
 
 [node name="Camera3D" type="Camera3D" parent="Pivot"]
-transform = Transform3D(1, 0, 0, 0, 0.917755, 0.397148, 0, -0.397148, 0.917755, 0, 10.2909, 4.87765)
+transform = Transform3D(1, 0, 0, 0, 0.917755, 0.397148, 0, -0.397148, 0.917755, 0, 12.5027, 7.14426)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.116736, 7.61521, -0.49512)
@@ -59,7 +59,7 @@ bones/30/rotation = Quaternion(0.57169, 0.115394, 0.0112002, 0.812237)
 bones/31/rotation = Quaternion(0.258475, 0.0584797, -0.0157136, 0.964118)
 
 [node name="SPIDER_POS" type="BoneAttachment3D" parent="Mesh/Skeleton3D" index="11"]
-transform = Transform3D(0.990092, -0.136775, 0.0317792, 0.130337, 0.979371, 0.154415, -0.0522437, -0.148743, 0.987495, -0.182294, 2.32534, 0.207417)
+transform = Transform3D(0.990092, -0.136775, 0.0317797, 0.130338, 0.979371, 0.154415, -0.0522441, -0.148743, 0.987495, -0.182294, 2.32533, 0.207417)
 bone_name = "mixamorig_Head"
 bone_idx = 5
 

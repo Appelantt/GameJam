@@ -64,11 +64,11 @@ size = Vector3(25, 1, 3000)
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_t10s7"]
 data = PackedVector3Array(-12.5, 0.5, 1500, 12.5, 0.5, 1500, -12.5, -0.5, 1500, 12.5, 0.5, 1500, 12.5, -0.5, 1500, -12.5, -0.5, 1500, 12.5, 0.5, -1500, -12.5, 0.5, -1500, 12.5, -0.5, -1500, -12.5, 0.5, -1500, -12.5, -0.5, -1500, 12.5, -0.5, -1500, 12.5, 0.5, 1500, 12.5, 0.5, -1500, 12.5, -0.5, 1500, 12.5, 0.5, -1500, 12.5, -0.5, -1500, 12.5, -0.5, 1500, -12.5, 0.5, -1500, -12.5, 0.5, 1500, -12.5, -0.5, -1500, -12.5, 0.5, 1500, -12.5, -0.5, 1500, -12.5, -0.5, -1500, 12.5, 0.5, 1500, -12.5, 0.5, 1500, 12.5, 0.5, -1500, -12.5, 0.5, 1500, -12.5, 0.5, -1500, 12.5, 0.5, -1500, -12.5, -0.5, 1500, 12.5, -0.5, 1500, -12.5, -0.5, -1500, 12.5, -0.5, 1500, 12.5, -0.5, -1500, -12.5, -0.5, -1500)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_t10s7"]
-size = Vector3(40, 40, 70)
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_7kg14"]
 size = Vector3(1, 50, 500)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t10s7"]
+size = Vector3(40, 40, 70)
 
 [node name="Quartier" type="Node3D"]
 
@@ -246,12 +246,6 @@ shape = SubResource("ConcavePolygonShape3D_t10s7")
 [node name="MGA4118A (1)" parent="." instance=ExtResource("15_t10s7")]
 transform = Transform3D(0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, 254.272, 0.0887809, 99.0964)
 
-[node name="Area3D" type="Area3D" parent="MGA4118A (1)"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MGA4118A (1)/Area3D"]
-transform = Transform3D(0.999897, -0.0143461, 0, 0.0143461, 0.999897, 0, 0, 0, 1, 0, 24.1641, -463.247)
-shape = SubResource("BoxShape3D_t10s7")
-
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
@@ -269,6 +263,10 @@ shape = SubResource("BoxShape3D_7kg14")
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 49.7907, 0, 239.226)
 shape = SubResource("BoxShape3D_7kg14")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(0.119988, -0.00172153, 0, 0.00172153, 0.119988, 0, 0, 0, 0.12, 254.272, 3.37967, 43.5068)
+shape = SubResource("BoxShape3D_t10s7")
 
 [node name="Danusia_House_FBX_Vide" parent="." instance=ExtResource("17_3uxh4")]
 transform = Transform3D(-4.4, 0, -3.8466e-07, 0, 4.4, 0, 3.8466e-07, 0, -4.4, 308.912, 0, 60.5873)
