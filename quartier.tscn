@@ -9,7 +9,7 @@
 [ext_resource type="FontFile" uid="uid://dmyttn2og37h6" path="res://fonts/Montserrat-Medium.ttf" id="5_11drx"]
 [ext_resource type="PackedScene" uid="uid://pqmkm6vwq6al" path="res://spider2.tscn" id="5_g2aqv"]
 [ext_resource type="Script" uid="uid://cqj5xas55fvro" path="res://score.gd" id="5_sw6ff"]
-[ext_resource type="PackedScene" uid="uid://ymujwb55fy7w" path="res://Maison/Danusia_House_FBX.tscn" id="10_g2aqv"]
+[ext_resource type="PackedScene" uid="uid://h3hrwkybvrfj" path="res://Maison/Danusia_House_FBX.tscn" id="10_g2aqv"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1dyxj"]
 albedo_texture = ExtResource("1_oy2b0")
@@ -97,5 +97,32 @@ transform = Transform3D(1, 0, 0, 0, 0.707652, 0, 0, 0, 1, -2.01932, 1.30046, -4.
 [node name="Tresor4" parent="." instance=ExtResource("5_8ihd3")]
 transform = Transform3D(1, 0, 0, 0, 0.707652, 0, 0, 0, 1, 10.4308, 1.30046, -4.34589)
 
-[node name="Danusia_House_FBX" parent="." instance=ExtResource("10_g2aqv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -94.1671, 0, -51.9509)
+[node name="Maison lvl 1" parent="." instance=ExtResource("10_g2aqv")]
+transform = Transform3D(4.44244, 0, 0, 0, 5.97204, 0, 0, 0, 3.18523, -88.5313, 0, -48.1405)
+
+[node name="Maison lvl 2" parent="." instance=ExtResource("10_g2aqv")]
+transform = Transform3D(4.44244, 0, 0, 0, 5.97204, 0, 0, 0, 3.18523, -27.8311, 0, -48.1405)
+
+[node name="Maison lvl 3" parent="." instance=ExtResource("10_g2aqv")]
+transform = Transform3D(4.44244, 0, 0, 0, 5.97204, 0, 0, 0, 3.18523, 37.9757, 0, -48.1405)
+
+[node name="Maison lvl 4" parent="." instance=ExtResource("10_g2aqv")]
+transform = Transform3D(4.44244, 0, 0, 0, 5.97204, 0, 0, 0, 3.18523, 94.0861, 0, -48.1405)
+
+[node name="Maison lvl 5" parent="." instance=ExtResource("10_g2aqv")]
+transform = Transform3D(4.44244, 0, 0, 0, 5.97204, 0, 0, 0, 3.18523, 159.953, -0.0642014, -48.1075)
+
+[node name="Maison lvl 6" parent="." instance=ExtResource("10_g2aqv")]
+transform = Transform3D(-4.44244, 0, 2.78462e-07, 0, 5.97204, 0, -3.88371e-07, 0, -3.18523, 160, 0, 50)
+
+[node name="Maison lvl 7" parent="." instance=ExtResource("10_g2aqv")]
+transform = Transform3D(-4.44244, 0, 2.78462e-07, 0, 5.97204, 0, -3.88371e-07, 0, -3.18523, 84.1153, 0, 50)
+
+[node name="Maison lvl 8" parent="." instance=ExtResource("10_g2aqv")]
+transform = Transform3D(-4.44244, 0, 2.78462e-07, 0, 5.97204, 0, -3.88371e-07, 0, -3.18523, 25.3274, 0, 50)
+
+[node name="Maison lvl 9" parent="." instance=ExtResource("10_g2aqv")]
+transform = Transform3D(-4.44244, 0, 2.78462e-07, 0, 5.97204, 0, -3.88371e-07, 0, -3.18523, -36.5552, 0, 50)
+
+[node name="Maison lvl 10" parent="." instance=ExtResource("10_g2aqv")]
+transform = Transform3D(-4.44244, 0, 2.78462e-07, 0, 5.97204, 0, -3.88371e-07, 0, -3.18523, -108.048, 0, 50)
