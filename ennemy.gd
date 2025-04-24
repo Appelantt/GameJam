@@ -6,7 +6,7 @@ var is_pursuing = false
 var is_returning_to_base = false
 
 const SPEED = 4.0
-const ATTACK_RANGE = 4.0  # ← ATTENTION, augmenté ici !
+const ATTACK_RANGE = 4.0  # ATTENTION, augmenté ici !
 const PURSUIT_TIME_LIMIT = 20.0
 const DAMAGE_COOLDOWN = 1.5  # Délai entre 2 attaques
 
@@ -70,8 +70,12 @@ func _physics_process(delta):
 		_pursue_player(delta)
 	elif is_returning_to_base:
 		_return_to_base(delta)
+	else:
+		_patrol(delta)  # Appel de la patrouille
 
-	_check_if_stuck_and_jump_or_shift(delta)
+	# Vérifier si l'ennemi est bloqué et si un saut est nécessaire, seulement pendant la poursuite ou le retour
+	if is_pursuing or is_returning_to_base:
+		_check_if_stuck_and_jump_or_shift(delta)
 
 	attack_timer += delta
 	var distance = global_position.distance_to(player.global_position)
@@ -111,10 +115,27 @@ func _return_to_base(delta):
 		patrol_target = base_position + Vector3(patrol_offset, 0, 0)
 		going_right = true
 
+func _patrol(delta):
+	var direction = (patrol_target - global_transform.origin).normalized()
+	velocity.x = direction.x * patrol_speed
+	velocity.z = direction.z * patrol_speed
+
+	var target_rotation = atan2(-direction.x, -direction.z)
+	rotation.y = lerp_angle(rotation.y, target_rotation, delta * 10.0)
+
+	# Changement de direction une fois arrivé à la cible
+	if global_position.distance_to(patrol_target) < 0.5:
+		if going_right:
+			patrol_target = base_position + Vector3(patrol_offset, 0, 0)
+		else:
+			patrol_target = base_position + Vector3(-patrol_offset, 0, 0)
+
+		going_right = not going_right
+
 func _attack_player():
 	look_at(Vector3(player.global_position.x, global_position.y, player.global_position.z), Vector3.UP)
 	player.hit(global_position.direction_to(player.global_position))
-	
+
 func _check_if_stuck_and_jump_or_shift(delta):
 	var moved = Vector3(global_position.x, 0, global_position.z).distance_to(Vector3(last_position.x, 0, last_position.z))
 
