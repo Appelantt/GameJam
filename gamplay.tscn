@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dxopvmx65axit"]
+[gd_scene load_steps=16 format=3 uid="uid://c8cps67q5jl3u"]
 
 [ext_resource type="Script" path="res://gamplay.gd" id="1_fdqb2"]
 [ext_resource type="PackedScene" uid="uid://pqmkm6vwq6al" path="res://spider2.tscn" id="1_k770x"]
