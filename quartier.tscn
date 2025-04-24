@@ -8,8 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://bdjkjrkogbpck" path="res://tresor.tscn" id="5_8ihd3"]
 [ext_resource type="FontFile" uid="uid://dmyttn2og37h6" path="res://fonts/Montserrat-Medium.ttf" id="5_11drx"]
 [ext_resource type="PackedScene" uid="uid://pqmkm6vwq6al" path="res://spider2.tscn" id="5_g2aqv"]
-[ext_resource type="Script" uid="uid://cqj5xas55fvro" path="res://score.gd" id="5_sw6ff"]
-[ext_resource type="PackedScene" uid="uid://h3hrwkybvrfj" path="res://Maison/Danusia_House_FBX.tscn" id="10_g2aqv"]
+[ext_resource type="Script" path="res://score.gd" id="5_sw6ff"]
+[ext_resource type="PackedScene" uid="uid://ymujwb55fy7w" path="res://Maison/Danusia_House_FBX.tscn" id="10_g2aqv"]
 [ext_resource type="Script" uid="uid://bjy7wkastw4k0" path="res://teleport.gd" id="11_l2fju"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1dyxj"]
@@ -60,10 +60,11 @@ script = ExtResource("3_ukm8y")
 [node name="spider2" parent="PlayerManager" instance=ExtResource("5_g2aqv")]
 
 [node name="Ennemy" parent="." instance=ExtResource("4_8ihd3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.77832, -61.9159)
+transform = Transform3D(-0.101872, 0, -0.994797, 0, 1, 0, 0.994797, 0, -0.101872, 0, 5.77832, -19.2373)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.947171, 0.12751, 0.294292, -0.320729, 0.376561, 0.8691, 0, -0.917574, 0.397564, 23.0481, 75.4984, 0)
+transform = Transform3D(0.899236, 0.372845, 0.228826, -0.370055, 0.369341, 0.852436, 0.233312, -0.851219, 0.470098, 23.0481, 75.4984, 0)
+light_energy = 3.0
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
