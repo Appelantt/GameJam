@@ -3,13 +3,13 @@
 [ext_resource type="Texture2D" uid="uid://cb8virneatxwq" path="res://Quartier/2K/Poliigon_GrassPatchyGround_4585_BaseColor.jpg" id="1_oy2b0"]
 [ext_resource type="PackedScene" uid="uid://bohudpgbdoq3w" path="res://sketchfab_scene.tscn" id="2_oy2b0"]
 [ext_resource type="PackedScene" uid="uid://dc35332wbl1wk" path="res://player.tscn" id="3_1dyxj"]
-[ext_resource type="Script" uid="uid://bo0nl44dexra5" path="res://player_manager.gd" id="3_ukm8y"]
+[ext_resource type="Script" path="res://player_manager.gd" id="3_ukm8y"]
 [ext_resource type="PackedScene" uid="uid://diatkxtj0pg1n" path="res://ennemy.tscn" id="4_8ihd3"]
 [ext_resource type="PackedScene" uid="uid://bdjkjrkogbpck" path="res://tresor.tscn" id="5_8ihd3"]
 [ext_resource type="FontFile" uid="uid://dmyttn2og37h6" path="res://fonts/Montserrat-Medium.ttf" id="5_11drx"]
 [ext_resource type="PackedScene" uid="uid://pqmkm6vwq6al" path="res://spider2.tscn" id="5_g2aqv"]
-[ext_resource type="Script" uid="uid://cqj5xas55fvro" path="res://score.gd" id="5_sw6ff"]
-[ext_resource type="PackedScene" uid="uid://h3hrwkybvrfj" path="res://Maison/Danusia_House_FBX.tscn" id="10_g2aqv"]
+[ext_resource type="Script" path="res://score.gd" id="5_sw6ff"]
+[ext_resource type="PackedScene" uid="uid://ymujwb55fy7w" path="res://Maison/Danusia_House_FBX.tscn" id="10_g2aqv"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1dyxj"]
 albedo_texture = ExtResource("1_oy2b0")
@@ -52,12 +52,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.37821, 0)
 script = ExtResource("3_ukm8y")
 
 [node name="Player" parent="PlayerManager" instance=ExtResource("3_1dyxj")]
+gravity = 9.8
 
 [node name="spider2" parent="PlayerManager" instance=ExtResource("5_g2aqv")]
 
 [node name="Ennemy" parent="." instance=ExtResource("4_8ihd3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.77832, -61.9159)
-player_path = "../PlayerManager/Player"
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.947171, 0.12751, 0.294292, -0.320729, 0.376561, 0.8691, 0, -0.917574, 0.397564, 23.0481, 75.4984, 0)
