@@ -114,7 +114,7 @@ func _return_to_base(delta):
 func _attack_player():
 	look_at(Vector3(player.global_position.x, global_position.y, player.global_position.z), Vector3.UP)
 	player.hit(global_position.direction_to(player.global_position))
-
+	
 func _check_if_stuck_and_jump_or_shift(delta):
 	var moved = Vector3(global_position.x, 0, global_position.z).distance_to(Vector3(last_position.x, 0, last_position.z))
 
