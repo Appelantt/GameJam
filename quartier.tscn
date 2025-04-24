@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bhi41gh61g3gi"]
+[gd_scene load_steps=30 format=3 uid="uid://bhi41gh61g3gi"]
 
 [ext_resource type="Texture2D" uid="uid://cb8virneatxwq" path="res://Quartier/2K/Poliigon_GrassPatchyGround_4585_BaseColor.jpg" id="1_oy2b0"]
 [ext_resource type="PackedScene" uid="uid://bohudpgbdoq3w" path="res://sketchfab_scene.tscn" id="2_oy2b0"]
@@ -13,6 +13,8 @@
 [ext_resource type="Script" uid="uid://bjy7wkastw4k0" path="res://teleport.gd" id="11_l2fju"]
 [ext_resource type="Texture2D" uid="uid://daqbd4xrsogyh" path="res://Chateau/Textue chateau/qwantani_puresky_1k.exr" id="12_q7sgw"]
 [ext_resource type="PackedScene" uid="uid://cydpg7qa6i0hl" path="res://ARBRE.tscn" id="13_8xvty"]
+[ext_resource type="Texture2D" uid="uid://cr30ume1tfwdt" path="res://Quartier/road_13.jpg" id="14_33e3p"]
+[ext_resource type="PackedScene" uid="uid://dco0a4icxj827" path="res://Quartier/MGA4118A (1).glb" id="15_t10s7"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1dyxj"]
 albedo_texture = ExtResource("1_oy2b0")
@@ -47,6 +49,22 @@ sky_material = SubResource("PanoramaSkyMaterial_8xvty")
 background_mode = 2
 sky = SubResource("Sky_33e3p")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t10s7"]
+albedo_texture = ExtResource("14_33e3p")
+uv1_scale = Vector3(0.1, 0.1, 0.1)
+uv1_triplanar = true
+uv2_scale = Vector3(100, 100, 100)
+
+[sub_resource type="BoxMesh" id="BoxMesh_7kg14"]
+material = SubResource("StandardMaterial3D_t10s7")
+size = Vector3(25, 1, 3000)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_t10s7"]
+data = PackedVector3Array(-12.5, 0.5, 1500, 12.5, 0.5, 1500, -12.5, -0.5, 1500, 12.5, 0.5, 1500, 12.5, -0.5, 1500, -12.5, -0.5, 1500, 12.5, 0.5, -1500, -12.5, 0.5, -1500, 12.5, -0.5, -1500, -12.5, 0.5, -1500, -12.5, -0.5, -1500, 12.5, -0.5, -1500, 12.5, 0.5, 1500, 12.5, 0.5, -1500, 12.5, -0.5, 1500, 12.5, 0.5, -1500, 12.5, -0.5, -1500, 12.5, -0.5, 1500, -12.5, 0.5, -1500, -12.5, 0.5, 1500, -12.5, -0.5, -1500, -12.5, 0.5, 1500, -12.5, -0.5, 1500, -12.5, -0.5, -1500, 12.5, 0.5, 1500, -12.5, 0.5, 1500, 12.5, 0.5, -1500, -12.5, 0.5, 1500, -12.5, 0.5, -1500, 12.5, 0.5, -1500, -12.5, -0.5, 1500, 12.5, -0.5, 1500, -12.5, -0.5, -1500, 12.5, -0.5, 1500, 12.5, -0.5, -1500, -12.5, -0.5, -1500)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t10s7"]
+size = Vector3(40, 40, 70)
+
 [node name="Quartier" type="Node3D"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -74,11 +92,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.37821, 0)
 script = ExtResource("3_ukm8y")
 
 [node name="Player" parent="PlayerManager" instance=ExtResource("3_1dyxj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 247.655, -4.75, 35.0453)
+speed = 30
 
 [node name="spider2" parent="PlayerManager" instance=ExtResource("5_g2aqv")]
 
 [node name="Ennemy" parent="." instance=ExtResource("4_8ihd3")]
-transform = Transform3D(-0.101872, 0, -0.994797, 0, 1, 0, 0.994797, 0, -0.101872, 0, 5.77832, -19.2373)
+transform = Transform3D(-0.101872, 0, -0.994797, 0, 1, 0, 0.994797, 0, -0.101872, -89.3229, 5.77832, -22.2864)
+
+[node name="Ennemy3" parent="." instance=ExtResource("4_8ihd3")]
+transform = Transform3D(-0.101872, 0, -0.994797, 0, 1, 0, 0.994797, 0, -0.101872, 57.7535, 5.77832, -25.6715)
+
+[node name="Ennemy4" parent="." instance=ExtResource("4_8ihd3")]
+transform = Transform3D(-0.101872, 0, -0.994797, 0, 1, 0, 0.994797, 0, -0.101872, 57.7535, 5.77832, 25.1298)
+
+[node name="Ennemy2" parent="." instance=ExtResource("4_8ihd3")]
+transform = Transform3D(-0.101872, 0, -0.994797, 0, 1, 0, 0.994797, 0, -0.101872, -120.922, 2.34249, 30.2989)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.899236, 0.372845, 0.228826, -0.370055, 0.369341, 0.852436, 0.233312, -0.851219, 0.470098, 23.0481, 75.4984, 0)
@@ -247,3 +276,27 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -594.735, 0, 91.8411)
 
 [node name="Node3D6" parent="." instance=ExtResource("13_8xvty")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -594.735, 0, -258.935)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 265.03, -0.323218, 0)
+mesh = SubResource("BoxMesh_7kg14")
+
+[node name="Area3D2" type="Area3D" parent="MeshInstance3D2"]
+transform = Transform3D(0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -10.7584, 0.411999, 99.0964)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="MeshInstance3D2/Area3D2"]
+transform = Transform3D(8.33333, 0, 0, 0, 8.33333, 0, 0, 0, 8.33333, 89.6531, 1.5311, -825.803)
+shape = SubResource("ConcavePolygonShape3D_t10s7")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="MeshInstance3D2/Area3D2"]
+transform = Transform3D(8.33333, 0, 0, 0, 8.33333, 0, 0, 0, 8.33333, 89.6531, 1.5311, -825.803)
+shape = SubResource("ConcavePolygonShape3D_t10s7")
+
+[node name="MGA4118A (1)" parent="." instance=ExtResource("15_t10s7")]
+transform = Transform3D(0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, 254.272, 0.0887809, 99.0964)
+
+[node name="Area3D" type="Area3D" parent="MGA4118A (1)"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MGA4118A (1)/Area3D"]
+transform = Transform3D(0.999897, -0.0143461, 0, 0.0143461, 0.999897, 0, 0, 0, 1, 0, 24.1641, -463.247)
+shape = SubResource("BoxShape3D_t10s7")
