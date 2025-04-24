@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://culirnnl4jvvi"
+path="res://.godot/imported/Table de billard LODs.obj-ddba9f4d6bf0e54e4116b4d9fa75bec7.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Table de billard LODs.obj-ddba9f4d6bf0e54e4116b4d9fa75bec7.mesh"]
+
+source_file="res://Maison/Lvl 2/Table de billard LODs.obj"
+dest_files=["res://.godot/imported/Table de billard LODs.obj-ddba9f4d6bf0e54e4116b4d9fa75bec7.mesh", "res://.godot/imported/Table de billard LODs.obj-ddba9f4d6bf0e54e4116b4d9fa75bec7.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

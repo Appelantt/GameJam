@@ -1,0 +1,34 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://bve4uw4jq3n5n"
+path="res://.godot/imported/pool_table_Normal.png-76d44f1b91f2ac9e96d6b5709ce3ed1e.ctex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://Maison/Lvl 2/4096x4096/pool_table_Normal.png"
+dest_files=["res://.godot/imported/pool_table_Normal.png-76d44f1b91f2ac9e96d6b5709ce3ed1e.ctex"]
+
+[params]
+
+compress/mode=0
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=false
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=1
