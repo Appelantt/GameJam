@@ -9,7 +9,7 @@ const SPEED = 4.0
 const ATTACK_RANGE = 2.0
 const PURSUIT_TIME_LIMIT = 20.0
 
-@export var player_path := "../Player"
+@export var player_path := "../PlayerManager/Player"
 @export var gravity := 9.8
 @export var base_position := Vector3.ZERO
 
@@ -47,11 +47,20 @@ func _physics_process(delta):
 	else:
 		velocity.y = 0
 
+	# Affichage de ce que voit le RayCast
+	if raycast_enemy.is_colliding():
+		var seen = raycast_enemy.get_collider()
+		print("Raycast voit : ", seen.name, " (type : ", typeof(seen), ")")
+	else:
+		print("Raycast ne voit rien.")
+
 	# Vision du joueur
-	if raycast_enemy.is_colliding() and raycast_enemy.get_collider() == player:
-		is_pursuing = true
-		is_returning_to_base = false
-		pursuit_time = 0.0
+	if raycast_enemy.is_colliding() :
+		print(raycast_enemy.get_collider().name)    
+		if raycast_enemy.get_collider() == player:
+			is_pursuing = true
+			is_returning_to_base = false
+			pursuit_time = 0.0
 	else:
 		if is_pursuing:
 			pursuit_time += delta
@@ -64,8 +73,6 @@ func _physics_process(delta):
 		_pursue_player(delta)
 	elif is_returning_to_base:
 		_return_to_base(delta)
-	else:
-		_patrol(delta)
 
 	_check_if_stuck_and_jump_or_shift(delta)
 
@@ -95,20 +102,6 @@ func _return_to_base(delta):
 		is_returning_to_base = false
 		patrol_target = base_position + Vector3(patrol_offset, 0, 0)
 		going_right = true
-
-func _patrol(delta):
-	var direction = patrol_target - global_transform.origin
-	var horizontal_direction = Vector3(direction.x, 0, direction.z).normalized()
-
-	velocity.x = horizontal_direction.x * patrol_speed
-	velocity.z = horizontal_direction.z * patrol_speed
-
-	var target_rotation = atan2(-horizontal_direction.x, -horizontal_direction.z)
-	rotation.y = lerp_angle(rotation.y, target_rotation, delta * 5.0)
-
-	if global_position.distance_to(patrol_target) < 0.2:
-		going_right = !going_right
-		patrol_target = base_position + Vector3((patrol_offset if going_right else -patrol_offset), 0, 0)
 
 func _attack_player():
 	look_at(Vector3(player.global_position.x, global_position.y, player.global_position.z), Vector3.UP)
