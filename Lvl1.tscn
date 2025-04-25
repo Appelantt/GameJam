@@ -110,10 +110,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.46476e-08, -0.335097)
 shape = SubResource("BoxShape3D_rlymy")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.0555, 13.581, 2.11426)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.0555, 10.0806, 2.11426)
+layers = 3
 mesh = SubResource("BoxMesh_r555k")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D/MeshInstance3D"]
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/MeshInstance3D/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_d1y27")
@@ -186,7 +189,7 @@ spot_angle = 86.0
 transform = Transform3D(-0.953869, 0, 0.300223, 0, 1, 0, -0.300223, 0, -0.953869, 10.0764, 0, -2.0161)
 
 [node name="Ennemy2" parent="." instance=ExtResource("6_3yg0f")]
-transform = Transform3D(0.981134, 0, -0.193327, 0, 1, 0, 0.193327, 0, 0.981134, -22.9468, 0.102476, 18.5849)
+transform = Transform3D(0.0387364, 0, -0.999249, 0, 1, 0, 0.999249, 0, 0.0387364, -18.0214, 0.102476, 18.5849)
 
 [node name="furniture_storage_shelf01" parent="." instance=ExtResource("7_4bjlo")]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -14.7873, 4.40675, 27.69)
