@@ -336,3 +336,5 @@ transform = Transform3D(-4.4, 0, -3.8466e-07, 0, 4.4, 0, 3.8466e-07, 0, -4.4, -4
 
 [node name="Danusia_House_FBX_Vide22" parent="." instance=ExtResource("17_3uxh4")]
 transform = Transform3D(-4.4, 0, -3.8466e-07, 0, 4.4, 0, 3.8466e-07, 0, -4.4, -338.463, 0, 60.5873)
+
+[editable path="Maison lvl 1/Node3D12"]

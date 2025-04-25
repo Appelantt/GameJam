@@ -10,7 +10,7 @@ const ATTACK_RANGE = 20
 const PURSUIT_TIME_LIMIT = 20.0
 const DAMAGE_COOLDOWN = 1.5
 
-@export var player_path := "../PlayerManager/Player"
+var player_path := "/root/Quartier/PlayerManager/Player"
 @export var gravity := 9.8
 @export var base_position := Vector3.ZERO
 
