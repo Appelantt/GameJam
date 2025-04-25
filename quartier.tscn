@@ -9,7 +9,7 @@
 [ext_resource type="FontFile" uid="uid://dmyttn2og37h6" path="res://fonts/Montserrat-Medium.ttf" id="5_11drx"]
 [ext_resource type="PackedScene" uid="uid://pqmkm6vwq6al" path="res://spider2.tscn" id="5_g2aqv"]
 [ext_resource type="Script" uid="uid://cqj5xas55fvro" path="res://score.gd" id="5_sw6ff"]
-[ext_resource type="PackedScene" uid="uid://ymujwb55fy7w" path="res://Maison/Danusia House FBX.tscn" id="10_g2aqv"]
+[ext_resource type="PackedScene" uid="uid://ymujwb55fy7w" path="res://Maison/Danusia_House_FBX.tscn" id="10_g2aqv"]
 [ext_resource type="Script" uid="uid://bjy7wkastw4k0" path="res://teleport.gd" id="11_l2fju"]
 [ext_resource type="PackedScene" uid="uid://crl1o2hkusqco" path="res://Lvl1.tscn" id="12_3uxh4"]
 [ext_resource type="PackedScene" uid="uid://cydpg7qa6i0hl" path="res://ARBRE.tscn" id="13_8xvty"]
@@ -210,6 +210,16 @@ transform = Transform3D(0.210484, 0, 0, 0, 0.135181, 0, 0, 0, 0.318058, -66.6588
 
 [node name="MARKER_TP" type="Node3D" parent="Maison lvl 2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -64.7279, 1.59827, -287.9)
+
+[node name="Area3D2" type="Area3D" parent="Maison lvl 2" node_paths=PackedStringArray("teleport_position")]
+transform = Transform3D(1, 0, 0, 0, 2.9871, 0, 0, 0, 9.3057, -61.2229, 1.13639, -287.903)
+collision_mask = 2
+script = ExtResource("11_l2fju")
+teleport_position = NodePath("../../Maison lvl 1/SPOWN POINT")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Maison lvl 2/Area3D2"]
+transform = Transform3D(0.999987, 0, 0, 0, 1, 0, 0, 0, 2.3973, 0.283879, 0.205088, 0.0467148)
+shape = SubResource("BoxShape3D_g2aqv")
 
 [node name="Maison lvl 3" parent="." instance=ExtResource("10_g2aqv")]
 transform = Transform3D(4.44244, 0, 0, 0, 5.97204, 0, 0, 0, 3.18523, 37.9757, 0, -48.1405)
