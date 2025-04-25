@@ -82,7 +82,7 @@ func _physics_process(delta):
 	if direction.length() > 0.1:
 		anim_player.play("Walking in place/mixamo_com")
 	else:
-		anim_player.play("mixamo_com")
+		anim_player.play("look around/mixamo_com")
 
 func set_camera_visibility(isVisible):
 	$Pivot/Camera3D.set_current(isVisible)
