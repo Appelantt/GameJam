@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://dlvx7b0lwh66a"]
+[gd_scene load_steps=37 format=3 uid="uid://87kt6a8u3ghg"]
 
 [ext_resource type="Texture2D" uid="uid://dvs22qmcw1ci2" path="res://Maison/texture/Textures Maison Danusia/marble_dark .jpg" id="1_0dhcr"]
 [ext_resource type="Texture2D" uid="uid://1qmungowm45t" path="res://Maison/texture/Textures Maison Danusia/wood_light.png" id="2_owo1g"]
@@ -10,9 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://dtnegtmtqbiy3" path="res://interieur/MGA3077S.glb" id="8_ymghf"]
 [ext_resource type="PackedScene" uid="uid://bb18i0qc7mmnv" path="res://interieur/MGA3153A.glb" id="9_r4qac"]
 [ext_resource type="PackedScene" uid="uid://bdjkjrkogbpck" path="res://tresor.tscn" id="10_5sh2d"]
-[ext_resource type="Script" uid="uid://bo0nl44dexra5" path="res://player_manager.gd" id="11_nhc8w"]
-[ext_resource type="PackedScene" uid="uid://pqmkm6vwq6al" path="res://spider2.tscn" id="12_bqw4l"]
-[ext_resource type="PackedScene" uid="uid://dc35332wbl1wk" path="res://player.tscn" id="13_uje7j"]
 [ext_resource type="PackedScene" uid="uid://dc8sf7t7bjf7u" path="res://interieur/MGA1134A.glb" id="14_om38a"]
 [ext_resource type="PackedScene" uid="uid://br7mo62ou42u8" path="res://interieur/MGA4217S.glb" id="15_lxojt"]
 
@@ -176,6 +173,13 @@ mesh = SubResource("QuadMesh_wojwp")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D4/StaticBody3D"]
 shape = SubResource("BoxShape3D_a3o0u")
 
+[node name="Label" type="Label" parent="MeshInstance3D4"]
+offset_left = 233.0
+offset_top = 80.0
+offset_right = 397.0
+offset_bottom = 103.0
+text = "4 Tresor a trouver ici."
+
 [node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
 transform = Transform3D(-1.645, 0, 1.50996e-07, 0, 1, 0, -2.48388e-07, 0, -1, 0.54915, 11.7064, 39.7409)
 mesh = SubResource("QuadMesh_wojwp")
@@ -206,11 +210,17 @@ spot_angle = 86.0
 [node name="Ennemy" parent="." instance=ExtResource("5_6o0e5")]
 transform = Transform3D(-0.0146952, 0, 0.999892, 0, 1, 0, -0.999892, 0, -0.0146952, 16.4092, 0, -2.0161)
 
+[node name="Ennemy4" parent="." instance=ExtResource("5_6o0e5")]
+transform = Transform3D(-0.99905, 0, -0.0435846, 0, 1, 0, 0.0435846, 0, -0.99905, 49.7253, 0, -13.3273)
+
 [node name="Ennemy2" parent="." instance=ExtResource("5_6o0e5")]
 transform = Transform3D(-0.987186, 0, 0.159571, 0, 1, 0, -0.159571, 0, -0.987186, -24.4779, 0.102476, 18.5849)
 
 [node name="Ennemy3" parent="." instance=ExtResource("5_6o0e5")]
 transform = Transform3D(0.996869, 0, 0.0790678, 0, 1, 0, -0.0790678, 0, 0.996869, -46.4867, 0.102476, 18.5849)
+
+[node name="Ennemy6" parent="." instance=ExtResource("5_6o0e5")]
+transform = Transform3D(0.161524, -0.983162, -0.0854555, 0.983727, 0.153502, 0.093368, -0.0786783, -0.0991461, 0.991958, -46.253, 2.54973, -43.6211)
 
 [node name="furniture_storage_shelf01" parent="." instance=ExtResource("6_sq15j")]
 transform = Transform3D(-0.0498453, 0, 3.99969, 0, 4, 0, -3.99969, 0, -0.0498453, 63.5343, 4.40675, 27.69)
@@ -231,6 +241,16 @@ transform = Transform3D(-0.0501571, 0, 0.998741, 0, 1, 0, -0.998741, 0, -0.05015
 transform = Transform3D(0.973891, 0, 1.11759e-08, 0, 0.999998, 0, -3.72529e-09, 0, 1.65496, -198.542, 19.9413, 21.5507)
 shape = SubResource("BoxShape3D_4bjlo")
 
+[node name="MGA3003A3" parent="." instance=ExtResource("7_a5f16")]
+transform = Transform3D(0.0999995, 0, -0.000333358, 0, 0.1, 0, 0.000333358, 0, 0.0999995, -49.9529, 0.0273561, -43.2451)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MGA3003A3"]
+transform = Transform3D(-0.0501571, 0, 0.998741, 0, 1, 0, -0.998741, 0, -0.0501571, -24.6779, 3.72692, -200.875)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MGA3003A3/StaticBody3D"]
+transform = Transform3D(0.973891, 0, 1.11759e-08, 0, 0.999998, 0, -3.72529e-09, 0, 1.65496, -198.542, 19.9413, 21.5507)
+shape = SubResource("BoxShape3D_4bjlo")
+
 [node name="MGA3077S" parent="." instance=ExtResource("8_ymghf")]
 transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, -13.2028, 1.39194, 27.9263)
 
@@ -247,21 +267,8 @@ shape = SubResource("BoxShape3D_65xpg")
 transform = Transform3D(1, 0, 3.72529e-09, 0, 0.999999, 0, -3.72529e-09, 0, 1, -5.55546, 26.47, 24.9271)
 shape = SubResource("BoxShape3D_65xpg")
 
-[node name="Tresor" parent="." instance=ExtResource("10_5sh2d")]
-transform = Transform3D(0.00720558, 0, 0.512909, 0, 0.265, 0, -0.382932, 0, 0.00965134, 28.7981, 7.77176, 38.1213)
-
-[node name="PlayerManager" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -28.5638)
-script = ExtResource("11_nhc8w")
-
-[node name="spider2" parent="PlayerManager" instance=ExtResource("12_bqw4l")]
-jump_force = 12
-
-[node name="Player" parent="PlayerManager" instance=ExtResource("13_uje7j")]
-transform = Transform3D(-0.0318643, 0, 0.999492, 0, 1, 0, -0.999492, 0, -0.0318643, 13.0568, -4.1277, 3.04781)
-
 [node name="MGA1134A" parent="." instance=ExtResource("14_om38a")]
-transform = Transform3D(-3.49691e-09, 0, -0.08, 0, 0.08, 0, 0.08, 0, -3.49691e-09, 41.4482, 4.44752, -49.4951)
+transform = Transform3D(-3.49691e-09, 0, -0.08, 0, 0.08, 0, 0.08, 0, -3.49691e-09, 44.6358, 4.44752, -49.4951)
 
 [node name="MGA4217S" parent="." instance=ExtResource("15_lxojt")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 16.6568, -0.108509, 38.1468)
@@ -273,13 +280,88 @@ transform = Transform3D(7.91521, 0, 0, 0, 7.91521, 0, 0, 0, 7.91521, 22.052, 21.
 shape = SubResource("CylinderShape3D_rf6tv")
 
 [node name="MeshInstance3D14" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.9103, 2.84656, 38.1469)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.9103, 2.84656, 39.2631)
 mesh = SubResource("BoxMesh_0dhcr")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D14"]
 
 [node name="CollisionShape3D8" type="CollisionShape3D" parent="MeshInstance3D14/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_owo1g")
+
+[node name="MeshInstance3D15" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.7773, 5.07085, 39.2631)
+mesh = SubResource("BoxMesh_0dhcr")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D15"]
+
+[node name="CollisionShape3D8" type="CollisionShape3D" parent="MeshInstance3D15/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_owo1g")
+
+[node name="MeshInstance3D16" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.2268, 7.28115, 39.2631)
+mesh = SubResource("BoxMesh_0dhcr")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D16"]
+
+[node name="CollisionShape3D8" type="CollisionShape3D" parent="MeshInstance3D16/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_owo1g")
+
+[node name="MeshInstance3D17" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.289, 9.13413, 39.2631)
+mesh = SubResource("BoxMesh_0dhcr")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D17"]
+
+[node name="CollisionShape3D8" type="CollisionShape3D" parent="MeshInstance3D17/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_owo1g")
+
+[node name="MeshInstance3D18" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.5581, 11.2768, 39.2631)
+mesh = SubResource("BoxMesh_0dhcr")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D18"]
+
+[node name="CollisionShape3D8" type="CollisionShape3D" parent="MeshInstance3D18/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_owo1g")
+
+[node name="MeshInstance3D19" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.5382, 11.2768, 39.2631)
+mesh = SubResource("BoxMesh_0dhcr")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D19"]
+
+[node name="CollisionShape3D8" type="CollisionShape3D" parent="MeshInstance3D19/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_owo1g")
+
+[node name="MeshInstance3D20" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.5382, 11.2768, 39.2631)
+mesh = SubResource("BoxMesh_0dhcr")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D20"]
+
+[node name="CollisionShape3D8" type="CollisionShape3D" parent="MeshInstance3D20/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_owo1g")
+
+[node name="MeshInstance3D21" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.5109, 11.2768, 39.2631)
+mesh = SubResource("BoxMesh_0dhcr")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D21"]
+
+[node name="CollisionShape3D8" type="CollisionShape3D" parent="MeshInstance3D21/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_owo1g")
+
+[node name="Tresor" parent="." instance=ExtResource("10_5sh2d")]
+transform = Transform3D(0.00720558, 0, 0.512909, 0, 0.265, 0, -0.382932, 0, 0.00965134, 28.7981, 7.77176, 38.1213)
+
+[node name="Tresor3" parent="." instance=ExtResource("10_5sh2d")]
+transform = Transform3D(0.00720558, 0, 0.512909, 0, 0.265, 0, -0.382932, 0, 0.00965134, -44.3516, 11.8098, 39.2795)
+
+[node name="Tresor4" parent="." instance=ExtResource("10_5sh2d")]
+transform = Transform3D(0.0188135, 0, 1.33876, 0, 0.692, 0, -0.999823, 0, 0.0251913, -49.9937, 2.86255, -42.5547)
+
+[node name="Tresor2" parent="." instance=ExtResource("10_5sh2d")]
+transform = Transform3D(0.0188135, 0, 1.33876, 0, 0.692, 0, -0.999823, 0, 0.0251913, 48.8993, 2.83326, 34.2501)
 
 [node name="MGA3003A2" parent="." instance=ExtResource("7_a5f16")]
 transform = Transform3D(-4.37114e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.37114e-09, 49.2724, 0.0273561, 34.8217)
@@ -290,3 +372,8 @@ transform = Transform3D(-0.0501571, 0, 0.998741, 0, 1, 0, -0.998741, 0, -0.05015
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MGA3003A2/StaticBody3D"]
 transform = Transform3D(0.973891, 0, 1.11759e-08, 0, 0.999998, 0, -3.72529e-09, 0, 1.65496, -198.542, 19.9413, 21.5507)
 shape = SubResource("BoxShape3D_4bjlo")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 30.2993, 7.64836, -31.8394)
+text = "4 tresor a trouver ici."
+font_size = 1000
