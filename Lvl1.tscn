@@ -260,6 +260,6 @@ mesh = SubResource("BoxMesh_65xpg")
 shape = SubResource("ConvexPolygonShape3D_a6dek")
 
 [node name="Label3D" type="Label3D" parent="."]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 14.282, 6.2932, -10.5961)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 14.282, 6.2932, -14.3658)
 text = "1 tresor a trouver ici."
 font_size = 500
