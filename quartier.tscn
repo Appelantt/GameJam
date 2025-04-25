@@ -195,7 +195,7 @@ shape = SubResource("BoxShape3D_g2aqv")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.999998, 23.3892, 0.937228, -258.527)
 
 [node name="SPOWN POINT" type="Node3D" parent="Maison lvl 1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.999999, 68.7092, 1.10167, 14.9024)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.999999, 73.4003, 1.10167, 9.00033)
 
 [node name="Maison lvl 2" parent="." instance=ExtResource("10_g2aqv")]
 transform = Transform3D(4.44244, 0, 0, 0, 5.97204, 0, 0, 0, 3.18523, -27.8311, 0, -48.1405)
