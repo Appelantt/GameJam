@@ -173,13 +173,6 @@ mesh = SubResource("QuadMesh_wojwp")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D4/StaticBody3D"]
 shape = SubResource("BoxShape3D_a3o0u")
 
-[node name="Label" type="Label" parent="MeshInstance3D4"]
-offset_left = 233.0
-offset_top = 80.0
-offset_right = 397.0
-offset_bottom = 103.0
-text = "4 Tresor a trouver ici."
-
 [node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
 transform = Transform3D(-1.645, 0, 1.50996e-07, 0, 1, 0, -2.48388e-07, 0, -1, 0.54915, 11.7064, 39.7409)
 mesh = SubResource("QuadMesh_wojwp")

@@ -190,7 +190,7 @@ shape = SubResource("BoxShape3D_g2aqv")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.999998, 23.3892, 0.937228, -258.527)
 
 [node name="SPOWN POINT" type="Node3D" parent="Maison lvl 1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.999999, 68.7501, 1.07995, 15.0344)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.999999, 68.7092, 1.10167, 14.9024)
 
 [node name="Maison lvl 2" parent="." instance=ExtResource("10_g2aqv")]
 transform = Transform3D(4.44244, 0, 0, 0, 5.97204, 0, 0, 0, 3.18523, -27.8311, 0, -48.1405)
@@ -223,6 +223,26 @@ teleport_position = NodePath("../../POINT LVL 3")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Maison lvl 3/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 1.24797e-07, 1, 1.83279, 1.22558, 4.71252)
 shape = SubResource("BoxShape3D_te7a8")
+
+[node name="Area3D2" type="Area3D" parent="Maison lvl 3" node_paths=PackedStringArray("teleport_position")]
+transform = Transform3D(1, 0, 0, 0, 0.999816, 0.01918, 0, -0.01918, 0.999814, 11.9874, 0.53704, 0.129532)
+collision_mask = 2
+script = ExtResource("11_l2fju")
+teleport_position = NodePath("../../POINT LVL 3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Maison lvl 3/Area3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 1.24797e-07, 1, 1.83279, 1.22558, 4.71252)
+shape = SubResource("BoxShape3D_te7a8")
+
+[node name="Area3D3" type="Area3D" parent="Maison lvl 3" node_paths=PackedStringArray("teleport_position")]
+transform = Transform3D(1, 0, 0, 0, 7.95561, 0, 0, 0, 10.1079, -182.388, 1.66059, -379.11)
+collision_mask = 2
+script = ExtResource("11_l2fju")
+teleport_position = NodePath("../../Maison lvl 1/SPOWN POINT")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Maison lvl 3/Area3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.999993, 0.401436, 0.14939, 0.15362)
+shape = SubResource("BoxShape3D_g2aqv")
 
 [node name="Maison lvl 4" parent="." instance=ExtResource("10_g2aqv")]
 transform = Transform3D(4.44244, 0, 0, 0, 5.97204, 0, 0, 0, 3.18523, 94.0861, 0, -48.1405)
@@ -397,5 +417,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -834.281, 8.09971, -1214.68)
 
 [node name="POINT LVL 3" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -773.433, 7.9341, -1254.44)
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -205.82, 14.9952, 0)
 
 [editable path="Maison lvl 1/Node3D12"]
