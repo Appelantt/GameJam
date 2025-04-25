@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cmt7yx1deksee"]
+
+[ext_resource type="PackedScene" uid="uid://dco0a4icxj827" path="res://Quartier/MGA4118A (1).glb" id="1_igkyy"]
+[ext_resource type="PackedScene" uid="uid://ddpsb586oplw6" path="res://Player/Looking Old Man Idle.fbx" id="2_3jrsg"]
+[ext_resource type="PackedScene" uid="uid://bfoxcrhqokljy" path="res://Assets/spider2.glb" id="3_kykcv"]
+
+[node name="Fin" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.894043, 0.183614, -0.408623, -0.00462537, 0.908312, 0.418267, 0.447957, 0.375839, -0.811221, 249.04, 10.5521, 698.568)
+
+[node name="MGA4118A (1)2" parent="." instance=ExtResource("1_igkyy")]
+transform = Transform3D(0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, 254.272, 0.089, 765.924)
+
+[node name="Looking Old Man Idle" parent="MGA4118A (1)2" instance=ExtResource("2_3jrsg")]
+transform = Transform3D(33.3333, 0, 0, 0, 33.2813, -1.86188, 0, 1.86188, 33.2813, 3.73364, 7.04308, -463.405)
+
+[node name="spider2" parent="MGA4118A (1)2/Looking Old Man Idle" instance=ExtResource("3_kykcv")]
+transform = Transform3D(0.25, 0, 0, 0, 0.24961, 0.0139641, 0, -0.0139641, 0.24961, -0.019165, 0.954607, -0.64386)
