@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://bhi41gh61g3gi"]
+[gd_scene load_steps=34 format=3 uid="uid://bhi41gh61g3gi"]
 
 [ext_resource type="Texture2D" uid="uid://cb8virneatxwq" path="res://Quartier/2K/Poliigon_GrassPatchyGround_4585_BaseColor.jpg" id="1_oy2b0"]
 [ext_resource type="PackedScene" uid="uid://bohudpgbdoq3w" path="res://sketchfab_scene.tscn" id="2_oy2b0"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://dco0a4icxj827" path="res://Quartier/MGA4118A (1).glb" id="15_t10s7"]
 [ext_resource type="PackedScene" uid="uid://wqk2iyb3nix" path="res://lvl 2.tscn" id="16_ksbj4"]
 [ext_resource type="PackedScene" path="res://danusia_house_fbx_vide.tscn" id="17_3uxh4"]
+[ext_resource type="AudioStream" uid="uid://bwsw26mcebqrp" path="res://Assets/Fluffing a Duck.mp3" id="18_3l7jf"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1dyxj"]
 albedo_texture = ExtResource("1_oy2b0")
@@ -371,5 +372,9 @@ transform = Transform3D(-4.4, 0, -3.8466e-07, 0, 4.4, 0, 3.8466e-07, 0, -4.4, -4
 
 [node name="Danusia_House_FBX_Vide22" parent="." instance=ExtResource("17_3uxh4")]
 transform = Transform3D(-4.4, 0, -3.8466e-07, 0, 4.4, 0, 3.8466e-07, 0, -4.4, -338.463, 0, 60.5873)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_3l7jf")
+volume_db = 10.0
 
 [editable path="Maison lvl 1/Node3D12"]
