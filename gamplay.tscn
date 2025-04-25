@@ -124,4 +124,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.82366, 0)
 
 [node name="spider2" parent="PlayerManager" instance=ExtResource("1_k770x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.44134, 1.10671, 0)
-jump_force = 15
