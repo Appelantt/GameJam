@@ -295,8 +295,8 @@ libraries = {
 }
 autoplay = "Walking in place/mixamo_com"
 
-[node name="WalkSound" type="AudioStreamPlayer3D" parent="."]
+[node name="WalkSND" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_sweqy")
-volume_db = 25.051
+volume_db = 15.0
 
 [editable path="Mesh"]
