@@ -82,8 +82,12 @@ func _physics_process(delta):
 		# Animation logic
 	if direction.length() > 0.1:
 		anim_player.play("Walking in place/mixamo_com")
+	
+		
 	else:
 		anim_player.play("look around/mixamo_com")
+		
+		
 
 
 
