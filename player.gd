@@ -7,7 +7,7 @@ extends CharacterBody3D
 @onready var health_bar = $HealthBar 
 @onready var anim_player = $Mesh/AnimationPlayer
 @onready var walk_sound = $WalkSound
-
+@onready var walk_snd: AudioStreamPlayer = $WalkSND
 var hp := max_hp
 var canBeControlled = false
 var mouse_sensitivity = 0.003
@@ -82,11 +82,13 @@ func _physics_process(delta):
 		# Animation logic
 	if direction.length() > 0.1:
 		anim_player.play("Walking in place/mixamo_com")
-	
+		if not walk_snd.playing:
+			walk_snd.play()
 		
 	else:
 		anim_player.play("look around/mixamo_com")
-		
+		if walk_snd.playing:
+			walk_snd.stop()
 		
 
 
