@@ -1,9 +1,9 @@
-[gd_scene load_steps=23 format=3 uid="uid://dakk4uoqk1d3m"]
+[gd_scene load_steps=23 format=3 uid="uid://dukqk4ntyuevu"]
 
 [ext_resource type="Texture2D" uid="uid://cb8virneatxwq" path="res://Quartier/2K/Poliigon_GrassPatchyGround_4585_BaseColor.jpg" id="1_2yfud"]
 [ext_resource type="AudioStream" uid="uid://bnvriwr1b0g1u" path="res://ACDC - Thunderstruck (Official Video) (mp3cut.net) (1).mp3" id="6_gpgen"]
 [ext_resource type="FontFile" uid="uid://dmyttn2og37h6" path="res://fonts/Montserrat-Medium.ttf" id="8_df26d"]
-[ext_resource type="Script" path="res://score.gd" id="9_fbe3s"]
+[ext_resource type="Script" uid="uid://cqj5xas55fvro" path="res://score.gd" id="9_fbe3s"]
 [ext_resource type="PackedScene" uid="uid://cydpg7qa6i0hl" path="res://ARBRE.tscn" id="14_bnkru"]
 [ext_resource type="Texture2D" uid="uid://cr30ume1tfwdt" path="res://Quartier/road_13.jpg" id="15_bmp6i"]
 [ext_resource type="PackedScene" uid="uid://cmt7yx1deksee" path="res://fin.tscn" id="20_meu4c"]
