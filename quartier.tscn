@@ -375,7 +375,7 @@ transform = Transform3D(-4.4, 0, -3.8466e-07, 0, 4.4, 0, 3.8466e-07, 0, -4.4, -3
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("18_3l7jf")
-volume_db = 23.84
+volume_db = 10.0
 autoplay = true
 
 [editable path="Maison lvl 1/Node3D12"]
