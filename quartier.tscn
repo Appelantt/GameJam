@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://bhi41gh61g3gi"]
+[gd_scene load_steps=33 format=3 uid="uid://bhi41gh61g3gi"]
 
 [ext_resource type="Texture2D" uid="uid://cb8virneatxwq" path="res://Quartier/2K/Poliigon_GrassPatchyGround_4585_BaseColor.jpg" id="1_oy2b0"]
 [ext_resource type="PackedScene" uid="uid://bohudpgbdoq3w" path="res://sketchfab_scene.tscn" id="2_oy2b0"]
@@ -17,7 +17,6 @@
 [ext_resource type="PackedScene" uid="uid://dco0a4icxj827" path="res://Quartier/MGA4118A (1).glb" id="15_t10s7"]
 [ext_resource type="PackedScene" uid="uid://wqk2iyb3nix" path="res://lvl 2.tscn" id="16_ksbj4"]
 [ext_resource type="PackedScene" path="res://danusia_house_fbx_vide.tscn" id="17_3uxh4"]
-[ext_resource type="AudioStream" uid="uid://bwsw26mcebqrp" path="res://Assets/Fluffing a Duck.mp3" id="18_3l7jf"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1dyxj"]
 albedo_texture = ExtResource("1_oy2b0")
@@ -163,13 +162,13 @@ collision_mask = 1
 transform = Transform3D(0.981134, 0, -0.193327, 0, 1, 0, 0.193327, 0, 0.981134, -22.9468, 0.102476, 18.5849)
 
 [node name="Area3D" type="Area3D" parent="Maison lvl 1" node_paths=PackedStringArray("teleport_position")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.5776, 1.05254, 3.78636)
+transform = Transform3D(1, 0, 0, 0, 0.999816, 0.01918, 0, -0.01918, 0.999816, 57.4277, 0.753593, 4.25038)
 collision_mask = 2
 script = ExtResource("11_l2fju")
 teleport_position = NodePath("../Marker top lvl 1")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Maison lvl 1/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.999982, 0.653515, -0.105282, -1.18859)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 7.45058e-09, 0.999982, 0.288204, 0.475013, -0.529112)
 shape = SubResource("BoxShape3D_g2aqv")
 
 [node name="Area3D2" type="Area3D" parent="Maison lvl 1" node_paths=PackedStringArray("teleport_position")]
@@ -372,10 +371,5 @@ transform = Transform3D(-4.4, 0, -3.8466e-07, 0, 4.4, 0, 3.8466e-07, 0, -4.4, -4
 
 [node name="Danusia_House_FBX_Vide22" parent="." instance=ExtResource("17_3uxh4")]
 transform = Transform3D(-4.4, 0, -3.8466e-07, 0, 4.4, 0, 3.8466e-07, 0, -4.4, -338.463, 0, 60.5873)
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("18_3l7jf")
-volume_db = 4.643
-autoplay = true
 
 [editable path="Maison lvl 1/Node3D12"]
