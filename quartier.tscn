@@ -101,6 +101,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 247.655, -4.75, 35.0453)
 speed = 30
 
 [node name="spider2" parent="PlayerManager" instance=ExtResource("5_g2aqv")]
+jump_force = 15
 
 [node name="Ennemy" parent="." instance=ExtResource("4_8ihd3")]
 transform = Transform3D(-0.101872, 0, -0.994797, 0, 1, 0, 0.994797, 0, -0.101872, -89.3229, 5.77832, -22.2864)
