@@ -3,20 +3,20 @@
 [ext_resource type="Texture2D" uid="uid://cb8virneatxwq" path="res://Quartier/2K/Poliigon_GrassPatchyGround_4585_BaseColor.jpg" id="1_oy2b0"]
 [ext_resource type="PackedScene" uid="uid://bohudpgbdoq3w" path="res://sketchfab_scene.tscn" id="2_oy2b0"]
 [ext_resource type="PackedScene" uid="uid://dc35332wbl1wk" path="res://player.tscn" id="3_1dyxj"]
-[ext_resource type="PackedScene" uid="uid://b7khaio0idmap" path="res://sketchfab_scene_vide.tscn" id="3_7kg14"]
+[ext_resource type="PackedScene" path="res://sketchfab_scene_vide.tscn" id="3_7kg14"]
 [ext_resource type="Script" uid="uid://bo0nl44dexra5" path="res://player_manager.gd" id="3_ukm8y"]
 [ext_resource type="PackedScene" uid="uid://diatkxtj0pg1n" path="res://ennemy.tscn" id="4_8ihd3"]
 [ext_resource type="FontFile" uid="uid://dmyttn2og37h6" path="res://fonts/Montserrat-Medium.ttf" id="5_11drx"]
 [ext_resource type="PackedScene" uid="uid://pqmkm6vwq6al" path="res://spider2.tscn" id="5_g2aqv"]
-[ext_resource type="Script" uid="uid://cqj5xas55fvro" path="res://score.gd" id="5_sw6ff"]
-[ext_resource type="PackedScene" uid="uid://ymujwb55fy7w" path="res://Maison/Danusia House FBX.tscn" id="10_g2aqv"]
+[ext_resource type="Script" path="res://score.gd" id="5_sw6ff"]
+[ext_resource type="PackedScene" uid="uid://ymujwb55fy7w" path="res://Maison/Danusia_House_FBX.tscn" id="10_g2aqv"]
 [ext_resource type="Script" uid="uid://bjy7wkastw4k0" path="res://teleport.gd" id="11_l2fju"]
 [ext_resource type="PackedScene" uid="uid://crl1o2hkusqco" path="res://Lvl1.tscn" id="12_3uxh4"]
-[ext_resource type="PackedScene" uid="uid://cydpg7qa6i0hl" path="res://ARBRE.tscn" id="13_8xvty"]
+[ext_resource type="PackedScene" path="res://ARBRE.tscn" id="13_8xvty"]
 [ext_resource type="Texture2D" uid="uid://cr30ume1tfwdt" path="res://Quartier/road_13.jpg" id="14_33e3p"]
 [ext_resource type="PackedScene" uid="uid://dco0a4icxj827" path="res://Quartier/MGA4118A (1).glb" id="15_t10s7"]
 [ext_resource type="PackedScene" uid="uid://wqk2iyb3nix" path="res://lvl 2.tscn" id="16_ksbj4"]
-[ext_resource type="PackedScene" uid="uid://c3n73n6jqm1q2" path="res://danusia_house_fbx_vide.tscn" id="17_3uxh4"]
+[ext_resource type="PackedScene" path="res://danusia_house_fbx_vide.tscn" id="17_3uxh4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1dyxj"]
 albedo_texture = ExtResource("1_oy2b0")
@@ -101,7 +101,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 247.655, -4.75, 35.0453)
 speed = 30
 
 [node name="spider2" parent="PlayerManager" instance=ExtResource("5_g2aqv")]
-jump_force = 15
 
 [node name="Ennemy" parent="." instance=ExtResource("4_8ihd3")]
 transform = Transform3D(-0.101872, 0, -0.994797, 0, 1, 0, 0.994797, 0, -0.101872, -89.3229, 5.77832, -22.2864)
@@ -163,13 +162,13 @@ collision_mask = 1
 transform = Transform3D(0.981134, 0, -0.193327, 0, 1, 0, 0.193327, 0, 0.981134, -22.9468, 0.102476, 18.5849)
 
 [node name="Area3D" type="Area3D" parent="Maison lvl 1" node_paths=PackedStringArray("teleport_position")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.5776, 1.05254, 3.78636)
+transform = Transform3D(1, 0, 0, 0, 0.999816, 0.01918, 0, -0.01918, 0.999816, 57.4277, 0.753593, 4.25038)
 collision_mask = 2
 script = ExtResource("11_l2fju")
 teleport_position = NodePath("../Marker top lvl 1")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Maison lvl 1/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.999982, 0.653515, -0.105282, -1.18859)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 7.45058e-09, 0.999982, 0.288204, 0.475013, -0.529112)
 shape = SubResource("BoxShape3D_g2aqv")
 
 [node name="Area3D2" type="Area3D" parent="Maison lvl 1" node_paths=PackedStringArray("teleport_position")]

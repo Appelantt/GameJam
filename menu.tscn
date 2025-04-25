@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dyj4oy11c5t5a"]
 
-[ext_resource type="Script" uid="uid://o37ala8ymsg8" path="res://menu.gd" id="1_lti8b"]
+[ext_resource type="Script" path="res://menu.gd" id="1_lti8b"]
 [ext_resource type="Texture2D" uid="uid://d3vlptjqhbocj" path="res://appelant_une_fond_dcran_de_linpecteur_gadgte_et_son_acolite_a_9addd93b-f536-4ce5-9a1a-7deb3f895ede_3.png" id="2_ouk20"]
 
 [node name="Menu" type="Control"]
