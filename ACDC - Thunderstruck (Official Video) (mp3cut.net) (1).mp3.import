@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bnvriwr1b0g1u"
+path="res://.godot/imported/ACDC - Thunderstruck (Official Video) (mp3cut.net) (1).mp3-ceafedc5d109dbae942c3182be136fc0.mp3str"
+
+[deps]
+
+source_file="res://ACDC - Thunderstruck (Official Video) (mp3cut.net) (1).mp3"
+dest_files=["res://.godot/imported/ACDC - Thunderstruck (Official Video) (mp3cut.net) (1).mp3-ceafedc5d109dbae942c3182be136fc0.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
