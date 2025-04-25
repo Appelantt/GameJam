@@ -258,3 +258,8 @@ mesh = SubResource("BoxMesh_65xpg")
 
 [node name="CollisionShape3D8" type="CollisionShape3D" parent="MeshInstance3D14/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_a6dek")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 14.282, 6.2932, -10.5961)
+text = "1 tresor a trouver ici."
+font_size = 500

@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://bhi41gh61g3gi"]
+[gd_scene load_steps=33 format=3 uid="uid://bhi41gh61g3gi"]
 
 [ext_resource type="Texture2D" uid="uid://cb8virneatxwq" path="res://Quartier/2K/Poliigon_GrassPatchyGround_4585_BaseColor.jpg" id="1_oy2b0"]
 [ext_resource type="PackedScene" uid="uid://bohudpgbdoq3w" path="res://sketchfab_scene.tscn" id="2_oy2b0"]
@@ -13,9 +13,7 @@
 [ext_resource type="Script" uid="uid://bjy7wkastw4k0" path="res://teleport.gd" id="11_l2fju"]
 [ext_resource type="PackedScene" uid="uid://crl1o2hkusqco" path="res://Lvl1.tscn" id="12_3uxh4"]
 [ext_resource type="PackedScene" uid="uid://cydpg7qa6i0hl" path="res://ARBRE.tscn" id="13_8xvty"]
-[ext_resource type="Script" uid="uid://bteagb8hfymf5" path="res://tp2.gd" id="14_3l7jf"]
 [ext_resource type="Texture2D" uid="uid://cr30ume1tfwdt" path="res://Quartier/road_13.jpg" id="14_33e3p"]
-[ext_resource type="Script" uid="uid://4e27yv6ptcgf" path="res://TP3.gd" id="14_te7a8"]
 [ext_resource type="PackedScene" uid="uid://dco0a4icxj827" path="res://Quartier/MGA4118A (1).glb" id="15_t10s7"]
 [ext_resource type="PackedScene" uid="uid://wqk2iyb3nix" path="res://lvl 2.tscn" id="16_ksbj4"]
 [ext_resource type="PackedScene" uid="uid://c3n73n6jqm1q2" path="res://danusia_house_fbx_vide.tscn" id="17_3uxh4"]
@@ -41,7 +39,7 @@ default_font_size = 22
 bg_color = Color(0.292256, 0.709713, 7.70092e-07, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g2aqv"]
-size = Vector3(0.328999, 0.996078, 0.571777)
+size = Vector3(0.465748, 0.649406, 0.0838622)
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7kg14"]
 sky_horizon_color = Color(0.294979, 0.689234, 0.971095, 1)
@@ -163,38 +161,50 @@ collision_mask = 1
 [node name="Ennemy2" parent="Maison lvl 1/Node3D12" index="10"]
 transform = Transform3D(0.981134, 0, -0.193327, 0, 1, 0, 0.193327, 0, 0.981134, -22.9468, 0.102476, 18.5849)
 
-[node name="Area3D" type="Area3D" parent="Maison lvl 1"]
+[node name="Area3D" type="Area3D" parent="Maison lvl 1" node_paths=PackedStringArray("teleport_position")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.5776, 1.05254, 3.78636)
 collision_mask = 2
 script = ExtResource("11_l2fju")
+teleport_position = NodePath("../Marker top lvl 1")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Maison lvl 1/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.999993, 0.931591, -0.34814, -0.195473)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.999982, 0.653515, -0.105282, -1.18859)
 shape = SubResource("BoxShape3D_g2aqv")
 
-[node name="Area3D2" type="Area3D" parent="Maison lvl 1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.999998, 25.5298, 2.18641, -258.186)
+[node name="Area3D2" type="Area3D" parent="Maison lvl 1" node_paths=PackedStringArray("teleport_position")]
+transform = Transform3D(1, 0, 0, 0, 2.9871, 0, 0, 0, 9.3057, 26.0694, 1.44668, -259.005)
 collision_mask = 2
-script = ExtResource("14_te7a8")
+script = ExtResource("11_l2fju")
+teleport_position = NodePath("../SPOWN POINT")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Maison lvl 1/Area3D2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2.3973, 0.810809, -0.160996, 0.16626)
+transform = Transform3D(0.999987, 0, 0, 0, 1, 0, 0, 0, 2.3973, 0.283879, 0.205088, 0.0467148)
 shape = SubResource("BoxShape3D_g2aqv")
+
+[node name="Marker top lvl 1" type="Node3D" parent="Maison lvl 1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.999998, 23.3892, 0.937228, -258.527)
+
+[node name="SPOWN POINT" type="Node3D" parent="Maison lvl 1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.999999, 68.7501, 1.07995, 15.0344)
 
 [node name="Maison lvl 2" parent="." instance=ExtResource("10_g2aqv")]
 transform = Transform3D(4.44244, 0, 0, 0, 5.97204, 0, 0, 0, 3.18523, -27.8311, 0, -48.1405)
 
-[node name="Area3D" type="Area3D" parent="Maison lvl 2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.999999, 40.7614, 0.725957, 27.0848)
+[node name="Area3D" type="Area3D" parent="Maison lvl 2" node_paths=PackedStringArray("teleport_position")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.999999, 40.3635, 0.725957, 27.0848)
 collision_mask = 2
-script = ExtResource("14_3l7jf")
+script = ExtResource("11_l2fju")
+teleport_position = NodePath("../MARKER_TP")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Maison lvl 2/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.999993, 0.401436, 0.14939, 0.15362)
 shape = SubResource("BoxShape3D_g2aqv")
 
 [node name="Node3D" parent="Maison lvl 2" instance=ExtResource("16_ksbj4")]
-transform = Transform3D(0.210484, 0, 0, 0, 0.135181, 0, 0, 0, 0.318058, -66.6588, 0.787044, -243.128)
+transform = Transform3D(0.210484, 0, 0, 0, 0.135181, 0, 0, 0, 0.318058, -66.6588, 0.787044, -280.264)
+
+[node name="MARKER_TP" type="Node3D" parent="Maison lvl 2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -71.7548, 2.59603, -281.066)
 
 [node name="Maison lvl 3" parent="." instance=ExtResource("10_g2aqv")]
 transform = Transform3D(4.44244, 0, 0, 0, 5.97204, 0, 0, 0, 3.18523, 37.9757, 0, -48.1405)
