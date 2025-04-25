@@ -245,9 +245,6 @@ light_energy = 110.644
 spot_range = 915.402
 spot_angle = 86.0
 
-[node name="Ennemy" parent="." instance=ExtResource("5_cpbv8")]
-transform = Transform3D(-0.953869, 0, 0.300223, 0, 1, 0, -0.300223, 0, -0.953869, 10.0764, 0, -2.0161)
-
 [node name="Ennemy2" parent="." instance=ExtResource("5_cpbv8")]
 transform = Transform3D(-0.252458, 0, -0.967608, 0, 1, 0, 0.967608, 0, -0.252458, 2.13761, 1.10855, 16.5056)
 
