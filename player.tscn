@@ -7,29 +7,29 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_onrkg"]
 radius = 1.7572
-height = 7.75976
+height = 10.3019
 
 [node name="Player" type="CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.330237, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.9464, 0)
 collision_layer = 2
 slide_on_ceiling = false
 script = ExtResource("1_onrkg")
 gravity = 25.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.20766, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.14655, 0)
 visible = false
 mesh = SubResource("CapsuleMesh_4flbx")
 skeleton = NodePath("../Pivot")
 
 [node name="Pivot" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.81846, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Pivot"]
-transform = Transform3D(1, 0, 0, 0, 0.917755, 0.397148, 0, -0.397148, 0.917755, 0, 6.93952, 7.14426)
+transform = Transform3D(1, 0, 0, 0, 0.917755, 0.397148, 0, -0.397148, 0.917755, 0, 7.57891, 7.14426)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.116736, 3.78455, -0.49512)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.116736, 3.96648, -0.49512)
 shape = SubResource("CapsuleShape3D_onrkg")
 
 [node name="Mesh" parent="." instance=ExtResource("2_onrkg")]
