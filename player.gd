@@ -78,21 +78,13 @@ func _physics_process(delta):
 		if Input.is_action_just_pressed("jump"):
 			velocity.y = jump_force
 
-		move_and_slide()
-
-	# Animation and walking sound logic (cleaned up)
-	var is_moving = direction.length() > 0.1
-
-	if is_moving:
-		if anim_player.current_animation != "Walking in place/mixamo_com":
-			anim_player.play("Walking in place/mixamo_com")
-		if not walk_sound.playing:
-			walk_sound.play()
+	move_and_slide()
+		# Animation logic
+	if direction.length() > 0.1:
+		anim_player.play("Walking in place/mixamo_com")
 	else:
-		if anim_player.current_animation != "look around/mixamo_com":
-			anim_player.play("look around/mixamo_com")
-		if walk_sound.playing:
-			walk_sound.stop()
+		anim_player.play("look around/mixamo_com")
+
 
 
 func set_camera_visibility(isVisible):
