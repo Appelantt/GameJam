@@ -41,7 +41,7 @@ default_font_size = 22
 bg_color = Color(0.292256, 0.709713, 7.70092e-07, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g2aqv"]
-size = Vector3(0.775185, 0.044616, 0.571777)
+size = Vector3(0.328999, 0.996078, 0.571777)
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7kg14"]
 sky_horizon_color = Color(0.294979, 0.689234, 0.971095, 1)
@@ -171,12 +171,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.999993, 0.931591, -0.34814, -0
 shape = SubResource("BoxShape3D_g2aqv")
 
 [node name="Area3D2" type="Area3D" parent="Maison lvl 1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.999999, 16.4619, 2.75271, -242.307)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.999998, 25.5298, 2.18641, -258.186)
 collision_mask = 2
 script = ExtResource("14_te7a8")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Maison lvl 1/Area3D2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.999993, -0.20309, -0.0227165, 0.16629)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2.3973, 0.810809, -0.160996, 0.16626)
 shape = SubResource("BoxShape3D_g2aqv")
 
 [node name="Maison lvl 2" parent="." instance=ExtResource("10_g2aqv")]
