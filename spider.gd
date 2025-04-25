@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 @export var speed := 7.0
 @export var gravity := 9.8
-@export var jump_force := 12
+@export var jump_force := 15
 @export var rotation_speed := 3.0
 
 var canBeControlled = false
