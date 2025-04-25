@@ -282,7 +282,7 @@ bones/30/rotation = Quaternion(0.607534, 0.0598968, 0.12213, 0.782559)
 bones/31/rotation = Quaternion(0.3505, -0.00130379, -0.000448821, 0.936562)
 
 [node name="SPIDER_POS" type="BoneAttachment3D" parent="Mesh/Skeleton3D" index="11"]
-transform = Transform3D(0.824922, -0.0896094, -0.558098, 0.04107, 0.994246, -0.0989328, 0.563752, 0.0586907, 0.823856, -0.104935, 2.72236, 0.0688504)
+transform = Transform3D(0.824923, -0.0896099, -0.558097, 0.0410703, 0.994246, -0.0989334, 0.563751, 0.0586913, 0.823857, -0.104935, 2.72236, 0.0688505)
 bone_name = "mixamorig_Head"
 bone_idx = 5
 
@@ -293,5 +293,7 @@ libraries = {
 &"look around": ExtResource("4_hqtel")
 }
 autoplay = "Walking in place/mixamo_com"
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 
 [editable path="Mesh"]

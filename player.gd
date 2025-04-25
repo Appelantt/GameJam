@@ -6,6 +6,7 @@ extends CharacterBody3D
 @export var max_hp := 100
 @onready var health_bar = $HealthBar 
 @onready var anim_player = $Mesh/AnimationPlayer
+@onready var walk_sound = $WalkSound
 
 var hp := max_hp
 var canBeControlled = false

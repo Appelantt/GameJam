@@ -1,0 +1,234 @@
+[gd_scene load_steps=23 format=3 uid="uid://dakk4uoqk1d3m"]
+
+[ext_resource type="Texture2D" uid="uid://cb8virneatxwq" path="res://Quartier/2K/Poliigon_GrassPatchyGround_4585_BaseColor.jpg" id="1_2yfud"]
+[ext_resource type="AudioStream" uid="uid://bnvriwr1b0g1u" path="res://ACDC - Thunderstruck (Official Video) (mp3cut.net) (1).mp3" id="6_gpgen"]
+[ext_resource type="FontFile" uid="uid://dmyttn2og37h6" path="res://fonts/Montserrat-Medium.ttf" id="8_df26d"]
+[ext_resource type="Script" path="res://score.gd" id="9_fbe3s"]
+[ext_resource type="PackedScene" uid="uid://cydpg7qa6i0hl" path="res://ARBRE.tscn" id="14_bnkru"]
+[ext_resource type="Texture2D" uid="uid://cr30ume1tfwdt" path="res://Quartier/road_13.jpg" id="15_bmp6i"]
+[ext_resource type="PackedScene" uid="uid://cmt7yx1deksee" path="res://fin.tscn" id="20_meu4c"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1dyxj"]
+albedo_texture = ExtResource("1_2yfud")
+uv1_scale = Vector3(50, 50, 50)
+
+[sub_resource type="QuadMesh" id="QuadMesh_8ihd3"]
+material = SubResource("StandardMaterial3D_1dyxj")
+size = Vector2(600, 600)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sw6ff"]
+size = Vector3(200, 200, 1.23096)
+
+[sub_resource type="Theme" id="Theme_fj0re"]
+default_font = ExtResource("8_df26d")
+default_font_size = 22
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_11drx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fj0re"]
+bg_color = Color(0.292256, 0.709713, 7.70092e-07, 1)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7kg14"]
+sky_horizon_color = Color(0.294979, 0.689234, 0.971095, 1)
+
+[sub_resource type="Sky" id="Sky_3uxh4"]
+sky_material = SubResource("ProceduralSkyMaterial_7kg14")
+
+[sub_resource type="Environment" id="Environment_t10s7"]
+background_mode = 2
+sky = SubResource("Sky_3uxh4")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t10s7"]
+albedo_texture = ExtResource("15_bmp6i")
+uv1_scale = Vector3(0.1, 0.1, 0.1)
+uv1_triplanar = true
+uv2_scale = Vector3(100, 100, 100)
+
+[sub_resource type="BoxMesh" id="BoxMesh_7kg14"]
+material = SubResource("StandardMaterial3D_t10s7")
+size = Vector3(25, 1, 3000)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_t10s7"]
+data = PackedVector3Array(-12.5, 0.5, 1500, 12.5, 0.5, 1500, -12.5, -0.5, 1500, 12.5, 0.5, 1500, 12.5, -0.5, 1500, -12.5, -0.5, 1500, 12.5, 0.5, -1500, -12.5, 0.5, -1500, 12.5, -0.5, -1500, -12.5, 0.5, -1500, -12.5, -0.5, -1500, 12.5, -0.5, -1500, 12.5, 0.5, 1500, 12.5, 0.5, -1500, 12.5, -0.5, 1500, 12.5, 0.5, -1500, 12.5, -0.5, -1500, 12.5, -0.5, 1500, -12.5, 0.5, -1500, -12.5, 0.5, 1500, -12.5, -0.5, -1500, -12.5, 0.5, 1500, -12.5, -0.5, 1500, -12.5, -0.5, -1500, 12.5, 0.5, 1500, -12.5, 0.5, 1500, 12.5, 0.5, -1500, -12.5, 0.5, 1500, -12.5, 0.5, -1500, 12.5, 0.5, -1500, -12.5, -0.5, 1500, 12.5, -0.5, 1500, -12.5, -0.5, -1500, 12.5, -0.5, 1500, 12.5, -0.5, -1500, -12.5, -0.5, -1500)
+
+[sub_resource type="Animation" id="Animation_ng8ng"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(265.023, 0, -111.382)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_gpgen"]
+resource_name = "new_animation"
+length = 20.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4.63333, 18.9667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(265.023, 0, -111.382), Vector3(268.421, 0, 0), Vector3(268.421, 0, 300)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.633333, 2.13333, 3.46667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-0.652753, 0, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vk1ay"]
+_data = {
+&"RESET": SubResource("Animation_ng8ng"),
+&"new_animation": SubResource("Animation_gpgen")
+}
+
+[node name="Quartier" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, -4.37114e-07, 10, 0, -10, -4.37114e-07, 0, 0, 0)
+mesh = SubResource("QuadMesh_8ihd3")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 3.55271e-15, 0, -3.55271e-15, 1, 0, 2.18488e-08, -0.615322)
+shape = SubResource("BoxShape3D_sw6ff")
+debug_fill = false
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.899236, 0.372845, 0.228826, -0.370055, 0.369341, 0.852436, 0.233312, -0.851219, 0.470098, 23.0481, 75.4984, 0)
+light_energy = 3.0
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 176.0
+offset_bottom = 41.0
+theme = SubResource("Theme_fj0re")
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 46.0
+offset_right = 228.0
+offset_bottom = 93.0
+text = "Tresor trouver = 0"
+script = ExtResource("9_fbe3s")
+
+[node name="HealthBar" type="ProgressBar" parent="Control"]
+layout_mode = 0
+offset_left = 845.0
+offset_top = 48.0
+offset_right = 1085.0
+offset_bottom = 80.0
+theme_override_styles/background = SubResource("StyleBoxEmpty_11drx")
+theme_override_styles/fill = SubResource("StyleBoxFlat_fj0re")
+value = 100.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_t10s7")
+
+[node name="Node3D" parent="." instance=ExtResource("14_bnkru")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 110.06)
+
+[node name="Node3D7" parent="." instance=ExtResource("14_bnkru")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 464.247)
+
+[node name="Node3D8" parent="." instance=ExtResource("14_bnkru")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 546.866, 0, 464.247)
+
+[node name="Node3D9" parent="." instance=ExtResource("14_bnkru")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1031.91, 0, 464.247)
+
+[node name="Node3D2" parent="." instance=ExtResource("14_bnkru")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -258.906)
+
+[node name="Node3D3" parent="." instance=ExtResource("14_bnkru")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 429.409, 0, -258.906)
+
+[node name="Node3D10" parent="." instance=ExtResource("14_bnkru")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 902.891, 0, -258.906)
+
+[node name="Node3D11" parent="." instance=ExtResource("14_bnkru")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1408.78, 0, -258.906)
+
+[node name="Node3D4" parent="." instance=ExtResource("14_bnkru")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 429.409, 0, 91.8411)
+
+[node name="Node3D5" parent="." instance=ExtResource("14_bnkru")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -594.735, 0, 91.8411)
+
+[node name="Node3D6" parent="." instance=ExtResource("14_bnkru")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -594.735, 0, -258.935)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 265.03, -0.323218, 0)
+mesh = SubResource("BoxMesh_7kg14")
+
+[node name="Area3D2" type="Area3D" parent="MeshInstance3D2"]
+transform = Transform3D(0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -10.7584, 0.411999, 99.0964)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="MeshInstance3D2/Area3D2"]
+transform = Transform3D(8.33333, 0, 0, 0, 8.33333, 0, 0, 0, 8.33333, 89.6531, 1.5311, -825.803)
+shape = SubResource("ConcavePolygonShape3D_t10s7")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="MeshInstance3D2/Area3D2"]
+transform = Transform3D(8.33333, 0, 0, 0, 8.33333, 0, 0, 0, 8.33333, 89.6531, 1.5311, -825.803)
+shape = SubResource("ConcavePolygonShape3D_t10s7")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_gpgen")
+volume_db = 10.0
+autoplay = true
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(-0.86915, 0, -0.494549, 0, 1, 0, 0.494549, 0, -0.86915, 263.981, 16.2835, -78.4858)
+modulate = Color(1, 0, 0.235294, 1)
+text = "The End"
+font_size = 500
+
+[node name="Label3D2" type="Label3D" parent="."]
+transform = Transform3D(-0.86915, 0, -0.494549, 0, 1, 0, 0.494549, 0, -0.86915, 289.919, 16.2835, 153.876)
+modulate = Color(1, 0, 0.235294, 1)
+text = "A Aurelien Gonot Game"
+font_size = 500
+
+[node name="Fin" parent="." instance=ExtResource("20_meu4c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 265.023, 0, -111.382)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Fin"]
+libraries = {
+&"": SubResource("AnimationLibrary_vk1ay")
+}
+autoplay = "new_animation"
+movie_quit_on_finish = true
