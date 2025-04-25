@@ -84,6 +84,19 @@ func _physics_process(delta):
 		anim_player.play("Walking in place/mixamo_com")
 	else:
 		anim_player.play("look around/mixamo_com")
+	
+		# Animation and sound logic
+	if direction.length() > 0.1:
+		if anim_player.current_animation != "Walking in place/mixamo_com":
+			anim_player.play("Walking in place/mixamo_com")
+		if not walk_sound.playing:
+			walk_sound.play()
+	else:
+		if anim_player.current_animation != "look around/mixamo_com":
+			anim_player.play("look around/mixamo_com")
+		if walk_sound.playing:
+			walk_sound.stop()
+
 
 func set_camera_visibility(isVisible):
 	$Pivot/Camera3D.set_current(isVisible)
