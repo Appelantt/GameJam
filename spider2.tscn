@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=4 uid="uid://pqmkm6vwq6al"]
+[gd_scene load_steps=7 format=4 uid="uid://pqmkm6vwq6al"]
 
 [ext_resource type="Script" uid="uid://d0cx0c74tabpq" path="res://spider.gd" id="1_hcqli"]
+[ext_resource type="AudioStream" uid="uid://c2wdtnsnwhsto" path="res://Assets/funny-cartoon-sound-effects-no-copyright_lx2OlNDi (1).mp3" id="2_7gnf6"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gif3m"]
 resource_name = "SPIDER2_LWO"
@@ -70,3 +71,6 @@ transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.2, 0, 0, 0)
 [node name="Camera3D" type="Camera3D" parent="Pivot"]
 transform = Transform3D(0.999995, 0.000215979, -0.00329325, 0.000906748, 0.941476, 0.337078, 0.00317332, -0.337079, 0.941471, 0.0144641, 0.369314, 0.441579)
 fov = 86.3867
+
+[node name="JumpSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_7gnf6")
