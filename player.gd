@@ -5,6 +5,7 @@ extends CharacterBody3D
 @export var jump_force := 10.0
 @export var max_hp := 100
 @onready var health_bar = $HealthBar 
+@onready var anim_player = $Mesh/AnimationPlayer
 
 var hp := max_hp
 var canBeControlled = false
@@ -77,6 +78,11 @@ func _physics_process(delta):
 			velocity.y = jump_force
 
 	move_and_slide()
+		# Animation logic
+	if direction.length() > 0.1:
+		anim_player.play("Walking in place/mixamo_com")
+	else:
+		anim_player.play("mixamo_com")
 
 func set_camera_visibility(isVisible):
 	$Pivot/Camera3D.set_current(isVisible)
