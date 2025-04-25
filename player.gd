@@ -9,10 +9,10 @@ extends CharacterBody3D
 var hp := max_hp
 var canBeControlled = false
 var mouse_sensitivity = 0.003
+var joystick_sensitivity = 2.5  # Joystick look speed multiplier
 var yaw = 0.0
 var pitch = 0.0
 var pivot
-
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -39,6 +39,20 @@ func _physics_process(delta):
 	if not canBeControlled:
 		return
 
+	# -- Joystick Look --
+	var look_x = Input.get_action_strength("look_right") - Input.get_action_strength("look_left")
+	var look_y = Input.get_action_strength("look_down") - Input.get_action_strength("look_up")
+
+	var deadzone = 0.1
+	if abs(look_x) > deadzone or abs(look_y) > deadzone:
+		yaw -= look_x * joystick_sensitivity * delta
+		pitch -= look_y * joystick_sensitivity * delta
+		pitch = clamp(pitch, deg_to_rad(-80), deg_to_rad(80))
+
+		rotation.y = yaw
+		pivot.rotation.x = pitch
+
+	# -- Movement --
 	var direction = Vector3.ZERO
 	if Input.is_action_pressed("move_right"):
 		direction += transform.basis.x
@@ -68,24 +82,21 @@ func set_camera_visibility(isVisible):
 	$Pivot/Camera3D.set_current(isVisible)
 
 # À ajouter dans le script du joueur
-
 var health = 100  # Vie du joueur
 
 # Fonction pour recevoir des dégâts
 func take_damage(amount):
-		health -= amount
-		print("Aïe ! Vie restante : ", health)  # Affichage dans la console
-		health = max(health, 0)  # Pour éviter que la vie ne devienne négative
+	health -= amount
+	print("Aïe ! Vie restante : ", health)
+	health = max(health, 0)
 
-		# Mise à jour de la barre de vie
-		if health_bar:
-			health_bar.value = health  # Mise à jour de la barre de vie avec la vie actuelle du joueur
+	# Mise à jour de la barre de vie
+	if health_bar:
+		health_bar.value = health
 
-		if health <= 0:
-			print("Le joueur est mort.")  # Option pour gérer la mort du joueur
-			die()
-			#queue_free() 
-			# Ici tu peux ajouter un code pour gérer la mort du joueur, par exemple un restart, animation, etc.
+	if health <= 0:
+		print("Le joueur est mort.")
+		die()
 
 func die():
 	print("💀 Le joueur est mort !")
