@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://87kt6a8u3ghg"]
+[gd_scene load_steps=36 format=3 uid="uid://87kt6a8u3ghg"]
 
 [ext_resource type="Texture2D" uid="uid://dvs22qmcw1ci2" path="res://Maison/texture/Textures Maison Danusia/marble_dark .jpg" id="1_0dhcr"]
 [ext_resource type="Texture2D" uid="uid://1qmungowm45t" path="res://Maison/texture/Textures Maison Danusia/wood_light.png" id="2_owo1g"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://diatkxtj0pg1n" path="res://ennemy.tscn" id="5_6o0e5"]
 [ext_resource type="PackedScene" uid="uid://688oehl07luc" path="res://interieur/furniture_storage_shelf01.glb" id="6_sq15j"]
 [ext_resource type="PackedScene" uid="uid://ggqemxwek5iv" path="res://interieur/MGA3003A.glb" id="7_a5f16"]
-[ext_resource type="PackedScene" uid="uid://dtnegtmtqbiy3" path="res://interieur/MGA3077S.glb" id="8_ymghf"]
 [ext_resource type="PackedScene" uid="uid://bb18i0qc7mmnv" path="res://interieur/MGA3153A.glb" id="9_r4qac"]
 [ext_resource type="PackedScene" uid="uid://bdjkjrkogbpck" path="res://tresor.tscn" id="10_5sh2d"]
 [ext_resource type="PackedScene" uid="uid://dc8sf7t7bjf7u" path="res://interieur/MGA1134A.glb" id="14_om38a"]
@@ -243,9 +242,6 @@ transform = Transform3D(-0.0501571, 0, 0.998741, 0, 1, 0, -0.998741, 0, -0.05015
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MGA3003A3/StaticBody3D"]
 transform = Transform3D(0.973891, 0, 1.11759e-08, 0, 0.999998, 0, -3.72529e-09, 0, 1.65496, -198.542, 19.9413, 21.5507)
 shape = SubResource("BoxShape3D_4bjlo")
-
-[node name="MGA3077S" parent="." instance=ExtResource("8_ymghf")]
-transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, -13.2028, 1.39194, 27.9263)
 
 [node name="MGA3153A" parent="." instance=ExtResource("9_r4qac")]
 transform = Transform3D(0.000670199, 0, -0.0999977, 0, 0.1, 0, 0.0999977, 0, 0.000670199, 28.8321, 0.0852368, 38.3675)

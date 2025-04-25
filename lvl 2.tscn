@@ -4,10 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://b1wvbm1tx7e8r" path="res://Chateau/Textue chateau/Wood Floor 064/WoodFloor064_1K-PNG_Color.png" id="2_st6av"]
 [ext_resource type="Texture2D" uid="uid://cvqekphx26m5e" path="res://Maison/texture/Textures Maison Danusia/wood_balls.png" id="3_xaft4"]
 [ext_resource type="Texture2D" uid="uid://dbj42ofldwrqp" path="res://Maison/texture/Textures Maison Danusia/foundation_brown_brick.png" id="4_gx4qm"]
-[ext_resource type="Texture2D" uid="uid://cbcw5ci6lkf8" path="res://tresor/Cereal/Boite de Tresor Cereales.png" id="5_5le0t"]
 [ext_resource type="PackedScene" uid="uid://diatkxtj0pg1n" path="res://ennemy.tscn" id="5_cpbv8"]
 [ext_resource type="Texture2D" uid="uid://d3ved553k020f" path="res://Chateau/Textue chateau/Wood Floor 064/WoodFloor064_1K-PNG_Roughness.png" id="5_ejahs"]
 [ext_resource type="PackedScene" uid="uid://688oehl07luc" path="res://interieur/furniture_storage_shelf01.glb" id="6_1ludf"]
+[ext_resource type="Texture2D" uid="uid://t56u86x6si4j" path="res://interieur/MGA1134A_0.png" id="6_jbcec"]
 [ext_resource type="Texture2D" uid="uid://cxn727nsyvt6j" path="res://Maison/Lvl 2/4096x4096/pool_table_Base_color.png" id="9_st6av"]
 [ext_resource type="ArrayMesh" uid="uid://culirnnl4jvvi" path="res://Maison/Lvl 2/Table de billard LODs.obj" id="10_ejahs"]
 [ext_resource type="PackedScene" uid="uid://bdjkjrkogbpck" path="res://tresor.tscn" id="10_l1afe"]
@@ -61,8 +61,9 @@ size = Vector2(60, 30)
 [sub_resource type="BoxShape3D" id="BoxShape3D_6lgkd"]
 size = Vector3(80, 80, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xaft4"]
-albedo_texture = ExtResource("5_5le0t")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l1afe"]
+albedo_texture = ExtResource("6_jbcec")
+uv1_scale = Vector3(6, 6, 6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6lgkd"]
 albedo_texture = ExtResource("4_gx4qm")
@@ -171,7 +172,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.46476e-08, -0.335097)
 shape = SubResource("BoxShape3D_rlymy")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="sol"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.0555, 13.581, 2.11426)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.0555, 7.46066, 2.11426)
 mesh = SubResource("BoxMesh_r555k")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="sol/MeshInstance3D"]
@@ -209,7 +210,7 @@ shape = SubResource("BoxShape3D_6lgkd")
 
 [node name="mur2" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.44817, 0, 0, 0, 1, 0, 0, 0, 1, -23.053, 11.7064, -29.5957)
-material_override = SubResource("StandardMaterial3D_xaft4")
+material_override = SubResource("StandardMaterial3D_l1afe")
 mesh = SubResource("QuadMesh_wojwp")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="mur2"]
@@ -456,3 +457,8 @@ shape = SubResource("SphereShape3D_1py7c")
 
 [node name="Tresor3" parent="." instance=ExtResource("10_l1afe")]
 transform = Transform3D(1.42644, -0.093163, 0.283455, 0.127804, 0.995302, 0.077319, -0.215898, -0.0263477, 1.91856, -50.2946, 1.70413, 14.4808)
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 14.0109, 7.92133, -8.13422)
+text = "3 Tresor a  trouver ici."
+font_size = 500
