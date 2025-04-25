@@ -75,3 +75,6 @@ func set_spider_form():
 
 func _on_area_3d_body_exited(body: Node3D) -> void:
 	pass # Replace with function body.
+
+func reset_game():
+	get_tree().change_scene_to_file("res://menu.tscn")

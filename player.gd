@@ -83,7 +83,8 @@ func take_damage(amount):
 
 		if health <= 0:
 			print("Le joueur est mort.")  # Option pour gérer la mort du joueur
-			queue_free() 
+			die()
+			#queue_free() 
 			# Ici tu peux ajouter un code pour gérer la mort du joueur, par exemple un restart, animation, etc.
 
 func die():

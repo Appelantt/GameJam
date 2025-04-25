@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://bhi41gh61g3gi"]
+[gd_scene load_steps=35 format=3 uid="uid://bhi41gh61g3gi"]
 
 [ext_resource type="Texture2D" uid="uid://cb8virneatxwq" path="res://Quartier/2K/Poliigon_GrassPatchyGround_4585_BaseColor.jpg" id="1_oy2b0"]
 [ext_resource type="PackedScene" uid="uid://bohudpgbdoq3w" path="res://sketchfab_scene.tscn" id="2_oy2b0"]
@@ -14,7 +14,9 @@
 [ext_resource type="Script" uid="uid://bjy7wkastw4k0" path="res://teleport.gd" id="11_l2fju"]
 [ext_resource type="PackedScene" uid="uid://crl1o2hkusqco" path="res://Lvl1.tscn" id="12_3uxh4"]
 [ext_resource type="PackedScene" uid="uid://cydpg7qa6i0hl" path="res://ARBRE.tscn" id="13_8xvty"]
+[ext_resource type="Script" uid="uid://bteagb8hfymf5" path="res://tp2.gd" id="14_3l7jf"]
 [ext_resource type="Texture2D" uid="uid://cr30ume1tfwdt" path="res://Quartier/road_13.jpg" id="14_33e3p"]
+[ext_resource type="Script" uid="uid://4e27yv6ptcgf" path="res://TP3.gd" id="14_te7a8"]
 [ext_resource type="PackedScene" uid="uid://dco0a4icxj827" path="res://Quartier/MGA4118A (1).glb" id="15_t10s7"]
 [ext_resource type="PackedScene" uid="uid://c3n73n6jqm1q2" path="res://danusia_house_fbx_vide.tscn" id="17_3uxh4"]
 
@@ -39,7 +41,7 @@ default_font_size = 22
 bg_color = Color(0.292256, 0.709713, 7.70092e-07, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g2aqv"]
-size = Vector3(4.59475, 1.05784, 1)
+size = Vector3(0.775185, 0.044616, 0.571777)
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7kg14"]
 sky_horizon_color = Color(0.294979, 0.689234, 0.971095, 1)
@@ -165,11 +167,29 @@ collision_mask = 2
 script = ExtResource("11_l2fju")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Maison lvl 1/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.999993, -1.10887, 0.010582, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.999993, 0.931591, -0.34814, -0.195473)
+shape = SubResource("BoxShape3D_g2aqv")
+
+[node name="Area3D2" type="Area3D" parent="Maison lvl 1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.999999, 16.4619, 2.75271, -242.307)
+collision_mask = 2
+script = ExtResource("14_te7a8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Maison lvl 1/Area3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.999993, -0.20309, -0.0227165, 0.16629)
 shape = SubResource("BoxShape3D_g2aqv")
 
 [node name="Maison lvl 2" parent="." instance=ExtResource("10_g2aqv")]
 transform = Transform3D(4.44244, 0, 0, 0, 5.97204, 0, 0, 0, 3.18523, -27.8311, 0, -48.1405)
+
+[node name="Area3D" type="Area3D" parent="Maison lvl 2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.999999, 40.7614, 0.725957, 27.0848)
+collision_mask = 2
+script = ExtResource("14_3l7jf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Maison lvl 2/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.999993, 0.401436, 0.14939, 0.15362)
+shape = SubResource("BoxShape3D_g2aqv")
 
 [node name="Maison lvl 3" parent="." instance=ExtResource("10_g2aqv")]
 transform = Transform3D(4.44244, 0, 0, 0, 5.97204, 0, 0, 0, 3.18523, 37.9757, 0, -48.1405)
@@ -336,3 +356,5 @@ transform = Transform3D(-4.4, 0, -3.8466e-07, 0, 4.4, 0, 3.8466e-07, 0, -4.4, -4
 
 [node name="Danusia_House_FBX_Vide22" parent="." instance=ExtResource("17_3uxh4")]
 transform = Transform3D(-4.4, 0, -3.8466e-07, 0, 4.4, 0, 3.8466e-07, 0, -4.4, -338.463, 0, 60.5873)
+
+[editable path="Maison lvl 1/Node3D12"]
