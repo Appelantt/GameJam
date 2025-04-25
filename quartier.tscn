@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://bhi41gh61g3gi"]
+[gd_scene load_steps=38 format=3 uid="uid://bhi41gh61g3gi"]
 
 [ext_resource type="Texture2D" uid="uid://cb8virneatxwq" path="res://Quartier/2K/Poliigon_GrassPatchyGround_4585_BaseColor.jpg" id="1_oy2b0"]
 [ext_resource type="PackedScene" uid="uid://bohudpgbdoq3w" path="res://sketchfab_scene.tscn" id="2_oy2b0"]
@@ -75,6 +75,11 @@ size = Vector3(1, 50, 500)
 [sub_resource type="BoxShape3D" id="BoxShape3D_t10s7"]
 size = Vector3(40, 40, 70)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_te7a8"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_te7a8"]
+size = Vector2(40, 10)
+
 [node name="Quartier" type="Node3D"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -102,7 +107,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.37821, 0)
 script = ExtResource("3_ukm8y")
 
 [node name="Player" parent="PlayerManager" instance=ExtResource("3_1dyxj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 247.655, -4.75, 35.0453)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 225.963, -4.75, -29.962)
 speed = 30
 
 [node name="spider2" parent="PlayerManager" instance=ExtResource("5_g2aqv")]
@@ -443,5 +448,27 @@ font_size = 400
 transform = Transform3D(-0.999641, 0, -0.0268051, 0, 1, 0, 0.0268051, 0, -0.999641, 144.028, 7.79333, 40.8615)
 text = "Level 2"
 font_size = 400
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 225.523, 5.57375, -42.6824)
+material_override = SubResource("StandardMaterial3D_te7a8")
+mesh = SubResource("QuadMesh_te7a8")
+skeleton = NodePath("../Label3D4")
+
+[node name="Label3D4" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 225.377, 5.63928, -42.6576)
+modulate = Color(0, 0, 0, 1)
+text = "Objectif :
+Explore des maisons mystérieuses à la recherche de trésors. 
+Incarne un détective accompagné de son araignée fidèle, capable de se faufiler là où tu ne peux pas aller.
+
+Commandes :
+🎮 ZQSD — Se déplacer
+🎮 Espace — Sauter
+🎮 F — Prendre le contrôle de l'araignée
+🎮 C — Rappeler l'araignée
+
+Garde l'œil ouvert, reste discret... et bonne chasse au trésor ! 💰🕸️"
+font_size = 130
 
 [editable path="Maison lvl 1/Node3D12"]
